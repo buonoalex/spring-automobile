@@ -3,6 +3,7 @@ package org.learning.springautomobile.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
@@ -18,15 +19,17 @@ public class Acquisto {
     @NotNull(message = "Questo campo non può essere vuoto")
     private LocalDate data;
 
-    /*@ManyToOne
-    private Set<Auto> autoSet;
-    */
+    @NotNull(message = "La quantità non può essere 0")
+    private int quantità;
 
     @ManyToOne
     private Auto auto;
     //Costruttori
 
     //Metodi
+    public BigDecimal getPrezzo(){
+        return this.auto.getPrice();
+    }
 
     //Getter and Setter
     public int getId() {
@@ -45,22 +48,19 @@ public class Acquisto {
         this.data = data;
     }
 
-    /*
-    public Set<Auto> getAutoSet() {
-        return autoSet;
-    }
-
-    public void setAutoSet(Set<Auto> autoSet) {
-        this.autoSet = autoSet;
-    }
-
-     */
-
     public Auto getAuto() {
         return auto;
     }
 
     public void setAuto(Auto auto) {
         this.auto = auto;
+    }
+
+    public int getQuantità() {
+        return quantità;
+    }
+
+    public void setQuantità(int quantità) {
+        this.quantità = quantità;
     }
 }
