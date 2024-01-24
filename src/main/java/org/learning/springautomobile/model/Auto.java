@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "templates/automobili")
+@Table(name = "automobili")
 public class Auto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
