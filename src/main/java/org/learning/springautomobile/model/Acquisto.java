@@ -3,6 +3,7 @@ package org.learning.springautomobile.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
@@ -26,6 +27,9 @@ public class Acquisto {
     //Costruttori
 
     //Metodi
+    public BigDecimal getPrezzo(){
+        return this.auto.getPrice();
+    }
 
     //Getter and Setter
     public int getId() {
