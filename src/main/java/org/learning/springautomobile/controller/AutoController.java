@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/auto")
 public class AutoController {
 
     @Autowired
@@ -15,6 +15,6 @@ public class AutoController {
 
     @GetMapping
     public String index() {
-        return "automobili/index";
+        return "";
     }
 }
