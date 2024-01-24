@@ -33,7 +33,7 @@ public class Auto {
     private AutoType autoType;
 
     @OneToMany(mappedBy = "auto")
-    private Set<AutoSet> autoSets;
+    private Set<Acquisto> autoSets;
 
 
     public Integer getId() {
@@ -84,11 +84,11 @@ public class Auto {
         this.autoType = autoType;
     }
 
-    public Set<AutoSet> getAutoSets() {
+    public Set<Acquisto> getAutoSets() {
         return autoSets;
     }
 
-    public void setAutoSets(Set<AutoSet> autoSets) {
+    public void setAutoSets(Set<Acquisto> autoSets) {
         this.autoSets = autoSets;
     }
 }
