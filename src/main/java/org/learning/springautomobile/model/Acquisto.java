@@ -18,9 +18,12 @@ public class Acquisto {
     @NotNull(message = "Questo campo non può essere vuoto")
     private LocalDate data;
 
-    @ManyToOne
+    /*@ManyToOne
     private Set<Auto> autoSet;
+    */
 
+    @ManyToOne
+    private Auto auto;
     //Costruttori
 
     //Metodi
@@ -42,11 +45,22 @@ public class Acquisto {
         this.data = data;
     }
 
+    /*
     public Set<Auto> getAutoSet() {
         return autoSet;
     }
 
     public void setAutoSet(Set<Auto> autoSet) {
         this.autoSet = autoSet;
+    }
+
+     */
+
+    public Auto getAuto() {
+        return auto;
+    }
+
+    public void setAuto(Auto auto) {
+        this.auto = auto;
     }
 }
