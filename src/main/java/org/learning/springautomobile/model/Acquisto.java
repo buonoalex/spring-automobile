@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 public class Acquisto {
 
-    //Attributi
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
