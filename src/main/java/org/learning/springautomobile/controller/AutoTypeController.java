@@ -32,7 +32,7 @@ public class AutoTypeController {
     }
 
     // METODO CHE CREA UNA TIPOLOGIA
-    @GetMapping
+    @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("formAutoType", new AutoType());
         return "";
