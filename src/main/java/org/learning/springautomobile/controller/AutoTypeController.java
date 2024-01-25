@@ -16,7 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("home/auto/autoType")
+@RequestMapping("/autoType")
 public class AutoTypeController {
     @Autowired
     private AutoRepository autoRepository;
@@ -64,7 +64,8 @@ public class AutoTypeController {
                 return "";
             }
             AutoType savedAutoType = autoTypeRepository.save(formAutoType);
-            return  "redirect:/ingredienti";
+           /* return  "redirect:/ingredienti";*/ // la redirect non funzione poichè non c'è ancora niente a cui collegarla
+            return "";
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le tipologie per id \" + id + \" non sono state trovate!");
         }
@@ -76,7 +77,8 @@ public class AutoTypeController {
         Optional<AutoType> result = autoTypeRepository.findById(id);
         if (result.isPresent()) {
             autoTypeRepository.deleteById(id);
-            return "redirect:/autoType";
+            /*return "redirect:/autoType";*/
+            return "";
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le tipologie per id " + id + " non sono state trovate!");
         }
