@@ -1,7 +1,6 @@
 package org.learning.springautomobile.controller;
 
 import jakarta.validation.Valid;
-import org.learning.springautomobile.model.Acquisto;
 import org.learning.springautomobile.model.Auto;
 import org.learning.springautomobile.repository.AcquistoRecovery;
 import org.learning.springautomobile.repository.AutoRepository;
