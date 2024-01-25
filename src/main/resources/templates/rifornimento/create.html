@@ -13,31 +13,28 @@
     <div class="container card mt-5">
         <h1>Crea rifornimento</h1>
         <hr>
-        <form class="row justify-content-center mb-5" th:action="@{#}" th:object="${rifornimento}" method="post">
-            <div class="col-6">
-                <label class="form-label text-center">Marca</label>
-                <input class="form-control" type="text">
+        <form class="row justify-content-center mb-5 gy-3" th:action="@{/acquistoRifornitore/create}" th:object="${rifornimento}" method="post">
+            <div class="col-4">
+                <label class="form-label" for="data">Data</label>
+                <input class="form-control" type="date" th:field="*{data}" id="data">
             </div>
             <div class="col-4">
-                <label class="form-label">Data</label>
-                <input class="form-control" type="date">
+                <label class="form-label text-center" for="nomeFornitore">Nome Rifornitore</label>
+                <input class="form-control" type="text" th:field="*{nomeFornitore}" id="nomeFornitore">
             </div>
             <div class="col-4">
-                <label class="form-label text-center">Nome Rifornitore</label>
-                <input class="form-control" type="text">
-            </div>
-            <div class="col-4">
-                <label class="form-label text-center">Prezzo</label>
-                <input class="form-control" type="number">
+                <label class="form-label text-center" for="price">Prezzo</label>
+                <input class="form-control" type="number" th:field="*{price}" id="price">
             </div>
             <div class="col-2">
-                <label class="form-label text-center">Quantità</label>
-                <input class="form-control" type="number">
+                <label class="form-label text-center" for="quantità">Quantità</label>
+                <input class="form-control" type="number" th:field="*{quantità}" id="quantità">
             </div>
-            <div class="col-4">
-                <button type="button" class="btn btn-primary">Aggiungi</button>
+            <div class="row justify-content-end pt-5">
+                <div class="col-3 text-center">
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                </div>
             </div>
-
         </form>
 
     </div>

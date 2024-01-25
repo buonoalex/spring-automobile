@@ -1,7 +1,6 @@
 package org.learning.springautomobile.controller;
 
 import jakarta.validation.Valid;
-
 import org.learning.springautomobile.model.AutoType;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
@@ -24,10 +23,10 @@ public class AutoTypeController {
     @Autowired
     private AutoTypeRepository autoTypeRepository;
 
-    // METODO INDEX CHE MOSTRA LA LISTA DELLE TIPOLOGIE DI AUTO
+    // METODO INDEX CHE MOSTRA LA LISTA DELLE AUTOTYPE DI AUTO
     @GetMapping
     public String index(Model model) {
-        // AL TEMPLATE DEVO FARE ARRIVARE LA LISTA DI TUTTE LE TIPOLOGIE
+        // AL TEMPLATE DEVO FARE ARRIVARE LA LISTA DI TUTTE LE AUTOTYPE
         model.addAttribute("autoTypeList", autoTypeRepository.findAll());
         return "";
     }
@@ -35,7 +34,7 @@ public class AutoTypeController {
     // METODO CHE CREA UNA TIPOLOGIA
     @GetMapping("/create")
     public String create(Model model) {
-        // PREPARO IL TEMPLATE COL FORM DI CREAZIONE TIPOLOGIE
+        // PREPARO IL TEMPLATE COL FORM DI CREAZIONE AUTOTYPE
         model.addAttribute("formAutoType", new AutoType());
         return "";
     }

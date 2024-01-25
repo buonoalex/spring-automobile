@@ -16,19 +16,15 @@ public class AcquistoRifornitore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
     @Column(nullable = false)
     private LocalDate data;
 
-    @NotNull
     @Column(nullable = false)
     private int quantità;
 
-    @NotEmpty
     @Column(nullable = false)
     private String nomeFornitore;
 
-    @NotNull
     @Column(nullable = false)
     private BigDecimal price;
 
