@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "type")
 public class AutoType {
+    //Attributi
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,6 +18,7 @@ public class AutoType {
     @OneToMany(mappedBy = "autoType")
     private List<Auto> autoList;
 
+    //Getter and Setter
     public Integer getId() {
         return id;
     }
