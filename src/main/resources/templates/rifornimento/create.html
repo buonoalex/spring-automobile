@@ -13,11 +13,31 @@
     <div class="container card mt-5">
         <h1>Crea rifornimento</h1>
         <hr>
-        <form class="row justify-content-center" th:action="@{#}" th:object="${rifornimento}" method="post">
+        <form class="row justify-content-center mb-5" th:action="@{#}" th:object="${rifornimento}" method="post">
             <div class="col-6">
-                <label class="form-label">Marca</label>
+                <label class="form-label text-center">Marca</label>
                 <input class="form-control" type="text">
             </div>
+            <div class="col-4">
+                <label class="form-label">Data</label>
+                <input class="form-control" type="date">
+            </div>
+            <div class="col-4">
+                <label class="form-label text-center">Nome Rifornitore</label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="col-4">
+                <label class="form-label text-center">Prezzo</label>
+                <input class="form-control" type="number">
+            </div>
+            <div class="col-2">
+                <label class="form-label text-center">Quantità</label>
+                <input class="form-control" type="number">
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary">Aggiungi</button>
+            </div>
+
         </form>
 
     </div>
