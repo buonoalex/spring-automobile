@@ -1,5 +1,4 @@
 package org.learning.springautomobile.controller;
-
 import org.learning.springautomobile.model.Auto;
 import org.learning.springautomobile.repository.AcquistoClienteRepository;
 import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;

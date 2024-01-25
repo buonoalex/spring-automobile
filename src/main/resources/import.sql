@@ -1,3 +1,9 @@
+-- INSERT ACQUISTOFORNITORE
+INSERT INTO acquisto_rifornitore (data, quantità, nomeFornitore, price, auto_id) VALUES ('2021/01/25', '2', 'MERCEDESBENZ ITALIA S.P.A.', '77000', '1');
+INSERT INTO acquisto_rifornitore (data, quantità, nomeFornitore, price) VALUES ('2023/06/13', '1', 'BMW ITALIA SPA', '42000');
+INSERT INTO acquisto_rifornitore (data, quantità, nomeFornitore, price) VALUES ('2024/01/02', '4', 'VOLKSWAGEN GROUP ITALIA S.P.A.', '102000');
+INSERT INTO acquisto_rifornitore (data, quantità, nomeFornitore, price) VALUES ('2023/11/07', '5', 'FORD ITALIA S.P.A.', '123000');
+
 -- INSERT AUTOTYPE
 INSERT INTO type (name, descrizione) VALUES ('Coupé', 'Auto a due porte e tetto fisso. Il volume della parte posteriore è ridotto a favore di una linea più sportiva (meno spazio per passeggeri posteriori e bagagli).');
 INSERT INTO type (name, descrizione) VALUES ('Suv', 'Auto progettata per offrire una combinazione di caratteristiche di un veicolo fuoristrada e di una berlina tradizionale');
