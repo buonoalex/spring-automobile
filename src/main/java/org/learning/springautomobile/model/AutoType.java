@@ -12,15 +12,26 @@ public class AutoType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty
+    private String name;
     @NotEmpty
     private String descrizione;
 
     @OneToMany(mappedBy = "autoType")
     private List<Auto> autoList;
 
-    //Getter and Setter
+    // Getter and Setter
     public Integer getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setId(Integer id) {
