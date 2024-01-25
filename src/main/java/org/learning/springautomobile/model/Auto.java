@@ -33,7 +33,10 @@ public class Auto {
     private AutoType autoType;
 
     @OneToMany(mappedBy = "auto")
-    private Set<Acquisto> autoSets;
+    private Set<AcquistoCliente> acquistoClienteSet;
+
+    @OneToMany(mappedBy = "auto")
+    private Set<AcquistoRifornitore> acquistoRifornitoreSet;
 
 
     public Integer getId() {
@@ -84,11 +87,19 @@ public class Auto {
         this.autoType = autoType;
     }
 
-    public Set<Acquisto> getAutoSets() {
-        return autoSets;
+    public Set<AcquistoCliente> getAcquistoClienteSet() {
+        return acquistoClienteSet;
     }
 
-    public void setAutoSets(Set<Acquisto> autoSets) {
-        this.autoSets = autoSets;
+    public void setAcquistoClienteSet(Set<AcquistoCliente> acquistoClienteSet) {
+        this.acquistoClienteSet = acquistoClienteSet;
+    }
+
+    public Set<AcquistoRifornitore> getAcquistoRifornitoreSet() {
+        return acquistoRifornitoreSet;
+    }
+
+    public void setAcquistoRifornitoreSet(Set<AcquistoRifornitore> acquistoRifornitoreSet) {
+        this.acquistoRifornitoreSet = acquistoRifornitoreSet;
     }
 }

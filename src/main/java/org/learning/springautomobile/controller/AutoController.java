@@ -1,13 +1,19 @@
 package org.learning.springautomobile.controller;
 
-import org.learning.springautomobile.repository.AcquistoRecovery;
+import org.learning.springautomobile.model.Auto;
+import org.learning.springautomobile.repository.AcquistoClienteRepository;
+import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/auto")
@@ -20,17 +26,23 @@ public class AutoController {
     private AutoTypeRepository autoTypeRepository;
 
     @Autowired
-    private AcquistoRecovery acquistoRecovery;
+    private AcquistoClienteRepository acquistoClienteRepository;
+
+    @Autowired
+    private AcquistoRifornitoreRepository acquistoRifornitoreRepository;
+
 
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
-    public String index() {
+    public String index(Model model) {
+        List<Auto> listaAuto = autoRepository.findAll();
+        model.addAttribute("listaAuto", listaAuto);
         //Creare una search con una parola chiave
         //Se la parola chiave è presente faccio la ricerca
         //altrimenti recupero la lista delle auto
         //aggiungo la lista di auto agli attributi del model
         //precarico il value dell'input di ricerca con la stringa della search
-        return "";
+        return "automobili/list";
     }
 
     //Metodo che mostra i dettagli dell'auto
