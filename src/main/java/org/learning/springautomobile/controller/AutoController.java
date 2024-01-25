@@ -1,17 +1,21 @@
 package org.learning.springautomobile.controller;
+
+import jakarta.validation.Valid;
 import org.learning.springautomobile.model.Auto;
 import org.learning.springautomobile.repository.AcquistoClienteRepository;
 import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Controller
@@ -33,68 +37,107 @@ public class AutoController {
 
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
-    public String index(Model model) {
-        List<Auto> listaAuto = autoRepository.findAll();
-        model.addAttribute("listaAuto", listaAuto);
+    public String index(@RequestParam(name = "Keyword", required = false)String searchKeyword, Model model) {
+        List<Auto> listaAuto;
         //Creare una search con una parola chiave
-        //Se la parola chiave è presente faccio la ricerca
-        //altrimenti recupero la lista delle auto
+        if (searchKeyword != null) {
+            //Se la parola chiave è presente faccio la ricerca
+            listaAuto = autoRepository.findByNameContaining(searchKeyword);
+
+        } else {
+            //altrimenti recupero la lista delle auto
+            listaAuto = autoRepository.findAll();
+        }
         //aggiungo la lista di auto agli attributi del model
+        model.addAttribute("listaAuto", listaAuto);
         //precarico il value dell'input di ricerca con la stringa della search
+        model.addAttribute("preloadSearch", searchKeyword);
         return "automobili/list";
     }
 
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")
-    public String show () {
+    public String show (@PathVariable Integer id, Model model) {
         // nel corpo del metodo ho l'id dell'auto da cercare
+        Optional<Auto> result = autoRepository.findById(id);
         // verifico se l'auto è stata trovata
-        // estraggo l'auto dall'Optional
-        // aggiungo al Model l'attributo con l'auto
-        // restituisco il template
-        // gestisco il caso in cui nel database un'auto con quell'id non c'è
-        return "";
+        if (result.isPresent()) {
+            // estraggo l'auto dall'Optional
+            Auto auto = result.get();
+            // aggiungo al Model l'attributo con l'auto
+            model.addAttribute("auto", auto);
+            // restituisco il template
+            return "automobili/show";
+        } else {
+            // gestisco il caso in cui nel database un'auto con quell'id non c'è
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
+        }
     }
 
     // metodo create che mostra la pagina col form di aggiunta di una nuova auto
     @GetMapping("/create")
-    public String create() {
-        return "";
+    public String create(Model model) {
+        Auto auto = new Auto();
+        // passo tramite Model un attributo di tipo Auto vuoto
+        model.addAttribute("auto", auto);
+        // passo tramite Model la lista di tutti i modelli di Auto disponibili
+        model.addAttribute("autoTypeList", autoTypeRepository.findAll());
+        return "automobili/create";
     }
 
     // metodo che riceve il submit del form di creazione e salva su db il Book
     @PostMapping("/create")
-    public String store() {
+    public String store(@Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult, Model model) {
         // valido i dati dell'auto, cioè verifico se la mappa BindingResult ha errori
-        // qui gestisco che ho campi non validi
-        // ricaricando il template del form
-        // passo tramite Model la lista di tutte le AutoType disponibili
-        // se esiste già ritorno un errore
-        // se sono validi lo salvo su db
-        // faccio una redirect alla pagina di dettaglio dell'auto appena creato
-        return "";
+        if (bindingResult.hasErrors()) {
+            // qui gestisco che ho campi non validi
+            // ricaricando il template del form
+            // passo tramite Model la lista di tutte le AutoType disponibili
+            model.addAttribute("autoTypeList", autoTypeRepository.findAll());
+            return "automobili/create";
+        } else {
+            // se sono validi lo salvo su db
+            Auto savedAuto = autoRepository.save(formAuto);
+            // faccio una redirect alla pagina di dettaglio dell'auto appena creato
+            return "redirect:/automobili/show/" + savedAuto.getId();
+        }
     }
 
     // metodo che restituisce la pagina di modifica del Book
     @GetMapping("/edit/{id}")
-    public String edit() {
+    public String edit(@PathVariable Integer id, Model model) {
         // recupero L'auto da database
+        Optional<Auto> result = autoRepository.findById(id);
         // verifico se L'auto è presente
-        // lo passo come attributo del Model
-        // passo la lista di tutte le AutoType
-        // ritorno il template
-        return "";
+        if (result.isPresent()) {
+            // lo passo come attributo del Model
+            model.addAttribute("auto", result.get());
+            // passo la lista di tutte le AutoType
+            model.addAttribute("autoTypeList", autoTypeRepository.findAll());
+            // ritorno il template
+            return "automobili/edit";
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
+        }
     }
 
     // metodo che riceve il submit del form di edit
     @PostMapping("/edit/{id}")
-    public String update() {
-        // valido i dati dell'auto
-        // se ci sono errori di validazione
-        // se sono validi salvo l'auto su db
-        // recupero gli acquisti
-        // faccio la redirect alla pagina di dettaglio dell'auto
-        return "";
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult) {
+        Optional<Auto> result = autoRepository.findById(id);
+        if (result.isPresent()) {
+           // Auto autoToEdit = result.get();
+            // valido i dati dell'auto
+            if (bindingResult.hasErrors()) {
+                return "automobili/edit";
+            }
+            // se sono validi salvo l'auto su db
+            Auto savedAuto = autoRepository.save(formAuto);
+            // faccio la redirect alla pagina di dettaglio del libro
+            return "redirect:/automobili/show/" + id;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
+        }
     }
 
     // metodo che cancella un'auto presa per id
