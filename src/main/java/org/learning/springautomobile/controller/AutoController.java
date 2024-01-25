@@ -1,7 +1,8 @@
 package org.learning.springautomobile.controller;
 
 import org.learning.springautomobile.model.Auto;
-import org.learning.springautomobile.repository.AcquistoRecovery;
+import org.learning.springautomobile.repository.AcquistoClienteRepository;
+import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,11 @@ public class AutoController {
     private AutoTypeRepository autoTypeRepository;
 
     @Autowired
-    private AcquistoRecovery acquistoRecovery;
+    private AcquistoClienteRepository acquistoClienteRepository;
+
+    @Autowired
+    private AcquistoRifornitoreRepository acquistoRifornitoreRepository;
+
 
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
