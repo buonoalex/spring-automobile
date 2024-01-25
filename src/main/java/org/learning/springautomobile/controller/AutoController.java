@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -142,12 +143,19 @@ public class AutoController {
 
     // metodo che cancella un'auto presa per id
     @PostMapping("/delete/{id}")
-    public String delete() {
+    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         // verifico se l'auto è presente su db
-        // se c'è lo cancello
-        // mando un messaggio di successo con la redirect
-        // se non c'è sollevo un'eccezione
-        return "";
+        Optional<Auto> result =autoRepository.findById(id);
+        if (result.isPresent()) {
+            // se c'è lo cancello
+            autoRepository.deleteById(id);
+            // mando un messaggio di successo con la redirect
+            redirectAttributes.addFlashAttribute("redirectMessage", "L'auto " + result.get().getName() + " è stata cancellata con successo");
+            return "redirect:/auto";
+        } else {
+            // se non c'è sollevo un'eccezione
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
+        }
     }
 
 }
