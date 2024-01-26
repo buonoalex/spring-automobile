@@ -34,7 +34,7 @@
                                     </a>
                                     <ul class="dropdown-menu " >
                                         <li th:each="autoType:${autoTypeList}">
-                                            <a class="dropdown-item" th:href="@{#}" th:text="${autoType.name}"></a>
+                                            <a class="dropdown-item" th:href="@{/auto/{id}(id=${autoType.id})}" th:text="${autoType.name}"></a>
                                         </li>
                                     </ul>
                                 </li>
