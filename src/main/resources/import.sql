@@ -3,6 +3,7 @@
 INSERT INTO type (name, descrizione) VALUES ('Coupé', 'Auto a due porte e tetto fisso. Il volume della parte posteriore è ridotto a favore di una linea più sportiva (meno spazio per passeggeri posteriori e bagagli).');
 INSERT INTO type (name, descrizione) VALUES ('Suv', 'Auto progettata per offrire una combinazione di caratteristiche di un veicolo fuoristrada e di una berlina tradizionale');
 INSERT INTO type (name, descrizione) VALUES ('Van', 'Auto progettata principalmente per il trasporto di merci o passeggeri.');
+INSERT INTO type (name, descrizione) VALUES ('Sportive', 'Auto progettata offrire prestazioni sopra la media, con dei design areodinamici e leggeri.');
 
 
 -- INSERT AUTO
@@ -15,7 +16,9 @@ INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('F
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Mercedes-Benz Classe E', 'Auto di lusso che combina eleganza, prestazioni, tecnologia avanzata e comfort. È destinata a coloro che cercano una guida premium con una dose di versatilità grazie alle diverse varianti di carrozzeria disponibili.', 'https://th.bing.com/th/id/OIP.MIW8oAenkm8-umAcYu8YUgHaEf?rs=1&pid=ImgDetMain', 56697, 1);
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Dacia Dokker', 'Auto  multiuso che punta sulla praticità, sulla versatilità e accessibilità economica. È ideale per chi cerca un veicolo funzionale per il trasporto di merci o passeggeri senza dover investire in soluzioni più costose.', 'https://th.bing.com/th/id/OIP.ZucBY277KKL0VxMX3jqVvgHaFj?rs=1&pid=ImgDetMain', 9900, 2);
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Cupra Formentor', 'Auto compatta che combina uno stile distintivo con prestazioni sportive e tecnologie avanzate. Si rivolge a coloro che cercano un veicolo sportivo, ma allo stesso tempo pratico e adatto alla guida quotidiana.', 'https://th.bing.com/th/id/R.c1c2dc32bc22d3746657690f4e9ae6d0?rik=cyfedxIjEAUn5Q&pid=ImgRaw&r=0', 31250, 3);
-
+INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Ferrari 458 Italia', 'La Ferrari 458 Italia è un iconica supercar che incarna la eccellenza nel design e nelle prestazioni automobilistiche. Con linee aerodinamiche affascinanti e uno stile aggressivo, questa vettura esprime la essenza della passione automobilistica italiana.', 'https://cdn.ferrari.com/cms/network/media/img/resize/5db98e9b8c92940b3a3de720-ferrari-458-italia-design-focus-1?', 240000, 4);
+INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Lamborghini Aventador', 'La Lamborgini è un iconica supercar che incarna la eccellenza nel design e nelle prestazioni automobilistiche. Con linee aerodinamiche affascinanti e uno stile aggressivo, questa vettura esprime la essenza della passione automobilistica italiana.', 'https://cdn.classic-trader.com/I/images/960_720/vehicle_ad_standard_image_109e33a08df2d2d6250380e4b2b0a15e.jpg', 400000, 4);
+INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Audi R8', 'La Audi R8 è una supercar straordinaria che unisce eleganza e potenza in modo impeccabile. Con il suo design aerodinamico e linee pulite, cattura la attenzione con una eleganza moderna. ', 'https://cdn.motor1.com/images/mgl/BqPZM/s3/2021-audi-r8-rwd-panther-edition.webp', 220000, 4);
 
 -- INSERT ACQUISTOFORNITORE
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 77000, 1);

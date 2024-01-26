@@ -22,6 +22,7 @@ public class Auto {
     private String name;
 
     @NotEmpty
+    @Lob
     private String description;
 
     private String foto;
