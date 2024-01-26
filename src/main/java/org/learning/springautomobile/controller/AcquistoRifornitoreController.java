@@ -3,8 +3,10 @@ package org.learning.springautomobile.controller;
 import jakarta.validation.Valid;
 import org.learning.springautomobile.model.AcquistoRifornitore;
 import org.learning.springautomobile.model.Auto;
+import org.learning.springautomobile.model.AutoType;
 import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
+import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,10 +28,16 @@ public class AcquistoRifornitoreController {
     @Autowired
     private AutoRepository autoRepository;
 
+    @Autowired
+    private AutoTypeRepository autoTypeRepository;
+
+
     @GetMapping
     public String index(Model model){
         List<AcquistoRifornitore> acquistoRifornitoreList = acquistoRifornitoreRepository.findAll();
         model.addAttribute("rifornimentoList",acquistoRifornitoreList);
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
         return "rifornimento/index";
     }
 

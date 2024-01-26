@@ -14,7 +14,7 @@
         <h1>Crea rifornimento</h1>
         <hr>
         <form class="row justify-content-center mb-5 gy-3" th:action="@{/acquistoRifornitore/create}" th:object="${rifornimento}" method="post">
-            <div class="col-4">
+            <div class="col-6">
                 <label class="form-label" for="auto">Auto</label>
                 <select id="auto" class="form-select" th:field="*{auto}" th:errorClass="is-invalid">
                     <option value="" selected>Inserisci Auto</option>
