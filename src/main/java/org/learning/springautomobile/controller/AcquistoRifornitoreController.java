@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/acquistoRifornitore")
 public class AcquistoRifornitoreController {
@@ -21,7 +23,8 @@ public class AcquistoRifornitoreController {
 
     @GetMapping
     public String index(Model model){
-        model.addAttribute("rifornimentoList",acquistoRifornitoreRepository.findAll());
+        List<AcquistoRifornitore> acquistoRifornitoreList = acquistoRifornitoreRepository.findAll();
+        model.addAttribute("rifornimentoList",acquistoRifornitoreList);
         return "rifornimento/index";
     }
 

@@ -18,6 +18,6 @@ INSERT INTO type (name, descrizione) VALUES ('Van', 'Auto progettata principalme
 
 -- INSERT ACQUISTOFORNITORE
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 77000, 1);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 42000);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price) VALUES ('2024-01-02', 4, 'Volkswagen Group Italia S.P.A.', 102000);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 123000);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 42000, 3);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Volkswagen Group Italia S.P.A.', 102000, 2);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 123000, 1);
