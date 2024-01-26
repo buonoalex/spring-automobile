@@ -43,6 +43,8 @@ public class AcquistoRifornitoreController {
 
     @GetMapping("/create")
     public String createRifornimento(Model model){
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
         model.addAttribute("rifornimento",new AcquistoRifornitore());
         List<Auto> autoList = autoRepository.findAll();
         model.addAttribute("autoList",autoList);

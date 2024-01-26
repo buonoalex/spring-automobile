@@ -59,6 +59,15 @@ public class AutoController {
         return "automobili/list";
     }
 
+    @GetMapping("/{id}")
+    public String autoTypeShow(@PathVariable int id,Model model){
+        Optional<AutoType> autoTypeRecovery = autoTypeRepository.findById(id);
+        AutoType autoType = autoTypeRecovery.get();
+        List<Auto> listaAuto = autoType.getAutoList();
+        model.addAttribute("listaAuto",listaAuto);
+        return "automobili/list";
+    }
+
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")
     public String show (@PathVariable Integer id, Model model) {
