@@ -13,6 +13,7 @@
 <body>
 <h1>Parco Auto</h1>
 <hr>
+<!--
 <div class="row g-5 flex-wrap justify-content-between">
     <div th:each="auto : ${listaAuto}" class="card" style="width: 17rem; padding: 0px;">
         <img th:src="${auto.foto}" class="card-img" alt="foto">
@@ -29,6 +30,30 @@
                   style="display:inline;">
                 <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
             </form>
+        </div>
+    </div>
+</div>
+-->
+<div class="container">
+    <div class="row g-5 flex-wrap justify-content-between">
+        <div class="col-md-3" th:each="auto : ${listaAuto}">
+            <div class="card" style="width: 17rem; padding: 0px;">
+                <img th:src="${auto.foto}" class="card-img" alt="foto">
+                <div class="card-body">
+                    <h5 th:text="${auto.name}" class="card-title"></h5>
+                    <p th:text="${auto.price} + €" class="card-text"></p>
+                    <a th:href=@{/acquistoCliente} class="btn btn-primary btn-sm">Acquista</a>
+                    <a th:href=@{/auto/show/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Dettagli</a>
+                    <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a>
+                    <form th:action="@{/auto/delete/{id}(id=${auto.id})}"
+                          class="mt-2"
+                          method="post"
+                          onsubmit="return confirm('Are you sure?')"
+                          style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
