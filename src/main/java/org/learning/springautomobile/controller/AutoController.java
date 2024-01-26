@@ -2,6 +2,7 @@ package org.learning.springautomobile.controller;
 
 import jakarta.validation.Valid;
 import org.learning.springautomobile.model.Auto;
+import org.learning.springautomobile.model.AutoType;
 import org.learning.springautomobile.repository.AcquistoClienteRepository;
 import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
@@ -39,6 +40,8 @@ public class AutoController {
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
     public String index(@RequestParam(name = "Keyword", required = false)String searchKeyword, Model model) {
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
         List<Auto> listaAuto;
         //Creare una search con una parola chiave
         if (searchKeyword != null) {
