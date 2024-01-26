@@ -15,20 +15,53 @@
         <hr>
         <form class="row justify-content-center mb-5 gy-3" th:action="@{/acquistoRifornitore/create}" th:object="${rifornimento}" method="post">
             <div class="col-4">
+                <label class="form-label" for="auto">Auto</label>
+                <select id="auto" class="form-select" th:field="*{auto}" th:errorClass="is-invalid">
+                    <option value="" selected>Inserisci Auto</option>
+                    <option th:each="auto : ${autoList}" th:value="${auto.id}"
+                            th:text="${auto.name}"></option>
+                </select>
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('auto')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('auto')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-4">
                 <label class="form-label" for="data">Data</label>
-                <input class="form-control" type="date" th:field="*{data}" id="data">
+                <input class="form-control" type="date" th:field="*{data}" id="data" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('data')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('data')}" th:text="${err}"></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-4">
                 <label class="form-label text-center" for="nomeFornitore">Nome Rifornitore</label>
-                <input class="form-control" type="text" th:field="*{nomeFornitore}" id="nomeFornitore">
+                <input class="form-control" type="text" th:field="*{nomeFornitore}" id="nomeFornitore" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('nomeFornitore')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('nomeFornitore')}" th:text="${err}"></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-4">
                 <label class="form-label text-center" for="price">Prezzo</label>
-                <input class="form-control" type="number" th:field="*{price}" id="price">
+                <input class="form-control" type="number" th:field="*{price}" id="price" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-2">
                 <label class="form-label text-center" for="quantità">Quantità</label>
-                <input class="form-control" type="number" th:field="*{quantità}" id="quantità">
+                <input class="form-control" type="number" th:field="*{quantità}" id="quantità" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('quantità')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('quantità')}" th:text="${err}"></li>
+                    </ul>
+                </div>
             </div>
             <div class="row justify-content-end pt-5">
                 <div class="col-3 text-center">

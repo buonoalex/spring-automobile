@@ -2,7 +2,9 @@ package org.learning.springautomobile.controller;
 
 import jakarta.validation.Valid;
 import org.learning.springautomobile.model.AcquistoRifornitore;
+import org.learning.springautomobile.model.Auto;
 import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
+import org.learning.springautomobile.repository.AutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class AcquistoRifornitoreController {
     @Autowired
     private AcquistoRifornitoreRepository acquistoRifornitoreRepository;
 
+    @Autowired
+    private AutoRepository autoRepository;
+
     @GetMapping
     public String index(Model model){
         List<AcquistoRifornitore> acquistoRifornitoreList = acquistoRifornitoreRepository.findAll();
@@ -31,13 +36,18 @@ public class AcquistoRifornitoreController {
     @GetMapping("/create")
     public String createRifornimento(Model model){
         model.addAttribute("rifornimento",new AcquistoRifornitore());
+        List<Auto> autoList = autoRepository.findAll();
+        model.addAttribute("autoList",autoList);
         return "rifornimento/create";
     }
 
     @PostMapping("/create")
-    public String saveRifornimento(AcquistoRifornitore formAcquistoRifornitore, Model model){
-        acquistoRifornitoreRepository.save(formAcquistoRifornitore);
-        return "redirect:/acquistoRifornitore";
-
+    public String saveRifornimento(@Valid @ModelAttribute("acquistoRifornitore") AcquistoRifornitore formAcquistoRifornitore, Model model, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return "rifornimento/create";
+        }else {
+            acquistoRifornitoreRepository.save(formAcquistoRifornitore);
+            return "redirect:/acquistoRifornitore";
+        }
     }
 }
