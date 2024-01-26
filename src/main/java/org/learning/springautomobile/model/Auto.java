@@ -33,10 +33,10 @@ public class Auto {
     @ManyToOne
     private AutoType autoType;
 
-    @OneToMany(mappedBy = "auto")
+    @OneToMany(mappedBy = "auto",orphanRemoval = true)
     private Set<AcquistoCliente> acquistoClienteSet= new HashSet<>();
 
-    @OneToMany(mappedBy = "auto")
+    @OneToMany(mappedBy = "auto",orphanRemoval = true)
     private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
 
