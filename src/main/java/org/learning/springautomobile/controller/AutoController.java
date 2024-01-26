@@ -61,6 +61,10 @@ public class AutoController {
 
     @GetMapping("/{id}")
     public String autoTypeShow(@PathVariable int id,Model model){
+        //Autotype per vedere le categorie sulla Nav-Bar
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
+        //Logica Filtro per Autotype
         Optional<AutoType> autoTypeRecovery = autoTypeRepository.findById(id);
         AutoType autoType = autoTypeRecovery.get();
         List<Auto> listaAuto = autoType.getAutoList();
