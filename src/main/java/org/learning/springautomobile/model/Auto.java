@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,10 +34,10 @@ public class Auto {
     private AutoType autoType;
 
     @OneToMany(mappedBy = "auto")
-    private Set<AcquistoCliente> acquistoClienteSet;
+    private Set<AcquistoCliente> acquistoClienteSet= new HashSet<>();
 
     @OneToMany(mappedBy = "auto")
-    private Set<AcquistoRifornitore> acquistoRifornitoreSet;
+    private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
 
     public Integer getId() {
