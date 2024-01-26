@@ -9,6 +9,62 @@
           crossorigin="anonymous">
 </head>
 <body>
+<header>
+    <div class="container-fluid bg-light pt-3 pb-3">
+        <div class="row navbar navbar-expand-lg text-center">
+            <div class="col-4 text-start pt-4 pb-4">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="navbar-brand" th:href="@{/}"><strong>Home</strong></a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${area == 'auto' ? 'active' : ''}"
+                               th:href="@{/auto}">Auto</a>
+                        </li>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Categorie
+                                    </a>
+                                    <ul class="dropdown-menu " >
+                                        <li th:each="autoType:${autoTypeList}">
+                                            <a class="dropdown-item" th:href="@{#}" th:text="${autoType.name}"></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${area == 'acquistoRifornitore' ? 'active' : ''}"
+                               th:href="@{/acquistoRifornitore}">Rifornimento</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-4 pt-2 pb-2">
+                <h5>gruppo</h5>
+                <h1><strong>AUTOJAITA</strong></h1>
+                <h6>S.R.L.</h6>
+            </div>
+            <div class="col-4 text-end fs-6 pt-5 pb-4">
+                <i class="fa fa-instagram" style="font-size:38px;color:red"></i>
+                <i class="fa fa-facebook" style="font-size:38px;color:blue"></i>
+                <i class="fa fa-twitter text-primary" style="font-size:38px;"></i>
+            </div>
+        </div>
+    </div>
+</header>
 <main>
     <div class="container card mt-5">
         <h1>Crea rifornimento</h1>
@@ -72,6 +128,32 @@
 
     </div>
 </main>
+<footer>
+    <div class="container-fluid bg-light pt-4 pb-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h6>gruppo</h6>
+                <h4><strong>AUTOJAITA</strong></h4>
+                <p style="font-size: 10px">partita iva: 0050000400009</p>
+            </div>
+            <div class="col-6 text-end" style="font-size: 12px">
+                <h5 class="text-warning">Vendita</h5>
+                <p>Lunedì - Venerdì: 9:00 - 13.30 / 14.30 - 19:30</p>
+                <p>Sabato: 9:00 - 13.30 / 14:30 - 18:00</p>
+                <p>Domenica: 10.00 - 13.00</p>
+            </div>
+            <div class="col-6" style="font-size: 12px">
+                <h5 class="text-warning">Assistenza</h5>
+                <p>Lunedì - venerdì: 8:30 - 13:30 / 14:30 - 18:30</p>
+                <p>Sabato: 8:30 - 13:30</p>
+                <p>Domenica: Chiuso</p>
+            </div>
+            <div class=" col-12 row text-center">
+                <p>©Copyright 2024</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
