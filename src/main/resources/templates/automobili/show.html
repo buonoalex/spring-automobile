@@ -3,8 +3,26 @@
 <head th:replace="fragments/resources :: head('Auto Details')"></head>
 <body>
 <header th:replace="fragments/resources :: header"></header>
+<main>
+<div class="container">
+    <div class="row">
+    <div class="col-4">
+        <a th:href="@{/auto}">
+        <img class="img-fluid shadow-lg" th:src="@{${auto.foto}}" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.090)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
+        </a>
+    </div>
+    <div class="col-4 text-start">
+        <h3 class="mt-2 fw-bold text-warning" th:text="${auto.name}"></h3>
+        <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
+        <p  th:text="${auto.description}"></p>
+        <h5 class="">Price: <span class="fw-bold text-success" th:text="${auto.price} + €"></span><span class="ms-4"><a th:href=@{/acquistoCliente} class="btn btn-outline-warning btn-sm">Acquista</a></span><span class="ms-2"><a th:href=@{/auto} class="btn btn-outline-dark btn-sm">Indietro</a></span></h5>
 
-
+    </div>
+        <div class="col-4 text-center">
+        </div>
+    </div>
+</div>
+</main>
 <footer th:replace="fragments/resources :: footer"></footer>
 <th:block th:replace="fragments/resources :: script"></th:block>
 </body>
