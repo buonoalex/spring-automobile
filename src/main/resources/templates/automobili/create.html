@@ -13,6 +13,17 @@
                 th:action="@{/auto/create}"
                 class="row text-center d-flex justify-content-center gy-3">
 
+            <div class="col-8">
+                <label class="form-label" for="foto">Foto</label>
+                <input class="form-control" type="text" id="foto" th:field="*{foto}"
+                       th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('foto')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('foto')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+            </div>
+
                 <div class="col-8">
                     <label class="form-label" for="name">Name</label>
                     <input class="form-control" type="text" id="name" th:field="*{name}"
