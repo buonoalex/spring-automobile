@@ -63,9 +63,9 @@ public class AcquistoRifornitoreController {
         if (bindingResult.hasErrors()){
             return "rifornimento/create";
         }else {
-            Optional<AcquistoCliente> acquistoCliente = acquistoClienteRepository.findById(formAcquistoRifornitore.getId());
-            acquistoCliente.get().setQuantita(formAcquistoRifornitore.getQuantita());
             acquistoRifornitoreRepository.save(formAcquistoRifornitore);
+            //Optional<AcquistoCliente> acquistoCliente = acquistoClienteRepository.findById(formAcquistoRifornitore.getId());
+            //acquistoCliente.get().setQuantita(formAcquistoRifornitore.getQuantita());
             return "redirect:/acquistoRifornitore";
         }
     }
