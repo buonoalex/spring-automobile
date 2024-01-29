@@ -10,24 +10,24 @@
     <table class="table" th:unless="${rifornimentoList.size() == 0}">
         <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Data</th>
-            <th scope="col">Nome Fornitore</th>
-            <th scope="col">Prezzo</th>
-            <th scope="col">Auto</th>
-            <th scope="col" class="text-center">Quantità Rifornimento</th>
-            <th scope="col" class="text-center">Quantità Totale</th>
-            <th scope="col" class="text-center">Quantità Venduta</th>
-            <th scope="col" class="text-center">Quantità Magazzino</th>
+            <th class="col-1 text-center">Id</th>
+            <th class="col-1 text-center">Data</th>
+            <th class="col-2 text-center">Nome Fornitore</th>
+            <th class="col-1 text-center">Prezzo</th>
+            <th class="col-2 text-center">Auto</th>
+            <th class="text-center col-1">Quantità Rifornimento</th>
+            <th class="text-center col-1">Quantità Totale(Auto)</th>
+            <th class="text-center col-1">Quantità Venduta</th>
+            <th class="text-center col-1">Quantità Magazzino</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="rifo : ${rifornimentoList}">
-            <th th:text="${rifo.id}"></th>
-            <td th:text="${rifo.data}"></td>
-            <td th:text="${rifo.nomeFornitore}"></td>
-            <td th:text="${rifo.price + ' €'}"></td>
-            <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}"></td>
+            <th th:text="${rifo.id}" class="text-center"></th>
+            <td th:text="${rifo.data}" class="text-center"></td>
+            <td th:text="${rifo.nomeFornitore}" class="text-center"></td>
+            <td th:text="${rifo.price + ' €'}" class="text-center"></td>
+            <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}" class="text-center"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
             <td th:text="${rifo.getAuto().totaleAuto()}" class="text-center"></td>
             <td th:text="${rifo.getAuto().vendite()}" class="text-center"></td>
