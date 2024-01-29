@@ -4,7 +4,7 @@
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <main>
-    <div class="container card mt-5">
+    <div class="container card mt-5 mb-5">
         <h1>Crea rifornimento</h1>
         <hr>
         <form class="row justify-content-center mb-5 gy-3" th:action="@{/acquistoRifornitore/create}" th:object="${rifornimento}" method="post">

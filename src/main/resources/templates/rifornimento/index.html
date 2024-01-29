@@ -3,7 +3,7 @@
 <head th:replace="fragments/resources :: head('Index Rifornimento')"></head>
 <body>
 <header th:replace="fragments/resources :: header"></header>
-<div class="container mt-5 card">
+<div class="container mt-5 mb-5 card">
     <h1>Rifornimento</h1>
     <hr>
     <div class="alert alert-info" th:if="${rifornimentoList.size() == 0}">Non ci sono rifornimenti presenti</div>
@@ -38,7 +38,7 @@
     </table>
     <div class="row justify-content-center mt-2 mb-3">
         <div class="col-4 text-center">
-            <a class="btn btn-primary" th:href="@{/acquistoRifornitore/create}">Aggiungi rifornimento</a>
+            <a class="btn btn-primary pr-3" th:href="@{/acquistoRifornitore/create}">Aggiungi rifornimento</a>
             <a class="btn btn-primary" th:href="@{/}">Back Home</a>
         </div>
     </div>
