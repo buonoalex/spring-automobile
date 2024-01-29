@@ -16,8 +16,9 @@
             <th scope="col">Prezzo</th>
             <th scope="col">Auto</th>
             <th scope="col" class="text-center">Quantità Rifornimento</th>
-            <th scope="col" class="text-center">Quantità Acquistate</th>
-            <th scope="col" class="text-center">Quantità Rimaste</th>
+            <th scope="col" class="text-center">Quantità Totale</th>
+            <th scope="col" class="text-center">Quantità Venduta</th>
+            <th scope="col" class="text-center">Quantità Magazzino</th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +29,9 @@
             <td th:text="${rifo.price + ' €'}"></td>
             <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
-            <td th:text="${rifo.getAuto().autoAcquistate()}" class="text-center"></td>
-            <td th:text="${rifo.autoRimaste()}" class="text-center"></td>
+            <td th:text="${rifo.}" class="text-center"></td>
+            <td th:text="${rifo.getAuto().vendite()}" class="text-center"></td>
+            <td th:text="${rifo.getAuto().magazzino()}" class="text-center"></td>
         </tr>
         </tbody>
         <hr>

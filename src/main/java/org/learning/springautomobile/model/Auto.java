@@ -40,15 +40,44 @@ public class Auto {
     @OneToMany(mappedBy = "auto",orphanRemoval = true)
     private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
+
+
     // method
     //methodo per contare quante auto sono state acquistate
-    public int autoAcquistate() {
+  /*  public int autoMagazzino() {
+        int countVendite = 0;
         int countAcquisti = 0;
-        for (AcquistoCliente acquisto : acquistoClienteSet){
-            countAcquisti = acquisto.getQuantita() + countAcquisti;
+        for (AcquistoCliente vendite : acquistoClienteSet){
+            countVendite = vendite.getQuantita() + countVendite;
+        }
+        for (AcquistoRifornitore acquisti : acquistoRifornitoreSet) {
+            countAcquisti = acquisti.getQuantita() + countAcquisti;
+        }
+        int mammt = countAcquisti - countVendite;
+        return mammt;
+    } */
+
+    public int vendite () {
+        int countVendite = 0;
+        for (AcquistoCliente vendite : acquistoClienteSet) {
+            countVendite = vendite.getQuantita() + countVendite;
+        }
+        return countVendite;
+    }
+    public int acquisti () {
+        int countAcquisti = 0;
+        for (AcquistoRifornitore acquisti : acquistoRifornitoreSet) {
+            countAcquisti = acquisti.getQuantita() + countAcquisti;
         }
         return countAcquisti;
     }
+
+    public int magazzino () {
+        return acquisti() - vendite();
+    }
+
+
+
 
     public Integer getId() {
         return id;
