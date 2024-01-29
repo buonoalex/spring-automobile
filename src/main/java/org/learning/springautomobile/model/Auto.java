@@ -112,8 +112,16 @@ public class Auto {
         this.foto = foto;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public String getPrice() {
+        BigDecimal numero = new BigDecimal(String.valueOf(price));
+
+        // Creazione di un oggetto DecimalFormat
+        DecimalFormat formato = new DecimalFormat("#,###.00");
+
+        // Formattazione del BigDecimal
+        String numeroFormattato = formato.format(numero);
+
+        return numeroFormattato;
     }
 
     public void setPrice(BigDecimal price) {
