@@ -25,3 +25,11 @@ INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_i
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 36000, 4);
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Stellantis Group Italia S.P.A.', 16000, 5);
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 10000, 6);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-03-11', 3, 'Stellantis Group Italia S.P.A.', 11000, 3);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-03-22', 2, 'Gruppo Volkswagen Italia S.P.A.', 14000, 1);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-04-15', 2, 'Gruppo Volkswagen Italia S.P.A.', 150000, 12);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-02-01', 4, 'Gruppo Volkswagen Italia S.P.A.', 18000, 2);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2022-05-05', 6, 'Renault Italia S.P.A.', 4500, 8);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-09-18', 3, 'Seat Italia S.P.A.', 19500, 9);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2022-10-12', 1, 'Lamborghini Italia S.P.A.', 220000, 11);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-12-16', 1, 'Ferrari Italia S.P.A.', 112000, 10);
