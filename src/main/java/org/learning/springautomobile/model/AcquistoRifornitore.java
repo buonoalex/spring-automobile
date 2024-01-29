@@ -60,7 +60,7 @@ public class AcquistoRifornitore {
         return quantita;
     }
 
-    public void setQuantita(int quantità) {
+    public void setQuantita(int quantita) {
         this.quantita = quantita;
     }
 

@@ -31,6 +31,13 @@ public class Auto {
     @Min(1)
     private BigDecimal price;
 
+    /*
+    @NotNull
+    @Min(1) // da vedere se partire da un minimo di 0 o di 1 per dire se nel concessionario ci può non essere più un'auto o ce nè deve essere almeno 1
+    private Integer quantityAuto;
+
+     */
+
     @ManyToOne
     private AutoType autoType;
 
@@ -40,7 +47,18 @@ public class Auto {
     @OneToMany(mappedBy = "auto",orphanRemoval = true)
     private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
+    // method
+    //methodo per contare quante auto sono state acquistate
+    public int autoAquistate () {
+        int countAcquisti = 0;
+        for (int i = 0; i <acquistoClienteSet.size() ; i++) {
+            if (acquistoClienteSet.contains(this.id)) {
+                countAcquisti ++;
+            }
 
+        }
+        return countAcquisti;
+    }
     public Integer getId() {
         return id;
     }
