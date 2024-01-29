@@ -117,7 +117,7 @@ public class AutoController {
             // se sono validi lo salvo su db
             Auto savedAuto = autoRepository.save(formAuto);
             // faccio una redirect alla pagina di dettaglio dell'auto appena creato
-            return "redirect:/automobili/show/" + savedAuto.getId();
+            return "redirect:/auto/show/" + savedAuto.getId();
         }
     }
 
@@ -152,7 +152,7 @@ public class AutoController {
             // se sono validi salvo l'auto su db
             Auto savedAuto = autoRepository.save(formAuto);
             // faccio la redirect alla pagina di dettaglio del libro
-            return "redirect:/automobili/show/" + id;
+            return "redirect:/auto/show/" + id;
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
         }

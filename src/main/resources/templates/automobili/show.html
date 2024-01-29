@@ -16,10 +16,9 @@
         <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
         <p  th:text="${auto.description}"></p>
         <h5 class="">Price: <span class="fw-bold text-success" th:text="${auto.price} + €"></span><span class="ms-4"><a th:href=@{/acquistoCliente} class="btn btn-outline-warning btn-sm">Acquista</a></span><span class="ms-2"><a th:href=@{/auto} class="btn btn-outline-dark btn-sm">Indietro</a></span></h5>
-
     </div>
         <div class="col-4 text-center">
-        </div>
+    </div>
     </div>
 </div>
 </main>
