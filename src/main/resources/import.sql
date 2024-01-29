@@ -21,7 +21,7 @@ INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('L
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Audi R8', 'La Audi R8 è una supercar straordinaria che unisce eleganza e potenza in modo impeccabile. Con il suo design aerodinamico e linee pulite, cattura la attenzione con una eleganza moderna. ', 'https://cdn.motor1.com/images/mgl/BqPZM/s3/2021-audi-r8-rwd-panther-edition.webp', 220000, 4);
 
 -- INSERT ACQUISTOFORNITORE
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 77000, 1);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 42000, 3);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Volkswagen Group Italia S.P.A.', 102000, 2);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 123000, 1);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 42000, 7);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 36000, 4);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Stellantis Group Italia S.P.A.', 16000, 5);
+INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 10000, 6);
