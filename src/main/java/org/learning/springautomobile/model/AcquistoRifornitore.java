@@ -38,6 +38,11 @@ public class AcquistoRifornitore {
     //Costruttore
 
     //Metodi
+    public int autoRimaste(){
+        int countautoRimaste = 0;
+        countautoRimaste = quantita - getAuto().autoAcquistate();
+        return countautoRimaste;
+    }
 
     //Getter and Setter
     public int getId() {

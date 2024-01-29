@@ -28,8 +28,8 @@
             <td th:text="${rifo.price + ' €'}"></td>
             <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
-            <td></td>
-            <td></td>
+            <td th:text="${rifo.getAuto().autoAcquistate()}" class="text-center"></td>
+            <td th:text="${rifo.autoRimaste()}" class="text-center"></td>
         </tr>
         </tbody>
         <hr>

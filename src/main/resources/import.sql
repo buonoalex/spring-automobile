@@ -38,4 +38,5 @@ INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(1, '2024-01-29', 
 INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(2, '2024-01-29', 5);
 INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(1, '2024-01-29', 2);
 INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(1, '2024-01-29', 6);
+INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(7, '2024-01-29', 3);
 

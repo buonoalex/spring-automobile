@@ -1,7 +1,9 @@
 package org.learning.springautomobile.controller;
 
+import org.learning.springautomobile.model.Auto;
 import org.learning.springautomobile.model.AutoType;
 import org.learning.springautomobile.repository.AcquistoClienteRepository;
+import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/acquistoCliente")
@@ -27,5 +30,7 @@ public class AcquistoClienteController {
         model.addAttribute("autoTypeList",autoTypeList);
         return "";
     }
+
+
 
 }
