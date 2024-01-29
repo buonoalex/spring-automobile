@@ -40,8 +40,6 @@ public class Auto {
     @OneToMany(mappedBy = "auto",orphanRemoval = true)
     private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
-
-
     // method
     //methodo per contare quante auto sono state acquistate
   /*  public int autoMagazzino() {
@@ -64,6 +62,7 @@ public class Auto {
         }
         return countVendite;
     }
+
     public int acquisti () {
         int countAcquisti = 0;
         for (AcquistoRifornitore acquisti : acquistoRifornitoreSet) {
@@ -76,8 +75,9 @@ public class Auto {
         return acquisti() - vendite();
     }
 
-
-
+    public int totaleAuto(){
+        return acquisti();
+    }
 
     public Integer getId() {
         return id;

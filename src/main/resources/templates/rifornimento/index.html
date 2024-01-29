@@ -29,7 +29,7 @@
             <td th:text="${rifo.price + ' €'}"></td>
             <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
-            <td th:text="${rifo.}" class="text-center"></td>
+            <td th:text="${rifo.getAuto().totaleAuto()}" class="text-center"></td>
             <td th:text="${rifo.getAuto().vendite()}" class="text-center"></td>
             <td th:text="${rifo.getAuto().magazzino()}" class="text-center"></td>
         </tr>

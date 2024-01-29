@@ -64,8 +64,14 @@ public class AcquistoRifornitoreController {
             return "rifornimento/create";
         }else {
             acquistoRifornitoreRepository.save(formAcquistoRifornitore);
-            //Optional<AcquistoCliente> acquistoCliente = acquistoClienteRepository.findById(formAcquistoRifornitore.getId());
-            //acquistoCliente.get().setQuantita(formAcquistoRifornitore.getQuantita());
+            //Qua ci prendiamo l'auto a cui ò'admin si vuole rifornire
+            Optional<Auto> auto = autoRepository.findById(formAcquistoRifornitore.getId());
+            if (auto.isPresent()){
+                //Quantità che l'admin inserisce nel form
+                int c = formAcquistoRifornitore.getQuantita();
+                //somma degli acquisti + inserimento dell'admin
+                int t = auto.get().totaleAuto() + c;
+            }
             return "redirect:/acquistoRifornitore";
         }
     }
