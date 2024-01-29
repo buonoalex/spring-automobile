@@ -49,11 +49,11 @@
                 </div>
             </div>
             <div class="col-2">
-                <label class="form-label text-center" for="quantità">Quantità</label>
-                <input class="form-control" type="number" th:field="*{quantità}" id="quantità" th:errorClass="is-invalid">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('quantità')}">
+                <label class="form-label text-center" for="quantita">Quantità</label>
+                <input class="form-control" type="number" th:field="*{quantita}" id="quantita" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('quantita')}">
                     <ul>
-                        <li th:each="err : ${#fields.errors('quantità')}" th:text="${err}"></li>
+                        <li th:each="err : ${#fields.errors('quantita')}" th:text="${err}"></li>
                     </ul>
                 </div>
             </div>

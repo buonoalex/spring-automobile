@@ -5,7 +5,6 @@ INSERT INTO type (name, descrizione) VALUES ('Suv', 'Auto progettata per offrire
 INSERT INTO type (name, descrizione) VALUES ('Van', 'Auto progettata principalmente per il trasporto di merci o passeggeri.');
 INSERT INTO type (name, descrizione) VALUES ('Sportive', 'Auto progettata offrire prestazioni sopra la media, con dei design areodinamici e leggeri.');
 
-
 -- INSERT AUTO
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Audi A1', 'E un’auto sportiva e tecnologica, con interni curati e tanto spazio a bordo. Il design è accattivante e grintoso, con un profilo slanciato e un assetto ribassato per una perfetta tenuta di strada.', 'https://th.bing.com/th/id/OIP.iU6Fiq_s0sAg8Kf-iWTWAQHaEK?rs=1&pid=ImgDetMain', 25800, 1);
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('T-Roc', 'Il Volkswagen T-Roc è un SUV compatto prodotto dalla casa automobilistica tedesca Volkswagen. Lanciato nel 2017, il T-Roc si distingue per il suo design moderno e sportivo.', 'https://media.autoexpress.co.uk/image/private/s--syca4EBx--/v1563183519/autoexpress/2017/12/62vw_8846_fs.jpg', 30100, 2);
@@ -21,10 +20,10 @@ INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('L
 INSERT INTO automobili (name, description, foto, price, auto_type_id) VALUES ('Audi R8', 'La Audi R8 è una supercar straordinaria che unisce eleganza e potenza in modo impeccabile. Con il suo design aerodinamico e linee pulite, cattura la attenzione con una eleganza moderna. ', 'https://cdn.motor1.com/images/mgl/BqPZM/s3/2021-audi-r8-rwd-panther-edition.webp', 220000, 4);
 
 -- INSERT ACQUISTOFORNITORE
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 42000, 7);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 36000, 4);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Stellantis Group Italia S.P.A.', 16000, 5);
-INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 10000, 6);
+INSERT INTO acquisto_rifornitore (data, quantita, nome_Fornitore, price, auto_id) VALUES ('2021-01-25', 2, 'Mercedes-Benz Italia S.p.a.', 42000, 7);
+INSERT INTO acquisto_rifornitore (data, quantita, nome_Fornitore, price, auto_id) VALUES ('2023-06-13', 1, 'BMW Italia S.p.a.', 36000, 4);
+INSERT INTO acquisto_rifornitore (data, quantita, nome_Fornitore, price, auto_id) VALUES ('2024-01-02', 4, 'Stellantis Group Italia S.P.A.', 16000, 5);
+INSERT INTO acquisto_rifornitore (data, quantita, nome_Fornitore, price, auto_id) VALUES ('2023-11-07', 5, 'Ford Italia S.p.a.', 10000, 6);
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2024-03-11', 3, 'Stellantis Group Italia S.P.A.', 11000, 3);
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-03-22', 2, 'Gruppo Volkswagen Italia S.P.A.', 14000, 1);
 INSERT INTO acquisto_rifornitore (data, quantità, nome_Fornitore, price, auto_id) VALUES ('2023-04-15', 2, 'Gruppo Volkswagen Italia S.P.A.', 150000, 12);

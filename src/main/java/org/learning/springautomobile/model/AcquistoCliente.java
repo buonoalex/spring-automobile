@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "acquisto_cliente")
@@ -20,7 +21,7 @@ public class AcquistoCliente {
 
     @NotNull
     @Column(nullable = false)
-    private int quantità;
+    private int quantita;
 
     @ManyToOne
     private Auto auto;
@@ -46,12 +47,12 @@ public class AcquistoCliente {
         this.data = data;
     }
 
-    public int getQuantità() {
-        return quantità;
+    public int getQuantita() {
+        return quantita;
     }
 
-    public void setQuantità(int quantità) {
-        this.quantità = quantità;
+    public void setQuantita(int quantita) {
+        this.quantita = quantita;
     }
 
     public Auto getAuto() {

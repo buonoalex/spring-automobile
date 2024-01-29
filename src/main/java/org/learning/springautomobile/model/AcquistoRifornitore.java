@@ -22,7 +22,7 @@ public class AcquistoRifornitore {
 
     @NotNull
     @Column(nullable = false)
-    private int quantità;
+    private int quantita;
 
     @NotEmpty
     @Column(nullable = false)
@@ -56,12 +56,12 @@ public class AcquistoRifornitore {
         this.data = data;
     }
 
-    public int getQuantità() {
-        return quantità;
+    public int getQuantita() {
+        return quantita;
     }
 
-    public void setQuantità(int quantità) {
-        this.quantità = quantità;
+    public void setQuantita(int quantità) {
+        this.quantita = quantita;
     }
 
     public String getNomeFornitore() {
