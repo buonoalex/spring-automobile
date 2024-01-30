@@ -24,7 +24,7 @@
         <td th:text="${auto.autoType.name}" class=" text-start"></td>
         <td th:text="${auto.getFormattedPrice() + ' €'}" class=" text-start"></td>
         <td><a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a></td>
-        <td><form th:action="@{/auto/delete/{id}(id=${auto.id})}"
+        <td><form th:action="@{/auto/admin/delete/{id}(id=${auto.id})}"
               method="post"
               onsubmit="return confirm('Are you sure?')"
               style="display:inline;">
@@ -35,7 +35,7 @@
     <hr>
 </table>
 <div class="text-center mb-3">
-<a th:href=@{/auto/create} class="btn btn-warning text-center">Aggiungi Auto +</a>
+<a th:href=@{/auto/admin/create} class="btn btn-warning text-center">Aggiungi Auto +</a>
 <a th:href=@{/admin/acquistoRifornitore} class="btn btn-primary text-center">Back</a>
 </div>
 </div>
