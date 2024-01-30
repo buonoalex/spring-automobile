@@ -10,23 +10,13 @@
             <h1 class="text-center mt-3 mb-3 color-hf animated tada"><strong>Le Auto più vendute</strong></h1>
             <hr>
             <div class="col-md-4 mt-4 mb-4 animated bounceInLeft" th:each="auto : ${autoList}">
-                <div class="card ms-5" style="width: 17rem; padding: 0px;">
+                <div class="card border border-dark ms-5" style="width: 17rem; padding: 0px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                     <a th:href="@{/auto/show/{id}(id=${auto.id})}">
-                        <img th:src="${auto.foto}" class="card-img" style="height: 150px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
-                    </a>
-                    <div class="card-body text-center">
-                        <h6 class="text-center"><strong>AUTOJAITA S.R.L.</strong></h6>
+                        <img th:src="${auto.foto}" class="card-img border border-dark" style="height: 150px;">
+                    <div class="card-img-overlay text-center">
                         <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
-                        <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
-                        <a th:href=@{/acquistoCliente} class="btn btn-success btn-sm">Acquista</a>
-                        <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="border border-dark btn btn-outline-light text-dark btn-sm ">Modifica</a>
-                        <form th:action="@{/auto/delete/{id}(id=${auto.id})}"
-                              method="post"
-                              onsubmit="return confirm('Are you sure?')"
-                              style="display:inline;">
-                            <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
-                        </form>
                     </div>
+                    </a>
                 </div>
             </div>
             <hr>

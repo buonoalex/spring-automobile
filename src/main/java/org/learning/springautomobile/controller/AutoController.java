@@ -117,7 +117,7 @@ public class AutoController {
             // se sono validi lo salvo su db
             Auto savedAuto = autoRepository.save(formAuto);
             // faccio una redirect alla pagina di dettaglio dell'auto appena creato
-            return "redirect:/auto/show/" + savedAuto.getId();
+            return "redirect:/admin/acquistoRifornitore/catalogoAuto";
         }
     }
 

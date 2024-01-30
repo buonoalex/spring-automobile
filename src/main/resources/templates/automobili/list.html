@@ -19,14 +19,10 @@
                     <h6 class="text-center"><strong>AUTOJAITA S.R.L.</strong></h6>
                     <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
                     <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
+                    <div class="d-grid gap-2">
                     <a th:href=@{/auto/show/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
-                    <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="border border-dark btn btn-outline-light text-dark btn-sm ">Modifica</a>
-                    <form th:action="@{/auto/delete/{id}(id=${auto.id})}"
-                          method="post"
-                          onsubmit="return confirm('Are you sure?')"
-                          style="display:inline;">
-                        <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
-                    </form>
+                        <a th:href="@{/auto/show/{id}(id=${auto.id})}" class="btn btn-outline-warning text-dark btn-sm">Dettagli</a>
+                    </div>
                 </div>
             </div>
         </div>
