@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/resources :: head('Catalogo Create')"></head>
+<body>
+<header th:replace="fragments/resources :: header"></header>
+<main>
+    <div class="container card mt-5 mb-5">
+        <h1>Crea categoria</h1>
+        <hr>
+        <form class="row justify-content-center mb-5 gy-3" th:action="@{/admin/autoType/create}" th:object="${autoType}" method="post">
+            <div class="col-6">
+                <label class="form-label" for="name">Categoria</label>
+                <input class="form-control" type="text" th:field="*{name}" id="name" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <label class="form-label text-center" for="descrizione">Descrizione</label>
+                <input class="form-control" type="text" th:field="*{descrizione}" id="descrizione" th:errorClass="is-invalid">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('descrizione')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('descrizione')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row justify-content-end pt-5">
+                <div class="col-3 text-center">
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main>
+
+<footer th:replace="fragments/resources :: footer"></footer>
+<th:block th:replace="fragments/resources :: script"></th:block>
+</body>
+</html>

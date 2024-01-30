@@ -9,6 +9,7 @@
         <div class="row">
             <h1 class="text-center mt-3 mb-3 color-hf animated tada"><strong>Le Auto più vendute</strong></h1>
             <hr>
+
             <div class="col-md-4 mt-4 mb-4 animated bounceInLeft" th:each="auto : ${autoList}">
                 <div class="card border border-dark ms-5" style="width: 25rem; height: 15rem; padding: 0px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                     <a th:href="@{/auto/show/{id}(id=${auto.id})}">

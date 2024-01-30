@@ -22,7 +22,7 @@
             <td th:text="${type.name}" class=" text-start"></td>
             <td th:text="${type.descrizione}" class=" text-start"></td>
             <td class="text-center"><a th:href=@{/admin/autoType/edit/{id}(id=${type.id})} class="btn btn-primary btn-sm">Modifica</a></td>
-            <td class="text-center"><form th:action="@{/admin/acquistoRifornitore/delete/{id}(id=${type.id})}"
+            <td class="text-center"><form th:action="@{/admin/autoType/delete/{id}(id=${type.id})}"
                       method="post"
                       onsubmit="return confirm('Are you sure?')"
                       style="display:inline;">

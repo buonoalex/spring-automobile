@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/autoType")
+@RequestMapping("/admin/autoType")
 public class AutoTypeController {
     @Autowired
     private AutoRepository autoRepository;
@@ -35,21 +35,21 @@ public class AutoTypeController {
     @GetMapping("/create")
     public String create(Model model) {
         // PREPARO IL TEMPLATE COL FORM DI CREAZIONE AUTOTYPE
-        model.addAttribute("formAutoType", new AutoType());
-        return "";
+        model.addAttribute("autoType", new AutoType());
+        return "catalogo/create";
     }
 
     @PostMapping("/create")
-    public String store(@PathVariable Integer id, @Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult){
+    public String store(@Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult){
         // VALIDO LE TIPOLOGIE
         if (bindingResult.hasErrors()) {
         // SE CI SONO ERRORI RICARICO LA PAGINA COL FORM
-           return "";
+           return "catalogo/create";
         }
         // SE NON CI SONO ERRORI SALVO LE TIPOLOGIE SUL DATABASE
        autoTypeRepository.save(formAutoType);
         // FACCIO LA REDIRECT ALLA LISTA DI ""
-       return "redirect:/";
+       return "redirect:/admin/acquistoRifornitore/catalogoCategorie";
     }
 
     // METODO CHE MODIFICA UNA TIPOLOGIA
@@ -62,7 +62,7 @@ public class AutoTypeController {
             // LO PASSO COME ATTRIBUTO AL MODEL
             model.addAttribute("autoType", result.get());
             // RESTITUISCO IL TEMPLATE
-            return "";
+            return "catalogo/edit";
         } else {
             // ALTRIMENTI SOLLEVO UN'ECCEZIONE HTTP 404
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le tipologie per id " + id + " non sono state trovate!");
@@ -78,11 +78,11 @@ public class AutoTypeController {
             // VALIDO L'AUTOTYPE
             if(bindingResult.hasErrors()) {
             // SE CI SONO ERRORI RICARICO LA PAGINA COL FORM DI EDIT
-                return "";
+                return "catalogo/edit";
             }
             // SE NON CI SONO ERRORI LO SALVO SUL DATABASE
             AutoType savedAutoType = autoTypeRepository.save(formAutoType);
-            return "redirect:";
+            return "redirect:/admin/acquistoRifornitore/catalogoCategorie";
         } else {
             // ALTRIMENTI SOLLEVO UN'ECCEZIONE HTTP 404
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le tipologie per id \" + id + \" non sono state trovate!");
@@ -90,7 +90,7 @@ public class AutoTypeController {
     }
 
     // METODO CHE ELIMINA UNA TIPOLOGIA
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         // VERIFICO SE L'AUTOTYPE CON L'ID PASSATO ESISTE
         Optional<AutoType> result = autoTypeRepository.findById(id);
@@ -98,7 +98,7 @@ public class AutoTypeController {
         if (result.isPresent()) {
             autoTypeRepository.deleteById(id);
             /*return "redirect:/autoType";*/
-            return "";
+            return "redirect:/admin/acquistoRifornitore/catalogoCategorie";
         } else {
             // ALTRIMENTI SOLLEVO UN'ECCEZIONE HTTP 404
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le tipologie per id " + id + " non sono state trovate!");
