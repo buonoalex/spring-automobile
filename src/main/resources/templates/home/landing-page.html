@@ -5,17 +5,37 @@
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <main>
-    <h3 class="text-center color-hf mt-5 mb-5"><strong>AutoJaita la Concessionaria del futuro</strong></h3>
     <div class="container mb-3">
         <div class="row">
-            <div class="row">
-                <ul>
-                    <li th:each="auto : ${autoList}" th:text="${auto.name}"></li>
-                </ul>
+            <h1 class="text-center mt-3 mb-3 color-hf"><strong>Le Auto più vendute</strong></h1>
+            <hr>
+            <div class="col-md-4 mt-4 mb-4" th:each="auto : ${autoList}">
+                <div class="card ms-5" style="width: 17rem; padding: 0px;">
+                    <a th:href="@{/auto/show/{id}(id=${auto.id})}">
+                        <img th:src="${auto.foto}" class="card-img" style="height: 150px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
+                    </a>
+                    <div class="card-body text-center">
+                        <h6 class="text-center"><strong>AUTOJAITA S.R.L.</strong></h6>
+                        <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
+                        <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
+                        <a th:href=@{/acquistoCliente} class="btn btn-success btn-sm">Acquista</a>
+                        <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="border border-dark btn btn-outline-light text-dark btn-sm ">Modifica</a>
+                        <form th:action="@{/auto/delete/{id}(id=${auto.id})}"
+                              method="post"
+                              onsubmit="return confirm('Are you sure?')"
+                              style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+            <hr>
+            <h1 class="text-center color-hf mt-5 mb-5"><strong>AutoJaita la Concessionaria del futuro</strong></h1>
             <div class="col-12 mt-5 col-md-6">
+                <br>
+                <br>
             <h5 class="color-hf">Chi siamo:</h5>
-                <p style="font-size: 13px">
+                <p style="font-size: 15px">
                     Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
                     Siamo più di un concessionario, siamo una comunità appassionata di esperti automobilistici dedicati
                     a fornire un servizio straordinario e veicoli di alta qualità.
@@ -36,9 +56,10 @@
             <div class="col-12 col-md-6">
                 <img style="width:650px;" src="https://cdnwp.dealerk.com/eed49ed7/uploads/sites/315/2018/04/acquistare-da-ms-automobili.jpg" alt="Auto-Arancione">
             </div>
+            <br>
             <div class="col-12 mt-5 ps-5 pt-5 col-md-6">
                 <h5 class="color-hf">Perchè Scegliere AutoJaita?</h5>
-                <p style="font-size: 13px">Scegliere AutoJaita significa immergersi in un universo automobilistico di classe e convenienza.
+                <p style="font-size: 15px">Scegliere AutoJaita significa immergersi in un universo automobilistico di classe e convenienza.
                     Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di guida senza eguali.
                     Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi gli standard più elevati.
                     Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si fondono in un'offerta unica,
