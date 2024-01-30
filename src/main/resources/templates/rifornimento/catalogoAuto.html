@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/resources :: head('Parco Auto')"></head>
+<body>
+<header th:replace="fragments/resources :: header"></header>
+<div class="alert alert-info" th:if="${listaAuto.size() == 0}">Non ci sono Auto presenti</div>
+<table class="table" th:unless="${listaAuto.size() == 0}">
+    <h1 class="text-center">Parco Auto Amministrazione</h1>
+    <thead>
+    <tr>
+        <th class="col-1 text-start">Id</th>
+        <th class="col-2 text-start">Name</th>
+        <th class="col-1 text-start">Auto Type</th>
+        <th class="col-2 text-start">Price</th>
+        <th class="col-2"></th>
+        <th class="col-2"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="auto : ${listaAuto}">
+        <th th:text="${auto.id}" class=" text-start"></th>
+        <th th:text="${auto.name}" class=" text-start"></th>
+        <th th:text="${auto.autoType.name}" class=" text-start"></th>
+        <th th:text="${auto.price}" class=" text-start"></th>
+        <th><a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a></th>
+        <th><form th:action="@{/auto/delete/{id}(id=${auto.id})}"
+              method="post"
+              onsubmit="return confirm('Are you sure?')"
+              style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
+        </form></th>
+    </tr>
+    </tbody>
+    <hr>
+</table>
+<div class="text-center mb-3">
+<a th:href=@{/auto/create} class="btn btn-warning text-center">Aggiungi Auto +</a>
+</div>
+<footer th:replace="fragments/resources :: footer"></footer>
+<th:block th:replace="fragments/resources :: script"></th:block>
+</body>
+</html>

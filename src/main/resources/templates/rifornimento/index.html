@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/resources :: head('Index Rifornimento')"></head>
+<head th:replace="fragments/resources :: head('Catalogo Auto')"></head>
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <div class="container mt-5 mb-5 card">
@@ -37,9 +37,9 @@
         <hr>
     </table>
     <div class="row justify-content-center mt-2 mb-3">
-        <div class="col-4 text-center">
-            <a class="btn btn-primary pr-3" th:href="@{/acquistoRifornitore/create}">Aggiungi rifornimento</a>
-            <a class="btn btn-primary" th:href="@{/}">Back Home</a>
+        <div class="col-12 text-center">
+            <a class="btn btn-primary btn-sm pr-3" th:href="@{/acquistoRifornitore/create}">Aggiungi rifornimento</a>
+            <a class="btn btn-primary btn-sm" th:href="@{/}">Back Home</a>
         </div>
     </div>
 

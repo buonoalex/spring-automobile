@@ -63,7 +63,7 @@ public class AcquistoRifornitoreController {
     public String catalogoAuto(Model model){
         //auto list
         List<Auto> listaAuto = autoRepository.findAll();
-        model.addAttribute("listAuto",listaAuto);
+        model.addAttribute("listaAuto",listaAuto);
         //autotype list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);
@@ -80,7 +80,7 @@ public class AcquistoRifornitoreController {
             return "rifornimento/create";
         }else {
             acquistoRifornitoreRepository.save(formAcquistoRifornitore);
-            return "redirect:/acquistoRifornitore";
+            return "redirect:/admin/acquistoRifornitore";
         }
     }
 }

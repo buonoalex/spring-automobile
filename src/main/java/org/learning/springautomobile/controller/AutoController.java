@@ -168,7 +168,7 @@ public class AutoController {
             autoRepository.deleteById(id);
             // mando un messaggio di successo con la redirect
             redirectAttributes.addFlashAttribute("redirectMessage", "L'auto " + result.get().getName() + " è stata cancellata con successo");
-            return "redirect:/auto";
+            return "redirect:/admin/acquistoRifornitore/catalogoAuto";
         } else {
             // se non c'è sollevo un'eccezione
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "L'auto con l'id " + id + " non è stata trovata");
