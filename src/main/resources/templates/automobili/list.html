@@ -17,7 +17,7 @@
                 <div class="card-body text-center">
                     <h6 class="text-center"><strong>AUTOJAITA S.R.L.</strong></h6>
                     <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
-                    <p th:text="${auto.price} + €" class="fw-bold card-text text-center color-price-name"></p>
+                    <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
                     <a th:href=@{/acquistoCliente} class="btn btn-success btn-sm">Acquista</a>
                     <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="border border-dark btn btn-outline-light text-dark btn-sm ">Modifica</a>
                     <form th:action="@{/auto/delete/{id}(id=${auto.id})}"

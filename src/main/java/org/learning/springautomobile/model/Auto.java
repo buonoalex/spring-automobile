@@ -76,10 +76,6 @@ public class Auto {
         return acquisti() - vendite();
     }
 
-    public int totaleAuto(){
-        return acquisti();
-    }
-
     public Integer getId() {
         return id;
     }
@@ -112,7 +108,7 @@ public class Auto {
         this.foto = foto;
     }
 
-    public String getPrice() {
+    public String getFormattedPrice() {
         BigDecimal numero = new BigDecimal(String.valueOf(price));
 
         // Creazione di un oggetto DecimalFormat
@@ -122,6 +118,10 @@ public class Auto {
         String numeroFormattato = formato.format(numero);
 
         return numeroFormattato;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 
     public void setPrice(BigDecimal price) {
