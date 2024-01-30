@@ -3,6 +3,7 @@
 <head th:replace="fragments/resources :: head('Parco Auto')"></head>
 <body>
 <header th:replace="fragments/resources :: header"></header>
+<div class="container mt-5 mb-5 card">
 <div class="alert alert-info" th:if="${listaAuto.size() == 0}">Non ci sono Auto presenti</div>
 <table class="table" th:unless="${listaAuto.size() == 0}">
     <h1 class="text-center">Parco Auto Amministrazione</h1>
@@ -19,22 +20,24 @@
     <tbody>
     <tr th:each="auto : ${listaAuto}">
         <th th:text="${auto.id}" class=" text-start"></th>
-        <th th:text="${auto.name}" class=" text-start"></th>
-        <th th:text="${auto.autoType.name}" class=" text-start"></th>
-        <th th:text="${auto.price}" class=" text-start"></th>
-        <th><a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a></th>
-        <th><form th:action="@{/auto/delete/{id}(id=${auto.id})}"
+        <td th:text="${auto.name}" class=" text-start"></td>
+        <td th:text="${auto.autoType.name}" class=" text-start"></td>
+        <td th:text="${auto.getFormattedPrice() + ' €'}" class=" text-start"></td>
+        <td><a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a></td>
+        <td><form th:action="@{/auto/delete/{id}(id=${auto.id})}"
               method="post"
               onsubmit="return confirm('Are you sure?')"
               style="display:inline;">
             <button type="submit" class="btn btn-danger btn-sm">Cancella</button>
-        </form></th>
+        </form></td>
     </tr>
     </tbody>
     <hr>
 </table>
 <div class="text-center mb-3">
 <a th:href=@{/auto/create} class="btn btn-warning text-center">Aggiungi Auto +</a>
+<a th:href=@{/admin/acquistoRifornitore} class="btn btn-primary text-center">Back</a>
+</div>
 </div>
 <footer th:replace="fragments/resources :: footer"></footer>
 <th:block th:replace="fragments/resources :: script"></th:block>
