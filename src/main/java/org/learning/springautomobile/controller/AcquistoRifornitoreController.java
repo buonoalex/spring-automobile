@@ -70,6 +70,15 @@ public class AcquistoRifornitoreController {
         return "rifornimento/catalogoAuto";
     }
 
+    @GetMapping("/catalogoCategorie")
+    public String catalogoCategorie(Model model){
+        //autotype list
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
+        return "rifornimento/catalogoCategorie";
+
+    }
+
     @PostMapping("/create")
     public String saveRifornimento(@Valid @ModelAttribute("acquistoRifornitore") AcquistoRifornitore formAcquistoRifornitore, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
