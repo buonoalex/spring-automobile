@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments/resources :: head('Parco Auto')"></head>
 <body>
+
 <header th:replace="fragments/resources :: header"></header>
-<div class="container-fluid bg-light mt-5 border-bottom pb-4">
+<div class="container-fluid bg-light mt-5 border-bottom pb-4 bg-image bg-list">
     <div class="row ms-5 g-5 flex-wrap justify-content-between">
         <div th:if="${redirectMessage != null}" class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             <div th:text="${redirectMessage}"></div>

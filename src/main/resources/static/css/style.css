@@ -43,3 +43,12 @@ background-color: #87CEEB;
   background: #55ACEE;
   color: white;
 }
+
+.bg-list{
+  background-image: url(../R.jpg) ;
+  background-size:cover;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+
+}
+
