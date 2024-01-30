@@ -93,7 +93,7 @@ public class AutoController {
     }
 
     // metodo create che mostra la pagina col form di aggiunta di una nuova auto
-    @GetMapping("/create")
+    @GetMapping("/admin/create")
     public String create(Model model) {
         Auto auto = new Auto();
         // passo tramite Model un attributo di tipo Auto vuoto
@@ -104,7 +104,7 @@ public class AutoController {
     }
 
     // metodo che riceve il submit del form di creazione e salva su db il Book
-    @PostMapping("/create")
+    @PostMapping("/admin/create")
     public String store(@Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult, Model model) {
         // valido i dati dell'auto, cioè verifico se la mappa BindingResult ha errori
         if (bindingResult.hasErrors()) {
@@ -122,7 +122,7 @@ public class AutoController {
     }
 
     // metodo che restituisce la pagina di modifica del Book
-    @GetMapping("/edit/{id}")
+    @GetMapping("/admin/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         // recupero L'auto da database
         Optional<Auto> result = autoRepository.findById(id);
@@ -140,7 +140,7 @@ public class AutoController {
     }
 
     // metodo che riceve il submit del form di edit
-    @PostMapping("/edit/{id}")
+    @PostMapping("/admin/edit/{id}")
     public String update(@PathVariable Integer id, @Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult) {
         Optional<Auto> result = autoRepository.findById(id);
         if (result.isPresent()) {
@@ -159,7 +159,7 @@ public class AutoController {
     }
 
     // metodo che cancella un'auto presa per id
-    @PostMapping("/delete/{id}")
+    @PostMapping("/admin/delete/{id}")
     public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         // verifico se l'auto è presente su db
         Optional<Auto> result =autoRepository.findById(id);
