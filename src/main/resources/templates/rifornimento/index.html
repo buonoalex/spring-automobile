@@ -22,7 +22,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="rifo : ${rifornimentoList}">
+        <!-- <td th:text="${rifo.getAuto().magazzino()}" class="text-center" th:switch="${rifo.getAuto().getListStatus()}">
+                <span th:case="1"></span>
+                <span th:case="2"></span>
+                <span th:case="3"></span>
+                 -->
+        <tr th:each="rifo : ${rifornimentoList}"
+            th:classappend="|${rifo.getAuto().magazzino() <= 0 ? 'table-danger' : ''}
+            ${rifo.getAuto().magazzino() == 1 ? 'table-warning' : ''}
+            ${rifo.getAuto().magazzino() > 1 ? 'table-success' : ''}|"
+        >
+
             <th th:text="${rifo.id}" class="text-center"></th>
             <td th:text="${rifo.data}" class="text-center"></td>
             <td th:text="${rifo.nomeFornitore}" class="text-center"></td>

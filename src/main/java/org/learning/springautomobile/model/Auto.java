@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -75,6 +76,33 @@ public class Auto {
     public int magazzino () {
         return acquisti() - vendite();
     }
+
+
+    //metodo per lo switch case
+    /* public String getListStatus() {
+         int status = 0;
+         Objects.requireNonNull(status);
+         String result = null;
+         switch (status){
+             case 1 :
+                 if (magazzino() <= 0) {
+                     result = "table-danger";
+                     break;
+                 }
+             case 2 :
+                 if (magazzino() >= 1 && magazzino() <= 3) {
+                     result = "table-warning";
+                     break;
+                 }
+             case 3 :
+                 if (magazzino() >= 3) {
+                     result = "table-success";
+                     break;
+                 }
+         }
+         return result;
+     }
+     */
 
     public Integer getId() {
         return id;
