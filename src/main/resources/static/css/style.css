@@ -49,6 +49,10 @@ background-color: #87CEEB;
   background-size:cover;
   background-repeat: repeat-x;
   background-attachment: fixed;
+}
 
+main span.animated {
+animation-duration: 2.5s;
+animation-iteration-count: infinite;
 }
 

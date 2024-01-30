@@ -10,7 +10,7 @@
             <div th:text="${redirectMessage}"></div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
         </div>
-        <div class="col-md-4" th:each="auto : ${listaAuto}">
+        <div class="col-md-4 animated bounceInDown" th:each="auto : ${listaAuto}">
             <div class="card ms-5" style="width: 17rem; padding: 0px;">
                 <a th:href="@{/auto/show/{id}(id=${auto.id})}">
                 <img th:src="${auto.foto}" class="card-img" style="height: 150px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
@@ -19,7 +19,7 @@
                     <h6 class="text-center"><strong>AUTOJAITA S.R.L.</strong></h6>
                     <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
                     <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
-                    <a th:href=@{/acquistoCliente} class="btn btn-success btn-sm">Acquista</a>
+                    <a th:href=@{/auto/show/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
                     <a th:href=@{/auto/edit/{id}(id=${auto.id})} class="border border-dark btn btn-outline-light text-dark btn-sm ">Modifica</a>
                     <form th:action="@{/auto/delete/{id}(id=${auto.id})}"
                           method="post"

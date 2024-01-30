@@ -4,12 +4,12 @@
 
 <body>
 <header th:replace="fragments/resources :: header"></header>
-<main>
+<main  class="span.animated">
     <div class="container mb-3">
         <div class="row">
-            <h1 class="text-center mt-3 mb-3 color-hf"><strong>Le Auto più vendute</strong></h1>
+            <h1 class="text-center mt-3 mb-3 color-hf animated tada"><strong>Le Auto più vendute</strong></h1>
             <hr>
-            <div class="col-md-4 mt-4 mb-4" th:each="auto : ${autoList}">
+            <div class="col-md-4 mt-4 mb-4 animated bounceInLeft" th:each="auto : ${autoList}">
                 <div class="card ms-5" style="width: 17rem; padding: 0px;">
                     <a th:href="@{/auto/show/{id}(id=${auto.id})}">
                         <img th:src="${auto.foto}" class="card-img" style="height: 150px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
