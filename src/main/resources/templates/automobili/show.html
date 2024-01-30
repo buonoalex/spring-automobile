@@ -15,7 +15,7 @@
         <h3 class="mt-2 fw-bold text-warning" th:text="${auto.name}"></h3>
         <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
         <p  th:text="${auto.description}"></p>
-        <h5 class="">Price: <span class="fw-bold text-success" th:text="${auto.price} + €"></span>
+        <h5 class="">Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span>
             <form th:action="@{/auto/{id}(id=${auto.id})}"
                   method="post"
                   onsubmit="return confirm('Sei sicuro di voler acquistare questa auto?')"
