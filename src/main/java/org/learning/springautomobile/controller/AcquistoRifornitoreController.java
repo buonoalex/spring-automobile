@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/acquistoRifornitore")
+@RequestMapping("/admin/acquistoRifornitore")
 public class AcquistoRifornitoreController {
 
     @Autowired
@@ -57,6 +57,17 @@ public class AcquistoRifornitoreController {
         List<Auto> autoList = autoRepository.findAll();
         model.addAttribute("autoList",autoList);
         return "rifornimento/create";
+    }
+
+    @GetMapping("/catalogoAuto")
+    public String catalogoAuto(Model model){
+        //auto list
+        List<Auto> listaAuto = autoRepository.findAll();
+        model.addAttribute("listAuto",listaAuto);
+        //autotype list
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
+        return "rifornimento/catalogoAuto";
     }
 
     @PostMapping("/create")
