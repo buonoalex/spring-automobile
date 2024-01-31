@@ -32,7 +32,7 @@
             <th th:text="${rifo.id}" class="text-center"></th>
             <td th:text="${rifo.data}" class="text-center"></td>
             <td th:text="${rifo.nomeFornitore}" class="text-center"></td>
-            <td th:text="${rifo.getAuto().getFormattedPrice() + ' €'}" class="text-center"></td>
+            <td th:text="${rifo.getFormattedPrice() + ' €'}" class="text-center"></td>
             <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}" class="text-center"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
             <td th:text="${rifo.getAuto().acquisti()}" class="text-center"></td>
