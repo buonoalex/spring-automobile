@@ -35,8 +35,6 @@ public class HomeController {
         List<Auto> autoList = autoRepository.findAll();
         if (autoList.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "non ci sono auto");
-
-
         }else{
             Collections.sort(autoList, new AutoVenditeComparator());
             Collections.reverse(autoList);
@@ -47,6 +45,7 @@ public class HomeController {
             model.addAttribute("autoList",b);
             //Fine Logica Bonus
         }
+
         //Logica logo
         List<Auto> autoListLogo = autoRepository.findAll();
         Set<String> logoList = new HashSet<>();
