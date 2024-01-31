@@ -15,14 +15,9 @@
         <h3 class="mt-2 fw-bold text-warning" th:text="${auto.name}"></h3>
         <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
         <p  th:text="${auto.description}"></p>
-        <h5 class="">Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span>
-            <form th:action="@{/auto/{id}(id=${auto.id})}"
-                  method="post"
-                  onsubmit="return confirm('Sei sicuro di voler acquistare questa auto?')"
-                  style="display:inline;">
-                <button type="submit" class="btn btn-outline-warning btn-sm">Acquista</button>
-            </form>
-            <span class="ms-2"><a th:href=@{/auto} class="btn btn-outline-dark btn-sm">Indietro</a></span></h5>
+        <h5>Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
+            <a th:href="@{/acquistoCliente/create/{id}(id=${auto.id})}" class="btn btn-outline-warning btn-sm">Acquista</a>
+            <button class="ms-2"><a th:href=@{/auto} class="btn btn-outline-dark btn-sm">Indietro</a></button>
     </div>
         <div class="col-4 text-center">
     </div>

@@ -4,9 +4,31 @@
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <main>
-
+    <div class="container card">
+        <div class="row">
+            <div class="col-12 text-center">
+                <a th:href="@{/auto}">
+                    <img class="img-fluid shadow-lg" th:src="@{${auto.foto}}" style="transition: transform 0.3s;"
+                         onmouseover="this.style.transform='scale(1.090)'" onmouseout="this.style.transform='scale(1)'"
+                         alt="foto">
+                </a>
+            </div>
+            <div class="col-12 text-center">
+                <h3 class="mt-2 fw-bold text-warning" th:text="${auto.name}"></h3>
+                <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
+                <p  th:text="${auto.description}"></p>
+                <h5>Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
+                <form th:action="@{/acquistoCliente/create/{id}(id=${auto.id})}"
+                method="post">
+                    <label for="quantita" class="form-label">Quantità</label>
+                    <input type="number" id="quantita" th:field="${acquistoCliente.quantita}">
+                    <button type="submit" class="btn btn-outline-warning btn-sm">Conferma Acquisto</button>
+                </form>
+                <span class="ms-2"><a th:href=@{/auto/show/{id}(id=${auto.id})} class="btn btn-outline-dark btn-sm">Indietro</a></span></h5>
+            </div>
+        </div>
+    </div>
 </main>
-
 <footer th:replace="fragments/resources :: footer"></footer>
 <th:block th:replace="fragments/resources :: script"></th:block>
 </body>
