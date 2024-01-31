@@ -18,7 +18,7 @@ public class AutoType {
     @NotEmpty
     private String descrizione;
 
-    @OneToMany(mappedBy = "autoType")
+    @OneToMany(mappedBy = "autoType",orphanRemoval = true)
     private List<Auto> autoList;
 
     // Getter and Setter
