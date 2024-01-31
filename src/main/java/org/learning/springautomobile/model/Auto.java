@@ -33,6 +33,8 @@ public class Auto {
     @Min(1)
     private BigDecimal price;
 
+    private String logo;
+
     @ManyToOne
     private AutoType autoType;
 
@@ -180,4 +182,11 @@ public class Auto {
         this.acquistoRifornitoreSet = acquistoRifornitoreSet;
     }
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }
