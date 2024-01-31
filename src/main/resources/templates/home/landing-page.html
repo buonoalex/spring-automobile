@@ -4,13 +4,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Prompt:wght@200&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <main class="span.animated">
     <div class="container-fluid bg-light">
         <div class="row">
-            <h1 class="text-center mt-3 mb-3 animated tada" style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le Auto più vendute -</strong></h1>
+            <h1 class="text-center mt-3 mb-3 animated tada"
+                style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le Auto più
+                vendute -</strong></h1>
             <hr>
 
             <div class="col-md-4 mt-4 mb-4 animated bounceInLeft" th:each="auto : ${autoList}">
@@ -30,108 +32,208 @@
             </div>
             <hr>
             <div class="row">
-                <h1 class="text-center mt-2 mb-2" style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Concessionarie Ufficiali -</strong></h1>
+                <h1 class="text-center mt-2 mb-2"
+                    style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>-
+                    Concessionarie Ufficiali -</strong></h1>
             </div>
             <div class="row mt-5 mb-5 text-center">
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/A/Audi-logo-ED84DFE2E3-seeklogo.com.png"
-                         style="height: 100px">
+                <div class="col-3 mb-5 pb-5" th:each="logo : ${logoList}">
+                    <a th:href="@{/auto}">
+                        <img th:src="${logo}" style="height: 100px">
+                    </a>
                 </div>
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/B/bmw-logo-248C3D90E6-seeklogo.com.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://cdn.worldvectorlogo.com/logos/lamborghini.svg" style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/fiat-3-logo-png-transparent.png"
-                         style="height: 100px;">
-                </div>
-            </div>
-            <div class="row mt-5 mb-5 text-center">
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/M/mercedes-benz-logo-0DCE214555-seeklogo.com.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/F/ferrari-logo-7935CF173C-seeklogo.com.png"
-                         style="height: 120px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/A/alfa-romeo-logo-3E9AF560E2-seeklogo.com.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/jeep-7-logo-png-transparent.png"
-                         style="height: 80px;">
-                </div>
-            </div>
-            <div class="row mt-5 mb-5 text-center">
-                <div class="col-3">
-                    <img src="https://zeevector.com/wp-content/uploads/Porsche-Logo-Transparent.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/L/land-rover-logo-86296C9BE7-seeklogo.com.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://seeklogo.com/images/P/peugeot-logo-660EC9A8CA-seeklogo.com.png"
-                         style="height: 100px;">
-                </div>
-                <div class="col-3">
-                    <img src="https://cdn.worldvectorlogo.com/logos/ford-logo-flat.svg" style="height: 80px;">
-                </div>
-            </div>
-            <div class="col-12">
-                <img src="">
             </div>
 
-            <h1 class="text-center mt-5 mb-5" style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- AutoJaita la Concessionaria del futuro -</strong></h1>
-            <div class="col-12 mt-5 col-md-6">
-                <br>
-                <br>
-                <h4 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>Chi siamo:</strong></h4>
-                <p style="font-size: 15px">
-                    Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
-                    Siamo più di un concessionario, siamo una comunità appassionata di esperti automobilistici dedicati
-                    a fornire un servizio straordinario e veicoli di alta qualità.
-                    La nostra missione è superare le aspettative dei nostri clienti, mettendo a disposizione un'ampia
-                    gamma di auto
-                    che rispecchiano l'eccellenza del design, dell'innovazione e delle prestazioni. La nostra squadra di
-                    professionisti
-                    è qui per guidarti in ogni passo del processo di selezione dell'auto perfetta per le tue esigenze.
-                    Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su trasparenza, affidabilità e
-                    dedizione. Con AutoJaita,
-                    non stai solo acquistando un'auto; stai diventando parte di una storia di successo che si tramanda
-                    da generazioni.
-                </p>
-            </div>
-            <div class="col-12 col-md-6">
-                <img src="https://img.freepik.com/free-photo/brand-new-car-ai-generated-image_268835-5688.jpg"
-                     alt="Auto-Arancione">
-            </div>
-            <div class="col-12 col-md-6 pb-2 pt-1">
-                <img style="width:650px;"
-                     src="https://cdnwp.dealerk.com/eed49ed7/uploads/sites/315/2018/04/acquistare-da-ms-automobili.jpg"
-                     alt="Auto-Arancione">
-            </div>
-            <div class="col-12 col-md-4 mt-3 ps-5 pt-5 text-start">
-                <h4 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>Perchè Scegliere AutoJaita?</strong></h4>
-                <p style="font-size: 15px">Scegliere AutoJaita significa immergersi in un universo automobilistico di
-                    classe e convenienza.
-                    Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di guida senza
-                    eguali.
-                    Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi gli
-                    standard più elevati.
-                    Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si fondono in
-                    un'offerta unica,
-                    plasmata per soddisfare le tue esigenze automobilistiche.
-                </p>
+
+                <h1 class="text-center mt-5 mb-5"
+                    style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- AutoJaita
+                    la
+                    Concessionaria del futuro -</strong></h1>
+                <div class="col-12 mt-5 col-md-6">
+                    <br>
+                    <br>
+                    <h4 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>Chi
+                        siamo:</strong></h4>
+                    <p style="font-size: 15px">
+                        Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
+                        Siamo più di un concessionario, siamo una comunità appassionata di esperti automobilistici
+                        dedicati
+                        a fornire un servizio straordinario e veicoli di alta qualità.
+                        La nostra missione è superare le aspettative dei nostri clienti, mettendo a disposizione
+                        un'ampia
+                        gamma di auto
+                        che rispecchiano l'eccellenza del design, dell'innovazione e delle prestazioni. La nostra
+                        squadra di
+                        professionisti
+                        è qui per guidarti in ogni passo del processo di selezione dell'auto perfetta per le tue
+                        esigenze.
+                        Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su trasparenza, affidabilità
+                        e
+                        dedizione. Con AutoJaita,
+                        non stai solo acquistando un'auto; stai diventando parte di una storia di successo che si
+                        tramanda
+                        da generazioni.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img src="https://img.freepik.com/free-photo/brand-new-car-ai-generated-image_268835-5688.jpg"
+                         alt="Auto-Arancione">
+                </div>
+                <div class="col-12 col-md-6 pb-2 pt-1">
+                    <img style="width:650px;"
+                         src="https://cdnwp.dealerk.com/eed49ed7/uploads/sites/315/2018/04/acquistare-da-ms-automobili.jpg"
+                         alt="Auto-Arancione">
+                </div>
+                <div class="col-12 col-md-4 mt-3 ps-5 pt-5 text-start">
+                    <h4 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>Perchè
+                        Scegliere AutoJaita?</strong></h4>
+                    <p style="font-size: 15px">Scegliere AutoJaita significa immergersi in un universo automobilistico
+                        di
+                        classe e convenienza.
+                        Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di guida
+                        senza
+                        eguali.
+                        Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi gli
+                        standard più elevati.
+                        Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si fondono in
+                        un'offerta unica,
+                        plasmata per soddisfare le tue esigenze automobilistiche.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="container-fluid pb-5 pt-5 bg-light">
+            <div class="row">
+                <div class="col-12 text-center pb-3"><h1
+                        style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le
+                    Vostre Domande Frequenti -</strong></h1>
+                </div>
+                <div class="col-2"></div>
+                <div class="accordion accordion-flush col-8" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed border border-dark" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                Quali sono i modelli di auto disponibili presso la vostra concessionaria?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                             aria-labelledby="flush-headingOne"
+                             data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body border border-dark">La nostra concessionaria offre una vasta
+                                gamma di modelli di auto,
+                                dai veicoli compatti ideali per la città, alle eleganti berline e SUV spaziosi.
+                                Collaboriamo
+                                con diverse case automobilistiche di prestigio per garantire una selezione diversificata
+                                che
+                                soddisfi le esigenze di ogni cliente. Vieni a trovarci in sede, ti aspettiamo.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed border border-dark" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                Quali opzioni di finanziamento sono disponibili per l'acquisto di un'auto?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                             aria-labelledby="flush-headingTwo"
+                             data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body border border-dark">
+                                Abbiamo diverse opzioni di finanziamento personalizzate per adattarci alle diverse
+                                situazioni finanziarie dei nostri clienti. Offriamo piani di leasing flessibili,
+                                finanziamenti a tasso agevolato e promozioni speciali. Il nostro team esperto è
+                                disponibile
+                                per guidarti attraverso le opzioni disponibili e aiutarti a trovare la soluzione più
+                                adatta
+                                alle tue esigenze.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed border border-dark" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                Quali servizi post-vendita offrite?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body border border-dark">Il nostro impegno nei confronti dei clienti
+                                va oltre la vendita.
+                                Offriamo una gamma completa di servizi post-vendita, tra cui manutenzione programmata,
+                                riparazioni, cambio gomme e servizi di assistenza stradale. Il nostro team di tecnici
+                                altamente qualificati è pronto ad assicurare che la tua auto rimanga affidabile e
+                                performante nel tempo, garantendo la tua tranquillità.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+        <div class="container-fluid bg-light text-center pb-5">
+            <div class="row">
+                <h1 class="text-center pb-4"
+                    style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Contattaci
+                    -</strong></h1>
+                <div class="col-4 border-end border-dark">
+                    <br>
+                    <br>
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
+                        class="text-danger"><strong>Online:</strong></h3>
+                    <br>
+                    <h5>AutoJaita Comunity:</h5>
+                    <p>Benvenuti nella AutoJaita Comunity dove potrete esplorare il nostro mondo attraverso le
+                        esperienze di tutti.</p>
+                    <h5>Twitter - @SupportoAutoJaita:</h5>
+                    <p>Diventa follower per ottenere in tempo reale info e supporto dal nostro team dedicato, condividi
+                        con gli altri la tua esperienza.</p>
+                    <h5>Live Chat:</h5>
+                    <p>Richiedi supporto al nostro team in tempo reale.</p>
+                    <h5>Inviaci un'Email: <strong>AutoJaita@gmail.com</strong></h5>
+                    <p>Riceverai una risposta entro un singolo giorno lavorativo.</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-4 border-start border-end border-dark">
+                    <br>
+                    <br>
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
+                        class="text-danger"><strong>Telefono:</strong></h3>
+                    <br>
+                    <h6>Napoli: 0818233429 <br> Novara: 0108233429 <br> Milano: 0128233429 </h6>
+                    <p>Per richiedere informazioni e supporto nelle nostre sedi</p>
+                    <h5>Live Support:</h5>
+                    <p>Accedi per avere il supporto live dal nostro team. <br> Il servizio è disponibile dal Lunedì al
+                        Sabato dalle 10:00 alle 18:00.</p>
+                    <h5>Instagram support:</h5>
+                    <p>Seguici e contattaci su instagram in direct per avere il nostro supporto 7 giorni su 7.</p>
+                </div>
+                <div class="col-4 border-start border-dark">
+                    <br>
+                    <br>
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
+                        class="text-danger"><strong>I Nostri Social:</strong></h3>
+                    <br>
+                    <h5>Il nostro Instagram:</h5>
+                    <p class="fa">&#xf16d;</p><span>Auto-Jaita</span>
+                    <h5>Il nostro Facebook:</h5>
+                    <p class="fa">&#xf09a;</p><span>Concessionaria AutoJaita</span>
+                    <h5>Il nostro Twitter:</h5>
+                    <p class="fa">&#xf099;</p><span>Auto-Jaita</span>
+                </div>
+            </div>
+        </div>
 
 </main>
 <footer th:replace="fragments/resources :: footer"></footer>
