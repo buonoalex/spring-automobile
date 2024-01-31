@@ -8,8 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -38,10 +36,10 @@ public class Auto {
     @ManyToOne
     private AutoType autoType;
 
-    @OneToMany(mappedBy = "auto",orphanRemoval = true)
-    private Set<AcquistoCliente> acquistoClienteSet= new HashSet<>();
+    @OneToMany(mappedBy = "auto", orphanRemoval = true)
+    private Set<AcquistoCliente> acquistoClienteSet = new HashSet<>();
 
-    @OneToMany(mappedBy = "auto",orphanRemoval = true)
+    @OneToMany(mappedBy = "auto", orphanRemoval = true)
     private Set<AcquistoRifornitore> acquistoRifornitoreSet = new HashSet<>();
 
     // method
@@ -59,7 +57,7 @@ public class Auto {
         return mammt;
     } */
 
-    public int vendite () {
+    public int vendite() {
         int countVendite = 0;
         for (AcquistoCliente vendite : acquistoClienteSet) {
             countVendite = vendite.getQuantita() + countVendite;
@@ -67,7 +65,7 @@ public class Auto {
         return countVendite;
     }
 
-    public int acquisti () {
+    public int acquisti() {
         int countAcquisti = 0;
         for (AcquistoRifornitore acquisti : acquistoRifornitoreSet) {
             countAcquisti = acquisti.getQuantita() + countAcquisti;
@@ -75,36 +73,9 @@ public class Auto {
         return countAcquisti;
     }
 
-    public int magazzino () {
+    public int magazzino() {
         return acquisti() - vendite();
     }
-
-
-    //metodo per lo switch case
-    /* public String getListStatus() {
-         int status = 0;
-         Objects.requireNonNull(status);
-         String result = null;
-         switch (status){
-             case 1 :
-                 if (magazzino() <= 0) {
-                     result = "table-danger";
-                     break;
-                 }
-             case 2 :
-                 if (magazzino() >= 1 && magazzino() <= 3) {
-                     result = "table-warning";
-                     break;
-                 }
-             case 3 :
-                 if (magazzino() >= 3) {
-                     result = "table-success";
-                     break;
-                 }
-         }
-         return result;
-     }
-     */
 
     public Integer getId() {
         return id;
