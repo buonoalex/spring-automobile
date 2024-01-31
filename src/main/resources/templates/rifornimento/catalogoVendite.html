@@ -9,18 +9,18 @@
         <h1 class="text-center">Vendite</h1>
         <thead>
         <tr>
-            <th class="col-1 text-start">Id</th>
-            <th class="col-2 text-start">Name</th>
-            <th class="col-5 text-start">Descrizione</th>
-            <th class="col-2">Auto</th>
+            <th class="col-1 text-center">Id</th>
+            <th class="col-2 text-center">Data</th>
+            <th class="col-2 text-center">Quantità</th>
+            <th class="col-2 text-center">Auto</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="vendite : ${acquistoClienteList}">
-            <th th:text="${vendite.id}" class=" text-start"></th>
-            <td th:text="${vendite.data}" class=" text-start"></td>
-            <td th:text="${vendite.quantita}" class=" text-start"></td>
-            <td th:text="${vendite.getAuto().getName()}" class=" text-start"></td>
+            <th th:text="${vendite.id}" class=" text-center"></th>
+            <td th:text="${vendite.data}" class=" text-center"></td>
+            <td th:text="${vendite.quantita}" class=" text-center"></td>
+            <td th:text="${vendite.getAuto().getName()}" class=" text-center"></td>
         </tr>
         </tbody>
         <hr>

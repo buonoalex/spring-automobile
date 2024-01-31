@@ -9,20 +9,20 @@
     <h1 class="text-center">Parco Auto Amministrazione</h1>
     <thead>
     <tr>
-        <th class="col-1 text-start">Id</th>
-        <th class="col-2 text-start">Name</th>
-        <th class="col-1 text-start">Auto Type</th>
-        <th class="col-2 text-start">Price</th>
-        <th class="col-2"></th>
-        <th class="col-2"></th>
+        <th class="col-1 text-center">Id</th>
+        <th class="col-2 text-center">Name</th>
+        <th class="col-1 text-center">Auto Type</th>
+        <th class="col-2 text-center">Price</th>
+        <th class="col-2 text-center"></th>
+        <th class="col-2 text-center"></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="auto : ${listaAuto}">
-        <th th:text="${auto.id}" class=" text-start"></th>
-        <td th:text="${auto.name}" class=" text-start"></td>
-        <td th:text="${auto.autoType.name}" class=" text-start"></td>
-        <td th:text="${auto.getFormattedPrice() + ' €'}" class=" text-start"></td>
+        <th th:text="${auto.id}" class=" text-center"></th>
+        <td th:text="${auto.name}" class=" text-center"></td>
+        <td th:text="${auto.autoType.name}" class=" text-center"></td>
+        <td th:text="${auto.getFormattedPrice() + ' €'}" class=" text-center"></td>
         <td><a th:href=@{/auto/edit/{id}(id=${auto.id})} class="btn btn-primary btn-sm">Modifica</a></td>
         <td><form th:action="@{/auto/admin/delete/{id}(id=${auto.id})}"
               method="post"

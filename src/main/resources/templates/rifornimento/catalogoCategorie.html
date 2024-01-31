@@ -9,18 +9,18 @@
         <h1 class="text-center">Parco Categorie Amministrazione</h1>
         <thead>
         <tr>
-            <th class="col-1 text-start">Id</th>
-            <th class="col-2 text-start">Name</th>
-            <th class="col-5 text-start">Descrizione</th>
-            <th class="col-2"></th>
-            <th class="col-2"></th>
+            <th class="col-1 text-center">Id</th>
+            <th class="col-2 text-center">Name</th>
+            <th class="col-5 text-center">Descrizione</th>
+            <th class="col-2 text-center"></th>
+            <th class="col-2 text-center"></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="type : ${autoTypeList}">
-            <th th:text="${type.id}" class=" text-start"></th>
-            <td th:text="${type.name}" class=" text-start"></td>
-            <td th:text="${type.descrizione}" class=" text-start"></td>
+            <th th:text="${type.id}" class=" text-center"></th>
+            <td th:text="${type.name}" class=" text-center"></td>
+            <td th:text="${type.descrizione}" class=" text-center"></td>
             <td class="text-center"><a th:href=@{/admin/autoType/edit/{id}(id=${type.id})} class="btn btn-primary btn-sm">Modifica</a></td>
             <td class="text-center"><form th:action="@{/admin/autoType/delete/{id}(id=${type.id})}"
                       method="post"
