@@ -20,7 +20,7 @@
                     <h5 th:text="${auto.name}" class="card-title text-center color-price-name"></h5>
                     <p th:text="${auto.getFormattedPrice()} + €" class="fw-bold card-text text-center color-price-name"></p>
                     <div class="d-grid gap-2">
-                    <a th:href=@{/auto/show/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
+                    <a th:href=@{/acquistoCliente/create/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
                         <a th:href="@{/auto/show/{id}(id=${auto.id})}" class="btn btn-outline-warning text-dark btn-sm">Dettagli</a>
                     </div>
                 </div>
