@@ -48,6 +48,16 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-4 ms-5">
+                    <label class="form-label" for="logo">Logo</label>
+                    <input class="form-control" type="text" id="logo" th:field="*{logo}"
+                           th:errorClass="is-invalid">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('logo')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('logo')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="col-5">
                     <p>Auto Type:</p>
                     <select th:field="*{autoType}">
