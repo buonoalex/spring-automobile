@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 @Entity
@@ -84,5 +85,17 @@ public class AcquistoRifornitore {
 
     public void setAuto(Auto auto) {
         this.auto = auto;
+    }
+
+    public String getFormattedPrice() {
+        BigDecimal numero = new BigDecimal(String.valueOf(price));
+
+        // Creazione di un oggetto DecimalFormat
+        DecimalFormat formato = new DecimalFormat("#,###.00");
+
+        // Formattazione del BigDecimal
+        String numeroFormattato = formato.format(numero);
+
+        return numeroFormattato;
     }
 }
