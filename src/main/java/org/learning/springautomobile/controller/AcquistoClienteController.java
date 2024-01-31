@@ -59,7 +59,7 @@ public class AcquistoClienteController {
             model.addAttribute("auto", fornAcquistoCliente.getAuto());
             return "acquisto/formAcquisto";
         } else {
-            redirectAttributes.addFlashAttribute("message", "l'acuisto è avvenuto con successo:" + fornAcquistoCliente.getAuto().totalePrezzoUtente());
+            redirectAttributes.addFlashAttribute("message", "l'acuisto è avvenuto con successo: " + fornAcquistoCliente.getAuto().totalePrezzoUtente() + "€");
             AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
             return "redirect:/";
         }

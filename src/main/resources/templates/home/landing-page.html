@@ -8,6 +8,18 @@
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <main class="span.animated">
+    <div th:if="${message !=null}" aria-live="polite" aria-atomic="true"
+         class="bg-body-secondary  bd-example-toasts rounded-3">
+        <div class="toast-container p-3 bottom-0 start-50 translate-middle-x" id="toastPlacement"
+             data-original-class="toast-container p-3">
+            <div class="toast fade show">
+                <div class="toast-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-header" th:text="${message}"></div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid bg-light">
         <div class="row">
             <h1 class="text-center mt-3 mb-3 animated tada"
@@ -45,72 +57,82 @@
             </div>
 
 
-                <h1 class="text-center mt-5 mb-5"
-                    style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- AutoJaita
-                    la
-                    Concessionaria del futuro -</strong></h1>
-                <div class=" mt-5  bg-image bg-landing">
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Chi Siamo?
-                    </button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Chi Siamo?</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
-                                    Siamo più di un concessionario, siamo una comunità appassionata di esperti automobilistici dedicati
-                                    a fornire un servizio straordinario e veicoli di alta qualità.
-                                    La nostra missione è superare le aspettative dei nostri clienti, mettendo a disposizione un'ampia
-                                    gamma di auto
-                                    che rispecchiano l'eccellenza del design, dell'innovazione e delle prestazioni. La nostra squadra di
-                                    professionisti
-                                    è qui per guidarti in ogni passo del processo di selezione dell'auto perfetta per le tue esigenze.
-                                    Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su trasparenza, affidabilità e
-                                    dedizione. Con AutoJaita,
-                                    non stai solo acquistando un'auto; stai diventando parte di una storia di successo che si tramanda
-                                    da generazioni.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
+            <h1 class="text-center mt-5 mb-5"
+                style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- AutoJaita
+                la
+                Concessionaria del futuro -</strong></h1>
+            <div class=" mt-5  bg-image bg-landing">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Chi Siamo?
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Chi Siamo?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
+                                Siamo più di un concessionario, siamo una comunità appassionata di esperti
+                                automobilistici dedicati
+                                a fornire un servizio straordinario e veicoli di alta qualità.
+                                La nostra missione è superare le aspettative dei nostri clienti, mettendo a disposizione
+                                un'ampia
+                                gamma di auto
+                                che rispecchiano l'eccellenza del design, dell'innovazione e delle prestazioni. La
+                                nostra squadra di
+                                professionisti
+                                è qui per guidarti in ogni passo del processo di selezione dell'auto perfetta per le tue
+                                esigenze.
+                                Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su trasparenza,
+                                affidabilità e
+                                dedizione. Con AutoJaita,
+                                non stai solo acquistando un'auto; stai diventando parte di una storia di successo che
+                                si tramanda
+                                da generazioni.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                        Perchè Scegliere AutoJaita?
-                    </button>
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel1">Perchè Scegliere AutoJaita?</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Scegliere AutoJaita significa immergersi in un universo automobilistico di
-                                    classe e convenienza.
-                                    Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di guida senza
-                                    eguali.
-                                    Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi gli
-                                    standard più elevati.
-                                    Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si fondono in
-                                    un'offerta unica,
-                                    plasmata per soddisfare le tue esigenze automobilistiche.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    Perchè Scegliere AutoJaita?
+                </button>
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel1">Perchè Scegliere AutoJaita?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Scegliere AutoJaita significa immergersi in un universo automobilistico di
+                                classe e convenienza.
+                                Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di
+                                guida senza
+                                eguali.
+                                Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi
+                                gli
+                                standard più elevati.
+                                Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si
+                                fondono in
+                                un'offerta unica,
+                                plasmata per soddisfare le tue esigenze automobilistiche.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
-
-
-
+                </div>
             </div>
         </div>
         <div class="container-fluid pb-5 pt-5 bg-light">
@@ -245,7 +267,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
 </main>
 <footer th:replace="fragments/resources :: footer"></footer>
 <th:block th:replace="fragments/resources :: script"></th:block>

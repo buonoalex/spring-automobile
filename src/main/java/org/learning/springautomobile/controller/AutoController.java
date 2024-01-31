@@ -18,7 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/auto")
@@ -39,9 +38,9 @@ public class AutoController {
 
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
-    public String index(@RequestParam(name = "Keyword", required = false)String searchKeyword, Model model) {
+    public String index(@RequestParam(name = "Keyword", required = false) String searchKeyword, Model model) {
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
-        model.addAttribute("autoTypeList",autoTypeList);
+        model.addAttribute("autoTypeList", autoTypeList);
         List<Auto> listaAuto;
         //Creare una search con una parola chiave
         if (searchKeyword != null) {
@@ -60,29 +59,31 @@ public class AutoController {
     }
 
     @GetMapping("/{id}")
-    public String autoTypeShow(@PathVariable int id,Model model){
+    public String autoTypeShow(@PathVariable int id, Model model) {
         //Prendo oggetto autotype selezionato nel filtro
         Optional<AutoType> autoTypeRecovery = autoTypeRepository.findById(id);
         AutoType autoType = autoTypeRecovery.get();
         //Autotype per vedere le categorie sulla Nav-Bar
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
-        model.addAttribute("autoTypeList",autoTypeList);
+        model.addAttribute("autoTypeList", autoTypeList);
         //Logica Filtro per Autotype
         List<Auto> listaAuto = autoType.getAutoList();
-        model.addAttribute("listaAuto",listaAuto);
+        model.addAttribute("listaAuto", listaAuto);
         return "automobili/list";
     }
 
-    @GetMapping("/marca/{logo}")
+    /*@GetMapping("/marca/{logo}")
     public String marcaCerca(@PathVariable String logo,Model model){
         List<Auto> listaAuto = autoRepository.findByLogo(logo);
         model.addAttribute("listaAuto",listaAuto);
         return "automobili/list";
     }
 
+     */
+
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")
-    public String show (@PathVariable Integer id, Model model) {
+    public String show(@PathVariable Integer id, Model model) {
         // nel corpo del metodo ho l'id dell'auto da cercare
         Optional<Auto> result = autoRepository.findById(id);
         // verifico se l'auto è stata trovata
@@ -151,7 +152,7 @@ public class AutoController {
     public String update(@PathVariable Integer id, @Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult) {
         Optional<Auto> result = autoRepository.findById(id);
         if (result.isPresent()) {
-           // Auto autoToEdit = result.get();
+            // Auto autoToEdit = result.get();
             // valido i dati dell'auto
             if (bindingResult.hasErrors()) {
                 return "automobili/edit";
@@ -169,7 +170,7 @@ public class AutoController {
     @PostMapping("/admin/delete/{id}")
     public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         // verifico se l'auto è presente su db
-        Optional<Auto> result =autoRepository.findById(id);
+        Optional<Auto> result = autoRepository.findById(id);
         if (result.isPresent()) {
             // se c'è lo cancello
             autoRepository.deleteById(id);
