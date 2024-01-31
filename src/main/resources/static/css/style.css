@@ -59,3 +59,7 @@ animation-iteration-count: infinite;
 .margin-foto{
 margin-top: 4rem;
 }
+
+.padding-tb{;
+padding-bottom: 50px;
+}
