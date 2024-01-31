@@ -15,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.management.RuntimeErrorException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/")
@@ -50,6 +47,14 @@ public class HomeController {
             model.addAttribute("autoList",b);
             //Fine Logica Bonus
         }
+        //Logica logo
+        List<Auto> autoListLogo = autoRepository.findAll();
+        Set<String> logoList = new HashSet<>();
+        for (Auto auto: autoListLogo){
+            logoList.add(auto.getLogo());
+        }
+        model.addAttribute("logoList",logoList);
+        //Fine logica logo
 
         return "home/landing-page";
     }
