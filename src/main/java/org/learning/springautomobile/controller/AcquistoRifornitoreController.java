@@ -32,7 +32,6 @@ public class AcquistoRifornitoreController {
     @Autowired
     private AcquistoClienteRepository acquistoClienteRepository;
 
-
     @Autowired
     private AutoRepository autoRepository;
 
