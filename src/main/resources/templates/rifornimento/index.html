@@ -22,21 +22,17 @@
         </tr>
         </thead>
         <tbody>
-        <!-- <td th:text="${rifo.getAuto().magazzino()}" class="text-center" th:switch="${rifo.getAuto().getListStatus()}">
-                <span th:case="1"></span>
-                <span th:case="2"></span>
-                <span th:case="3"></span>
-                 -->
+
         <tr th:each="rifo : ${rifornimentoList}"
             th:classappend="|${rifo.getAuto().magazzino() <= 0 ? 'table-danger' : ''}
-            ${rifo.getAuto().magazzino() == 1 ? 'table-warning' : ''}
-            ${rifo.getAuto().magazzino() > 1 ? 'table-success' : ''}|"
+            ${rifo.getAuto().magazzino() >= 1 && rifo.getAuto().magazzino() < 3 ? 'table-warning' : ''}
+            ${rifo.getAuto().magazzino() >= 3 ? 'table-success' : ''}|"
         >
 
             <th th:text="${rifo.id}" class="text-center"></th>
             <td th:text="${rifo.data}" class="text-center"></td>
             <td th:text="${rifo.nomeFornitore}" class="text-center"></td>
-            <td th:text="${rifo.getAuto().getFormattedPrice() + ' €'}" class="text-center"></td>
+            <td th:text="${rifo.getFormattedPrice() + ' €'}" class="text-center"></td>
             <td th:text="${rifo.getAuto().getName()}" th:if="${rifo.getAuto() != null}" class="text-center"></td>
             <td th:text="${rifo.quantita}" class="text-center"></td>
             <td th:text="${rifo.getAuto().acquisti()}" class="text-center"></td>
@@ -48,9 +44,11 @@
     </table>
     <div class="row justify-content-center mt-2 mb-3">
         <div class="col-12 text-center">
-            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/create}">Aggiungi rifornimento</a>
+            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/create}">Aggiungi
+                rifornimento</a>
             <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo Categorie</a>
-            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo Auto</a>
+            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo
+                Auto</a>
             <a class="btn btn-primary btn-sm" th:href="@{/}">Back Home</a>
         </div>
     </div>

@@ -84,7 +84,6 @@ public class AcquistoRifornitoreController {
             for (FieldError error : bindingResult.getFieldErrors()) {
                 System.out.println(error.getField() + ": " + error.getDefaultMessage());
             }
-
             return "rifornimento/create";
         }else {
             acquistoRifornitoreRepository.save(formAcquistoRifornitore);
