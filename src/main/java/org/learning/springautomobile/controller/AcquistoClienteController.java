@@ -45,6 +45,7 @@ public class AcquistoClienteController {
             AcquistoCliente acquistoCliente = new AcquistoCliente();
             acquistoCliente.setData(LocalDate.now());
             acquistoCliente.setAuto(autoRecovery.get());
+            model.addAttribute("acquistoCliente",acquistoCliente);
         }else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"l'auto con id "+id+" non esiste");
         }
