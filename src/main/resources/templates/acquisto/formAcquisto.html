@@ -6,6 +6,11 @@
 <main>
     <div class="container w-50 card mt-5 mb-5 pb-3">
         <div class="row">
+            <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                <div th:text="${message}"></div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+            <div class="col-12 text-center">
             <div class="col-12 text-center" style="padding: 0%">
                 <a th:href="@{/auto}">
                     <img class="img-fluid shadow-lg" th:src="@{${auto.foto}}" style="transition: transform 0.3s; width: 100%; height: 350px;"

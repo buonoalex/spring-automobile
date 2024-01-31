@@ -77,6 +77,12 @@ public class Auto {
         return acquisti() - vendite();
     }
 
+    public BigDecimal totalePrezzoUtente() {
+        BigDecimal prezzoFinale = new BigDecimal(vendite()).multiply(price);
+        return prezzoFinale;
+    }
+
+
     public Integer getId() {
         return id;
     }

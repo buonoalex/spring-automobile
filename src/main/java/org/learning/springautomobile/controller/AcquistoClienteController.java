@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -36,34 +37,34 @@ public class AcquistoClienteController {
     public String index(@PathVariable int id, Model model) {
         //autoType list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
-        model.addAttribute("autoTypeList",autoTypeList);
+        model.addAttribute("autoTypeList", autoTypeList);
         //auto da inserire
         Optional<Auto> autoRecovery = autoRepository.findById(id);
-        if (autoRecovery.isPresent()){
-            model.addAttribute("auto",autoRecovery.get());
+        if (autoRecovery.isPresent()) {
+            model.addAttribute("auto", autoRecovery.get());
             //creare una nuova instanza dim AcquistoCliente
             AcquistoCliente acquistoCliente = new AcquistoCliente();
             acquistoCliente.setData(LocalDate.now());
             acquistoCliente.setAuto(autoRecovery.get());
-            model.addAttribute("acquistoCliente",acquistoCliente);
-        }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"l'auto con id "+id+" non esiste");
+            model.addAttribute("acquistoCliente", acquistoCliente);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "l'auto con id " + id + " non esiste");
         }
         return "acquisto/formAcquisto";
     }
 
     @PostMapping("/create")
-    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente, Model model, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente, Model model, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
             model.addAttribute("auto", fornAcquistoCliente.getAuto());
             return "acquisto/formAcquisto";
-        } else{
-           AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
-           return "redirect:/";
+        } else {
+            redirectAttributes.addFlashAttribute("message", "l'acuisto è avvenuto con successo:" + fornAcquistoCliente.getAuto().totalePrezzoUtente());
+            AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
+            return "redirect:/";
         }
 
     }
-
 
 
 }
