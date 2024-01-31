@@ -43,6 +43,8 @@ public class AcquistoClienteController {
             model.addAttribute("auto",autoRecovery.get());
             //creare una nuova instanza dim AcquistoCliente
             AcquistoCliente acquistoCliente = new AcquistoCliente();
+            acquistoCliente.setData(LocalDate.now());
+            acquistoCliente.setAuto(autoRecovery.get());
             model.addAttribute("acquistoCliente",acquistoCliente);
         }else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"l'auto con id "+id+" non esiste");
@@ -50,15 +52,12 @@ public class AcquistoClienteController {
         return "acquisto/formAcquisto";
     }
 
-    @PostMapping("/create/{id}")
+    @PostMapping("/create")
     public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente, Model model, BindingResult bindingResult){
-        fornAcquistoCliente.setData(LocalDate.now());
         if (bindingResult.hasErrors()){
             model.addAttribute("auto", fornAcquistoCliente.getAuto());
             return "acquisto/formAcquisto";
         } else{
-
-            fornAcquistoCliente.setAuto(fornAcquistoCliente.getAuto());
            AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
            return "redirect:/";
         }
