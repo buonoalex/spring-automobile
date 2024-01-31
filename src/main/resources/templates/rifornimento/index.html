@@ -4,7 +4,7 @@
 <body>
 <header th:replace="fragments/resources :: header"></header>
 <div class="container mt-5 mb-5 card">
-    <h1>Rifornimento</h1>
+    <h1 class="text-center">Rifornimento</h1>
     <hr>
     <div class="alert alert-info" th:if="${rifornimentoList.size() == 0}">Non ci sono rifornimenti presenti</div>
     <table class="table" th:unless="${rifornimentoList.size() == 0}">
@@ -46,10 +46,6 @@
         <div class="col-12 text-center">
             <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/create}">Aggiungi
                 rifornimento</a>
-            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo Categorie</a>
-            <a class="btn btn-primary btn-sm pr-3" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo
-                Auto</a>
-            <a class="btn btn-primary btn-sm" th:href="@{/}">Back Home</a>
         </div>
     </div>
 

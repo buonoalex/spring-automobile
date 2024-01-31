@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/resources :: head('Vendite')"></head>
+<body>
+<header th:replace="fragments/resources :: header"></header>
+<div class="container mt-5 mb-5 card">
+    <div class="alert alert-info" th:if="${acquistoClienteList.size() == 0}">Non ci sono Categorie presenti</div>
+    <table class="table" th:unless="${acquistoClienteList.size() == 0}">
+        <h1 class="text-center">Vendite</h1>
+        <thead>
+        <tr>
+            <th class="col-1 text-start">Id</th>
+            <th class="col-2 text-start">Name</th>
+            <th class="col-5 text-start">Descrizione</th>
+            <th class="col-2">Auto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vendite : ${acquistoClienteList}">
+            <th th:text="${vendite.id}" class=" text-start"></th>
+            <td th:text="${vendite.data}" class=" text-start"></td>
+            <td th:text="${vendite.quantita}" class=" text-start"></td>
+            <td th:text="${vendite.getAuto().getName()}" class=" text-start"></td>
+        </tr>
+        </tbody>
+        <hr>
+    </table>
+</div>
+<footer th:replace="fragments/resources :: footer"></footer>
+<th:block th:replace="fragments/resources :: script"></th:block>
+</body>
+</html>

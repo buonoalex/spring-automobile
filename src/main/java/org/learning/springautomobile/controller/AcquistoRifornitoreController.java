@@ -90,4 +90,15 @@ public class AcquistoRifornitoreController {
             return "redirect:/admin/acquistoRifornitore";
         }
     }
+
+    @GetMapping("/catalogoVendite")
+    public String catalogoVendite(Model model){
+        //autotype list
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList",autoTypeList);
+        //acquisti fatti
+        List<AcquistoCliente> acquistoClienteList = acquistoClienteRepository.findAll();
+        model.addAttribute("acquistoClienteList",acquistoClienteList);
+        return "rifornimento/catalogoVendite";
+    }
 }
