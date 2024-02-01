@@ -41,3 +41,20 @@ INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(1, '2024-01-29', 
 INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(7, '2024-01-29', 3);
 INSERT INTO acquisto_cliente (auto_id, `data`,quantita) VALUES(9, '2024-01-29', 18);
 
+-- INSERT ROLE
+INSERT INTO `role` (name) VALUES('ADMIN');
+INSERT INTO `role` (name) VALUES('USER');
+
+-- INSERT USER
+INSERT INTO auto_user (password, username) VALUES('Alfredo', '{noop}Alfredo');
+INSERT INTO auto_user (password, username) VALUES('Alessandro', '{noop}Alessandro');
+INSERT INTO auto_user (password, username) VALUES('Marco', '{noop}Marco');
+INSERT INTO auto_user (password, username) VALUES('Ganni', '{noop}Ganni');
+
+-- INSERT SET-ROLE
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(1, 'ADMIN');
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(1, 'USER');
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(2, 'ADMIN');
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(2, 'USER');
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(3, 'USER');
+INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(4, 'USER');
