@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments/resources :: head('Auto Details')"></head>
-<body>
+<body class="bg-light">
 <header th:replace="fragments/resources :: header"></header>
 <main>
-<div class="container">
-    <div class="row">
-    <div class="col-4">
-        <a th:href="@{/auto}">
-        <img class="img-fluid shadow-lg" th:src="@{${auto.foto}}" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.090)'" onmouseout="this.style.transform='scale(1)'" alt="foto">
-        </a>
+    <div class="container mt-5 mb-5">
+        <div class="card bg-light">
+            <div class="row no-gutters">
+                <div class="col-4">
+                    <a th:href="@{/auto}">
+                        <img class="img-fluid shadow-lg border border-dark" th:src="@{${auto.foto}}" style="transition: transform 0.3s;"
+                             onmouseover="this.style.transform='scale(1.090)'"
+                             onmouseout="this.style.transform='scale(1)'" alt="foto">
+                    </a>
+                </div>
+                <div class="col-4 text-start align-self-center">
+                    <h3 class="mt-2 fw-bold text-warning text-center" th:text="${auto.name}"></h3>
+                    <h5 class="text-center" th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
+                    <p th:text="${auto.description}"></p>
+                    <h5 class="text-center">Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
+
+                </div>
+                <div class="col-4 text-start align-self-center border-start">
+                    <h5 class="font-fre pt-2"><span class="fas">&#xf126; </span> Tipo di cambio: <span class="fw-normal fs-6" th:text="${auto.cambio}"></span></h5>
+                    <h5 class="font-fre pt-2"><span class="fas">&#xf1b9; </span> Anno Immatricolazione: <span class="fw-normal fs-6" th:text="${auto.anno}"></span></h5>
+                    <h5 class="font-fre pt-2"><span class="fas">&#xf52f; </span> Tipo di carburante: <span class="fw-normal fs-6" th:text="${auto.carburante}"></span></h5>
+                    <h5 class="font-fre pt-2"><span class="fas">&#xf5df; </span> Km/l: <span class="fw-normal fs-6" th:text="${auto.kmL}"></span></h5>
+                    <h5 class="font-fre pt-2"><span class="fas">&#xf3fd; </span> Potenza: <span class="fw-normal fs-6" th:text="${auto.cavalli} + ' cv'"></span></h5>
+                </div>
+            </div>
+        </div>
+        <div class="text-center col-12 pt-3">
+            <a th:href="@{/acquistoCliente/create/{id}(id=${auto.id})}" class="btn btn-outline-warning ">Acquista</a>
+            <a th:href=@{/auto} class="ms-2 btn btn-outline-dark ">Indietro</a>
+        </div>
     </div>
-    <div class="col-4 text-start">
-        <h3 class="mt-2 fw-bold text-warning" th:text="${auto.name}"></h3>
-        <h5 th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
-        <p  th:text="${auto.description}"></p>
-        <h5>Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
-            <a th:href="@{/acquistoCliente/create/{id}(id=${auto.id})}" class="btn btn-outline-warning btn-sm">Acquista</a>
-            <a class="ms-2"><a th:href=@{/auto} class="btn btn-outline-dark btn-sm">Indietro</a></a>
-    </div>
-        <div class="col-4 text-center">
-    </div>
-    </div>
-</div>
+
 </main>
 <footer th:replace="fragments/resources :: footer"></footer>
 <th:block th:replace="fragments/resources :: script"></th:block>
