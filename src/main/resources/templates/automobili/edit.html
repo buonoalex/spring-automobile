@@ -70,6 +70,56 @@
             </div>
         </div>
         <div class="col-4">
+            <label class="form-label" for="cambio">Cambio</label>
+            <input class="form-control" type="text" id="cambio" th:field="*{cambio}"
+                   th:errorClass="is-invalid">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('cambio')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('cambio')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4 ms-5">
+            <label class="form-label" for="anno">Anno</label>
+            <input class="form-control" type="number" id="anno" th:field="*{anno}"
+                   th:errorClass="is-invalid">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('anno')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('anno')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4">
+            <label class="form-label" for="carburante">Carburante</label>
+            <input class="form-control" type="text" id="carburante" th:field="*{carburante}"
+                   th:errorClass="is-invalid">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('carburante')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('carburante')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4 ms-5">
+            <label class="form-label" for="KmL">Km/l</label>
+            <input class="form-control" type="number" id="KmL" th:field="*{KmL}"
+                   th:errorClass="is-invalid">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('KmL')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('KmL')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
+            <label class="form-label" for="cavalli">Cavalli</label>
+            <input class="form-control" type="number" id="cavalli" th:field="*{cavalli}"
+                   th:errorClass="is-invalid">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('cavalli')}">
+                <ul>
+                    <li th:each="err : ${#fields.errors('cavalli')}" th:text="${err}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
             <p>Auto Type:</p>
             <select th:field="*{autoType}">
                 <option th:each="auto : ${autoTypeList}"  th:value="${auto.id}" th:text="${auto.name}"></option>
