@@ -11,7 +11,7 @@
                 method="post"
                 th:object="${auto}"
                 th:action="@{/auto/admin/create}"
-                class="row text-center d-flex justify-content-center gy-3">
+                class="row text-center d-flex justify-content-center gy-4">
 
             <div class="col-8 ms-5">
                 <label class="form-label" for="foto">Foto</label>
@@ -70,8 +70,11 @@
                 </div>
                 <div class="col-4">
                     <label class="form-label" for="cambio">Cambio</label>
-                    <input class="form-control" type="text" id="cambio" th:field="*{cambio}"
-                           th:errorClass="is-invalid">
+                    <select class="form-select" aria-label="Default select example" id="cambio" th:field="*{cambio}">
+                        <option value="" selected>Seleziona Cambio</option>
+                        <option value="Manuale">Manuale</option>
+                        <option value="Automatico">Automatico</option>
+                    </select>
                     <div class="invalid-feedback" th:if="${#fields.hasErrors('cambio')}">
                         <ul>
                             <li th:each="err : ${#fields.errors('cambio')}" th:text="${err}"></li>
@@ -90,8 +93,12 @@
             </div>
             <div class="col-4">
                 <label class="form-label" for="carburante">Carburante</label>
-                <input class="form-control" type="text" id="carburante" th:field="*{carburante}"
-                       th:errorClass="is-invalid">
+                <select class="form-select" aria-label="Default select example" id="carburante" th:field="*{carburante}">
+                    <option value="" selected>Seleziona Carburante</option>
+                    <option value="Ibrido">Ibrido</option>
+                    <option value="Benzina">Benzina</option>
+                    <option value="Diesel">Diesel</option>
+                </select>
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('carburante')}">
                     <ul>
                         <li th:each="err : ${#fields.errors('carburante')}" th:text="${err}"></li>

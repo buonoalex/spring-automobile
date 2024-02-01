@@ -31,18 +31,27 @@ public class Auto {
     @Min(1)
     private BigDecimal price;
 
+    @NotEmpty
     private String logo;
 
+    @NotEmpty
     private String marca;
 
+    @NotEmpty
     private String cambio;
 
+    @Min(0)
     private int anno;
 
+    @NotEmpty(message = "seleziona un tipo di carburante")
     private String carburante;
 
+    @NotNull
+    @Min(0)
     private int kmL;
 
+    @NotNull
+    @Min(0)
     private int cavalli;
 
     @ManyToOne
