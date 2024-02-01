@@ -82,6 +82,9 @@ public class AutoController {
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")
     public String show(@PathVariable Integer id, Model model) {
+        //autotype List
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList", autoTypeList);
         // nel corpo del metodo ho l'id dell'auto da cercare
         Optional<Auto> result = autoRepository.findById(id);
         // verifico se l'auto è stata trovata

@@ -69,6 +69,9 @@ public class AcquistoClienteController {
 
     @GetMapping("/resoconto/{id}")
     public String resocontoAcquisto(@PathVariable int id, Model model){
+        //autoType list
+        List<AutoType> autoTypeList = autoTypeRepository.findAll();
+        model.addAttribute("autoTypeList", autoTypeList);
         Optional<AcquistoCliente> acquistoCliente = acquistoClienteRepository.findById(id);
         if (acquistoCliente.isPresent()){
             String totaleUtente = acquistoCliente.get().getAuto().totalePrezzoUtente(acquistoCliente.get().getQuantita());
