@@ -98,8 +98,8 @@ public class Auto {
         return acquisti() - vendite();
     }
 
-    public String totalePrezzoUtente() {
-        BigDecimal prezzoFinale = new BigDecimal(vendite()).multiply(price);
+    public String totalePrezzoUtente(int quantita) {
+        BigDecimal prezzoFinale = new BigDecimal(quantita).multiply(price);
         BigDecimal numero = new BigDecimal(String.valueOf(prezzoFinale));
 
         // Creazione di un oggetto DecimalFormat

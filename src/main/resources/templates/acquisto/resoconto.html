@@ -18,7 +18,7 @@
             <div class="col-6 text-center" th:text="|Carburante  : *{auto.carburante}|"></div>
             <div class="col-6 text-center" th:text="|Cavalli  : *{auto.cavalli} cv|"></div>
             <div class="col-6 text-center" th:text="|Km/l : *{auto.kmL}|"></div>
-            <div class="col-6 text-center">Totale acquisto: <span th:text="${acquistoCliente.getAuto().totalePrezzoUtente()}" class="text-warning"></span> €<span></span></div>
+            <div class="col-6 text-center">Totale acquisto: <span th:text="${totaleUtente}" class="text-warning"></span> €<span></span></div>
             <hr>
         </div>
         <div class="row justify-content-center mb-3">

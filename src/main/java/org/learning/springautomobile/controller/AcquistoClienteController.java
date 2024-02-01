@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -59,16 +60,20 @@ public class AcquistoClienteController {
             model.addAttribute("auto", fornAcquistoCliente.getAuto());
             return "acquisto/formAcquisto";
         } else {
-            //redirectAttributes.addFlashAttribute("message", "l'acquisto è avvenuto con successo: " + fornAcquistoCliente.getAuto().totalePrezzoUtente() + "€");
             AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
             redirectAttributes.addFlashAttribute("acquistoCliente",fornAcquistoCliente);
-            return "redirect:/acquistoCliente/resoconto";
+            return "redirect:/acquistoCliente/resoconto/"+ fornAcquistoCliente.getId();
         }
 
     }
 
-    @GetMapping("/resoconto")
-    public String resocontoAcquisto(Model model){
+    @GetMapping("/resoconto/{id}")
+    public String resocontoAcquisto(@PathVariable int id, Model model){
+        Optional<AcquistoCliente> acquistoCliente = acquistoClienteRepository.findById(id);
+        if (acquistoCliente.isPresent()){
+            String totaleUtente = acquistoCliente.get().getAuto().totalePrezzoUtente(acquistoCliente.get().getQuantita());
+            model.addAttribute("totaleUtente",totaleUtente);
+        }
         return "acquisto/resoconto";
     }
 
