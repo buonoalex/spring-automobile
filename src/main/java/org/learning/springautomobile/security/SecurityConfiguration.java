@@ -15,7 +15,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests()
-                .anyRequest().hasAnyAuthority("USER", "ADMIN")
+                .requestMatchers("/auto/admin/**").hasAuthority("ADMIN")
+                .requestMatchers("/auto").hasAnyAuthority("ADMIN", "USER")
+                .requestMatchers("/acquistoCliente").hasAnyAuthority("ADMIN", "USER")
+                .requestMatchers("/admin/autoType/**").hasAuthority("ADMIN")
+                .requestMatchers("/admin/acquistoRifornitore/**").hasAuthority("ADMIN")
+                .requestMatchers("/", "/**").permitAll()
                 .and().formLogin()
                 .and().logout()
                 .and().exceptionHandling();
