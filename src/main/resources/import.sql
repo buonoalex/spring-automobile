@@ -46,10 +46,10 @@ INSERT INTO `role` (name) VALUES('ADMIN');
 INSERT INTO `role` (name) VALUES('USER');
 
 -- INSERT USER
-INSERT INTO auto_user (password, username) VALUES('Alfredo', '{noop}Alfredo');
-INSERT INTO auto_user (password, username) VALUES('Alessandro', '{noop}Alessandro');
-INSERT INTO auto_user (password, username) VALUES('Marco', '{noop}Marco');
-INSERT INTO auto_user (password, username) VALUES('Ganni', '{noop}Ganni');
+INSERT INTO auto_user (password, username) VALUES('{noop}Alfredo', 'Alfredo');
+INSERT INTO auto_user (password, username) VALUES('{noop}Alessandro', 'Alessandro');
+INSERT INTO auto_user (password, username) VALUES('{noop}Marco', 'Marco');
+INSERT INTO auto_user (password, username) VALUES('{noop}Ganni', 'Ganni');
 
 -- INSERT SET-ROLE
 INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(1, 'ADMIN');
