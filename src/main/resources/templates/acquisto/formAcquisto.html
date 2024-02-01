@@ -5,7 +5,7 @@
 <header th:replace="fragments/resources :: header"></header>
 <main>
     <div class="container w-50 mt-5 mb-5 pb-3">
-        <div class="card pb-2 bg-light">
+        <div class="card border-light pb-4 bg-dark">
         <div class="row">
             <div class="col-12 text-center">
             <div class="col-12 text-center" style="padding: 0%">
@@ -17,13 +17,13 @@
             </div>
             <div class="col-12 text-center">
                 <h3 class="mt-2 card-title fw-bold text-warning" th:text="${auto.name}"></h3>
-                <h5 class="fw-bold" th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
-                <p class="text-center card-text" th:text="${auto.description}"></p>
+                <h5 class="fw-bold text-light" th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
+                <p class="text-center card-text text-light" th:text="${auto.description}"></p>
                 <h5>Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
                 <form th:action="@{/acquistoCliente/create}"
                 method="post" th:object="${acquistoCliente}">
-                    <label for="quantita" class="form-label">Quantità</label>
-                    <input class="form-input" type="number" id="quantita" th:field="*{quantita}">
+                    <label for="quantita" class="form-label text-light">Quantità</label>
+                    <input class="form-input border-light" type="number" id="quantita" th:field="*{quantita}">
                     <input type="hidden" th:field="*{data}">
                     <input type="hidden" th:field="*{auto}">
                     <button type="submit" class="btn btn-outline-warning btn-sm">Conferma Acquisto</button>

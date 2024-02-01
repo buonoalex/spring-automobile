@@ -69,3 +69,9 @@ padding-bottom: 50px;
 .font-fre{
 font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;
 }
+
+body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/autoo.jpg');
+}
