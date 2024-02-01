@@ -13,7 +13,7 @@
                 th:action="@{/auto/admin/create}"
                 class="row text-center d-flex justify-content-center gy-3">
 
-            <div class="col-8">
+            <div class="col-8 ms-5">
                 <label class="form-label" for="foto">Foto</label>
                 <input class="form-control" type="text" id="foto" th:field="*{foto}"
                        th:errorClass="is-invalid">
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-                <div class="col-8">
+                <div class="col-8 ms-5">
                     <label class="form-label" for="name">Name</label>
                     <input class="form-control" type="text" id="name" th:field="*{name}"
                            th:errorClass="is-invalid">
@@ -34,7 +34,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-8 ms-5">
                     <label for="description" class="form-label">Auto Description</label>
                     <textarea class="form-control" rows="10" id="description" th:field="*{description}"></textarea>
                 </div>
@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-4 ms-5">
+                <div class="col-4 ">
                     <label class="form-label" for="logo">Logo</label>
                     <input class="form-control" type="text" id="logo" th:field="*{logo}"
                            th:errorClass="is-invalid">
@@ -58,7 +58,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-5">
+                <div class="col-4 ms-5">
+                    <label class="form-label" for="marca">Marca</label>
+                    <input class="form-control" type="text" id="marca" th:field="*{marca}"
+                           th:errorClass="is-invalid">
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('marca')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('marca')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-4">
                     <p>Auto Type:</p>
                     <select th:field="*{autoType}">
                         <option th:each="auto : ${autoTypeList}"  th:value="${auto.id}" th:text="${auto.name}"></option>
@@ -66,8 +76,8 @@
                 </div>
 
             <div class="col-8 mt-5 mb-5">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a class="btn btn-primary" th:href="@{/auto}">Back Home</a>
+                <button type="submit" class="btn btn-primary">Aggiungi</button>
+                <a class="btn btn-primary" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Torna al Catalogo</a>
             </div>
         </form>
 </div>

@@ -13,4 +13,5 @@ public interface AutoRepository extends JpaRepository<Auto, Integer> {
 
     List<Auto> findByName(String searchName);
     List<Auto> findByLogo(String searchName);
+    List<Auto> findByMarca(String searchName);
 }

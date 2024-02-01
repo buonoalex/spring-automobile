@@ -72,14 +72,12 @@ public class AutoController {
         return "automobili/list";
     }
 
-    /*@GetMapping("/marca/{logo}")
-    public String marcaCerca(@PathVariable String logo,Model model){
-        List<Auto> listaAuto = autoRepository.findByLogo(logo);
+    @GetMapping("/concessionaria/{marca}")
+    public String marcaCerca(@PathVariable String marca,Model model){
+        List<Auto> listaAuto = autoRepository.findByMarca(marca);
         model.addAttribute("listaAuto",listaAuto);
         return "automobili/list";
     }
-
-     */
 
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")

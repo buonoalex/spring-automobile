@@ -6,7 +6,6 @@ import org.learning.springautomobile.model.AutoType;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.management.RuntimeErrorException;
 import java.util.*;
 
 @Controller
@@ -48,9 +46,17 @@ public class HomeController {
 
         //Logica logo
         List<Auto> autoListLogo = autoRepository.findAll();
-        Set<String> logoList = new HashSet<>();
-        for (Auto auto: autoListLogo){
-            logoList.add(auto.getLogo());
+        Set<Auto> logoList = new HashSet<>();
+        for (Auto auto1: autoListLogo){
+            Boolean check = false;
+            for (Auto auto2: autoListLogo){
+                if (auto1.equals(auto2) || !check){
+                    logoList.add(auto1);
+                    check = true;
+                }else {
+                    logoList.add(auto2);
+                }
+            }
         }
         model.addAttribute("logoList",logoList);
         //Fine logica logo

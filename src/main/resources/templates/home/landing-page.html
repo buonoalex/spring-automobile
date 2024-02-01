@@ -49,9 +49,9 @@
                     Concessionarie Ufficiali -</strong></h1>
             </div>
             <div class="row mt-5 mb-5 text-center">
-                <div class="col-3 mb-5 pb-5" th:each="logo : ${logoList}">
-                    <a th:href="@{/auto}">
-                        <img th:src="${logo}" style="height: 100px">
+                <div class="col-3 mb-5 pb-5" th:each="auto : ${logoList}">
+                    <a th:href="@{/auto/concessionaria/{marca}(marca=${auto.marca})}">
+                        <img th:src="${auto.logo}" style="height: 100px">
                     </a>
                 </div>
             </div>

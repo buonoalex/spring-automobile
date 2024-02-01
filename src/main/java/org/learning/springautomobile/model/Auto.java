@@ -33,6 +33,8 @@ public class Auto {
 
     private String logo;
 
+    private String marca;
+
     @ManyToOne
     private AutoType autoType;
 
@@ -166,4 +168,39 @@ public class Auto {
     public void setLogo(String logo) {
         this.logo = logo;
     }
-}
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    //Override
+        @Override
+        public boolean equals(Object obj) {
+            // Verifica se gli oggetti sono della stessa istanza
+            if (this == obj) {
+                return true;
+            }
+
+            // Verifica se l'oggetto passato è nullo o di una classe diversa
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+
+            // Effettua il casting dell'oggetto al tipo della tua classe
+            Auto altro = (Auto) obj;
+
+            // Confronta le marche
+            return marca != null ? marca.equals(altro.marca) : altro.marca == null;
+        }
+
+        // Il metodo hashCode dovrebbe essere sovrascritto quando si sovrascrive equals
+        @Override
+        public int hashCode() {
+            return marca != null ? marca.hashCode() : 0;
+        }
+
+    }
