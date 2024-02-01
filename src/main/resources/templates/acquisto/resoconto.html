@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/resources :: head('Resoconto Acquisto')"></head>
+<body>
+<header th:replace="fragments/resources :: header"></header>
+<main>
+    <div class="container card mt-5 mb-5" >
+        <h1 class="text-center pt-3">Resoconto Acquisto</h1>
+        <hr>
+        <div class="row justify-content-center gy-3" th:object="${acquistoCliente}">
+            <div class="col-6 text-center" th:text="|Acquistata il giorno : *{data}|" ></div>
+            <div class="col-6 text-center" th:text="|Auto acquistate : *{quantita}|"></div>
+            <div class="col-6 text-center" th:text="|Nome  : *{auto.name}|"></div>
+            <div class="col-6 text-center" th:text="|Marca  : *{auto.marca}|"></div>
+            <div class="col-6 text-center" th:text="|Categoria : *{auto.autoType.name}|"></div>
+            <div class="col-6 text-center" th:text="|Cambio  : *{auto.cambio}|"></div>
+            <div class="col-6 text-center" th:text="|Anno Immatricolazione : *{auto.anno}|"></div>
+            <div class="col-6 text-center" th:text="|Carburante  : *{auto.carburante}|"></div>
+            <div class="col-6 text-center" th:text="|Cavalli  : *{auto.cavalli} cv|"></div>
+            <div class="col-6 text-center" th:text="|Km/l : *{auto.kmL}|"></div>
+            <div class="col-6 text-center">Totale acquisto: <span th:text="${acquistoCliente.getAuto().totalePrezzoUtente()}" class="text-warning"></span> €<span></span></div>
+            <hr>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-6 text-end">
+                <a class="btn btn-primary" th:href="@{/auto}">Continua ad acquistare</a>
+            </div>
+            <div class="col-6 ">
+                <a class="btn btn-primary" th:href="@{/}">Torna alla home</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments/resources :: footer"></footer>
+<th:block th:replace="fragments/resources :: script"></th:block>
+</body>
+</html>

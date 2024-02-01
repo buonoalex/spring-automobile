@@ -57,7 +57,7 @@ public class Auto {
     @ManyToOne
     private AutoType autoType;
 
-    @OneToMany(mappedBy = "auto", orphanRemoval = true)
+    @OneToMany(mappedBy = "auto",orphanRemoval = true,fetch = FetchType.EAGER)
     private Set<AcquistoCliente> acquistoClienteSet = new HashSet<>();
 
     @OneToMany(mappedBy = "auto", orphanRemoval = true)
