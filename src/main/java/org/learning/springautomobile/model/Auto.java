@@ -89,9 +89,16 @@ public class Auto {
         return acquisti() - vendite();
     }
 
-    public BigDecimal totalePrezzoUtente() {
+    public String totalePrezzoUtente() {
         BigDecimal prezzoFinale = new BigDecimal(vendite()).multiply(price);
-        return prezzoFinale;
+        BigDecimal numero = new BigDecimal(String.valueOf(prezzoFinale));
+
+        // Creazione di un oggetto DecimalFormat
+        DecimalFormat formato = new DecimalFormat("#,###.00");
+
+        // Formattazione del BigDecimal
+        String numeroFormattato = formato.format(numero);
+        return numeroFormattato;
     }
 
 
@@ -228,29 +235,29 @@ public class Auto {
     }
 
     //Override
-        @Override
-        public boolean equals(Object obj) {
-            // Verifica se gli oggetti sono della stessa istanza
-            if (this == obj) {
-                return true;
-            }
-
-            // Verifica se l'oggetto passato è nullo o di una classe diversa
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-
-            // Effettua il casting dell'oggetto al tipo della tua classe
-            Auto altro = (Auto) obj;
-
-            // Confronta le marche
-            return marca != null ? marca.equals(altro.marca) : altro.marca == null;
+    @Override
+    public boolean equals(Object obj) {
+        // Verifica se gli oggetti sono della stessa istanza
+        if (this == obj) {
+            return true;
         }
 
-        // Il metodo hashCode dovrebbe essere sovrascritto quando si sovrascrive equals
-        @Override
-        public int hashCode() {
-            return marca != null ? marca.hashCode() : 0;
+        // Verifica se l'oggetto passato è nullo o di una classe diversa
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
         }
 
+        // Effettua il casting dell'oggetto al tipo della tua classe
+        Auto altro = (Auto) obj;
+
+        // Confronta le marche
+        return marca != null ? marca.equals(altro.marca) : altro.marca == null;
     }
+
+    // Il metodo hashCode dovrebbe essere sovrascritto quando si sovrascrive equals
+    @Override
+    public int hashCode() {
+        return marca != null ? marca.hashCode() : 0;
+    }
+
+}
