@@ -49,7 +49,7 @@ INSERT INTO `role` (name) VALUES('USER');
 INSERT INTO auto_user (password, username) VALUES('{noop}Alfredo', 'Alfredo');
 INSERT INTO auto_user (password, username) VALUES('{noop}Alessandro', 'Alessandro');
 INSERT INTO auto_user (password, username) VALUES('{noop}Marco', 'Marco');
-INSERT INTO auto_user (password, username) VALUES('{noop}Ganni', 'Ganni');
+INSERT INTO auto_user (password, username) VALUES('{noop}Gianni', 'Gianni');
 
 -- INSERT SET-ROLE
 INSERT INTO auto_user_role_set (auto_user_id, role_set_name) VALUES(1, 'ADMIN');
