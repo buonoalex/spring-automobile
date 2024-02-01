@@ -35,6 +35,16 @@ public class Auto {
 
     private String marca;
 
+    private String cambio;
+
+    private int anno;
+
+    private String carburante;
+
+    private int kmL;
+
+    private int cavalli;
+
     @ManyToOne
     private AutoType autoType;
 
@@ -175,6 +185,46 @@ public class Auto {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getCambio() {
+        return cambio;
+    }
+
+    public void setCambio(String cambio) {
+        this.cambio = cambio;
+    }
+
+    public int getAnno() {
+        return anno;
+    }
+
+    public void setAnno(int anno) {
+        this.anno = anno;
+    }
+
+    public String getCarburante() {
+        return carburante;
+    }
+
+    public void setCarburante(String carburante) {
+        this.carburante = carburante;
+    }
+
+    public int getKmL() {
+        return kmL;
+    }
+
+    public void setKmL(int kmL) {
+        this.kmL = kmL;
+    }
+
+    public int getCavalli() {
+        return cavalli;
+    }
+
+    public void setCavalli(int cavalli) {
+        this.cavalli = cavalli;
     }
 
     //Override
