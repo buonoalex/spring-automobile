@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface AutoTypeRepository extends JpaRepository<AutoType, Integer> {
-   /* List<AutoType> findByNameContaining(String searchName);*/
+    /* List<AutoType> findByNameContaining(String searchName);*/
+
+
 }

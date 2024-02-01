@@ -97,7 +97,6 @@ public class AutoTypeController {
         // SE ESISTE LO ELIMINO DAL DATABASE
         if (result.isPresent()) {
             autoTypeRepository.deleteById(id);
-            /*return "redirect:/autoType";*/
             return "redirect:/admin/acquistoRifornitore/catalogoCategorie";
         } else {
             // ALTRIMENTI SOLLEVO UN'ECCEZIONE HTTP 404
