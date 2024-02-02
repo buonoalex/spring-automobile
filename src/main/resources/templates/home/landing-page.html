@@ -20,9 +20,9 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-light">
+    <div class="container-fluid">
         <div class="row">
-            <h1 class="text-center mt-3 mb-3 animated tada"
+            <h1 class="text-center mt-3 mb-3 text-light animated tada"
                 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le Auto più
                 vendute -</strong></h1>
             <hr>
@@ -35,7 +35,7 @@
                         <img th:src="${auto.foto}" class="card-img border border-dark" alt="Image"
                              style="height: 15rem;">
                         <div class="card-img-overlay text-center">
-                            <h5 th:text="${auto.name}" class="card-title fs-1 text-center color-price-name margin-foto"
+                            <h5 th:text="${auto.name}" class="card-title fs-1 text-center text-warning margin-foto"
                                 style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.4)'"
                                 onmouseout="this.style.transform='scale(1)'"></h5>
                         </div>
@@ -44,8 +44,8 @@
             </div>
             <hr>
             <div class="row">
-                <h1 class="text-center mt-2 mb-2"
-                    style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>-
+                <h1 class="text-light text-center mt-2 mb-2"
+                    style=" font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>-
                     Concessionarie Ufficiali -</strong></h1>
             </div>
             <div class="row mt-5 pb-3 text-center">
@@ -56,67 +56,88 @@
                 </div>
             </div>
 
-            <h1 class="text-center mt-3 mb-5"
+            <h1 class="text-center text-light mt-3 mb-5"
                 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- AutoJaita
                 la
                 Concessionaria del futuro -</strong></h1>
             <div id="carouselExampleCaptions" class="carousel slide">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/esterno-07-1440x495.webp" style="width: 100%; height: 500px" class="d-block w-100" alt="...">
+                        <img src="/esterno-07-1440x495.webp" style="width: 100%; height: 500px" class="d-block w-100"
+                             alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="carousel-caption d-none d-md-block">
-                                <button type="button" class="btn btn-dark mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-dark mb-5" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
                                     Chi Siamo?
                                 </button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Chi Siamo?</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Chi
+                                                    Siamo?</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body text-dark">
-                                                Da decenni, AutoJaita è sinonimo di eccellenza nel mondo automobilistico.
-                                                Siamo più di un concessionario, siamo una comunità appassionata di esperti
+                                                Da decenni, AutoJaita è sinonimo di eccellenza nel mondo
+                                                automobilistico.
+                                                Siamo più di un concessionario, siamo una comunità appassionata di
+                                                esperti
                                                 automobilistici dedicati
                                                 a fornire un servizio straordinario e veicoli di alta qualità.
-                                                La nostra missione è superare le aspettative dei nostri clienti, mettendo a disposizione
+                                                La nostra missione è superare le aspettative dei nostri clienti,
+                                                mettendo a disposizione
                                                 un'ampia
                                                 gamma di auto
-                                                che rispecchiano l'eccellenza del design, dell'innovazione e delle prestazioni. La
+                                                che rispecchiano l'eccellenza del design, dell'innovazione e delle
+                                                prestazioni. La
                                                 nostra squadra di
                                                 professionisti
-                                                è qui per guidarti in ogni passo del processo di selezione dell'auto perfetta per le tue
+                                                è qui per guidarti in ogni passo del processo di selezione dell'auto
+                                                perfetta per le tue
                                                 esigenze.
-                                                Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su trasparenza,
+                                                Siamo orgogliosi di offrire un'esperienza di acquisto unica, basata su
+                                                trasparenza,
                                                 affidabilità e
                                                 dedizione. Con AutoJaita,
-                                                non stai solo acquistando un'auto; stai diventando parte di una storia di successo che
+                                                non stai solo acquistando un'auto; stai diventando parte di una storia
+                                                di successo che
                                                 si tramanda
                                                 da generazioni.
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Chiudi
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-dark mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <button type="button" class="btn btn-dark mt-5" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal2">
                                     Sede Napoli
                                 </button>
-                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="card w-100 p-3">
                                             <div class="card-body">
                                                 <h3 class="card-title">Sede Napoli</h3>
                                             </div>
                                             <div class="ratio ratio-16x9">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1959476867128!2d14.2601021755054!3d40.84562152942548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b083886b58283%3A0x8a4b9fa16cec60dd!2sVia%20Marina%2C%20Napoli%20NA!5e0!3m2!1sit!2sit!4v1706800858450!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1959476867128!2d14.2601021755054!3d40.84562152942548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b083886b58283%3A0x8a4b9fa16cec60dd!2sVia%20Marina%2C%20Napoli%20NA!5e0!3m2!1sit!2sit!4v1706800858450!5m2!1sit!2sit"
+                                                        width="600" height="450" style="border:0;" allowfullscreen=""
+                                                        loading="lazy"
+                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -126,34 +147,44 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img src="/Car_Finance_Large_banner.webp" style="width: 80%; height: 500px" class="d-block w-100" alt="...">
+                        <img src="/Car_Finance_Large_banner.webp" style="width: 80%; height: 500px"
+                             class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                            Perchè Scegliere AutoJaita?
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal1">
+                                Perchè Scegliere AutoJaita?
                             </button>
-                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">Perchè Scegliere AutoJaita?</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">Perchè
+                                                Scegliere AutoJaita?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-dark">
-                                        Scegliere AutoJaita significa immergersi in un universo automobilistico di
-                                        classe e convenienza.
-                                        Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo un'esperienza di
-                                        guida senza
-                                        eguali.
-                                        Collaboriamo con partner di fama, assicurando che ogni auto nel nostro showroom soddisfi
-                                        gli
-                                        standard più elevati.
-                                        Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e l'affidabilità si
-                                        fondono in
-                                        un'offerta unica,
-                                        plasmata per soddisfare le tue esigenze automobilistiche.
+                                            Scegliere AutoJaita significa immergersi in un universo automobilistico di
+                                            classe e convenienza.
+                                            Con prezzi vantaggiosi e una selezione di veicoli di qualità, offriamo
+                                            un'esperienza di
+                                            guida senza
+                                            eguali.
+                                            Collaboriamo con partner di fama, assicurando che ogni auto nel nostro
+                                            showroom soddisfi
+                                            gli
+                                            standard più elevati.
+                                            Entra nel mondo di AutoJaita, dove l'eleganza, le prestazioni e
+                                            l'affidabilità si
+                                            fondono in
+                                            un'offerta unica,
+                                            plasmata per soddisfare le tue esigenze automobilistiche.
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Chiudi
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -161,22 +192,23 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
 
 
-
         </div>
-        <div class="container-fluid pb-5 pt-5 bg-light">
+        <div class="container-fluid pb-5 pt-5">
             <div class="row">
-                <div class="col-12 text-center pb-3"><h1
+                <div class="col-12 text-center pb-3 text-light"><h1
                         style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le
                     Vostre Domande Frequenti -</strong></h1>
                 </div>
@@ -184,7 +216,8 @@
                 <div class="accordion accordion-flush col-8" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed border border-dark" type="button"
+                            <button class="accordion-button collapsed border border-dark text-light bg-dark"
+                                    type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
@@ -194,7 +227,9 @@
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                              aria-labelledby="flush-headingOne"
                              data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body border border-dark">La nostra concessionaria offre una vasta
+                            <div class="accordion-body border border-dark text-light bg-dark">La nostra
+                                concessionaria
+                                offre una vasta
                                 gamma di modelli di auto,
                                 dai veicoli compatti ideali per la città, alle eleganti berline e SUV spaziosi.
                                 Collaboriamo
@@ -206,7 +241,8 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed border border-dark" type="button"
+                            <button class="accordion-button collapsed border border-dark text-light bg-dark"
+                                    type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                     aria-controls="flush-collapseTwo">
@@ -216,7 +252,7 @@
                         <div id="flush-collapseTwo" class="accordion-collapse collapse"
                              aria-labelledby="flush-headingTwo"
                              data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body border border-dark">
+                            <div class="accordion-body border border-dark text-light bg-dark">
                                 Abbiamo diverse opzioni di finanziamento personalizzate per adattarci alle diverse
                                 situazioni finanziarie dei nostri clienti. Offriamo piani di leasing flessibili,
                                 finanziamenti a tasso agevolato e promozioni speciali. Il nostro team esperto è
@@ -229,7 +265,8 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed border border-dark" type="button"
+                            <button class="accordion-button collapsed border border-dark text-light bg-dark"
+                                    type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseThree" aria-expanded="false"
                                     aria-controls="flush-collapseThree">
@@ -238,7 +275,9 @@
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse"
                              aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body border border-dark">Il nostro impegno nei confronti dei clienti
+                            <div class="accordion-body border border-dark text-light bg-dark">Il nostro
+                                impegno nei
+                                confronti dei clienti
                                 va oltre la vendita.
                                 Offriamo una gamma completa di servizi post-vendita, tra cui manutenzione programmata,
                                 riparazioni, cambio gomme e servizi di assistenza stradale. Il nostro team di tecnici
@@ -251,7 +290,7 @@
                 <div class="col-2"></div>
             </div>
         </div>
-        <div class="container-fluid bg-light text-center pb-5">
+        <div class="container-fluid text-light text-center pb-5">
             <div class="row">
                 <h1 class="text-center pb-4"
                     style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Contattaci
@@ -260,7 +299,7 @@
                     <br>
                     <br>
                     <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
-                        class="text-danger"><strong>Online:</strong></h3>
+                        class="text-warning"><strong>Online:</strong></h3>
                     <br>
                     <h5>AutoJaita Comunity:</h5>
                     <p>Benvenuti nella AutoJaita Comunity dove potrete esplorare il nostro mondo attraverso le
@@ -281,7 +320,7 @@
                     <br>
                     <br>
                     <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
-                        class="text-danger"><strong>Telefono:</strong></h3>
+                        class="text-warning"><strong>Telefono:</strong></h3>
                     <br>
                     <h6>Napoli: 0818233429 <br> Novara: 0108233429 <br> Milano: 0128233429 </h6>
                     <p>Per richiedere informazioni e supporto nelle nostre sedi</p>
@@ -295,7 +334,7 @@
                     <br>
                     <br>
                     <h3 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"
-                        class="text-danger"><strong>Social:</strong></h3>
+                        class="text-warning"><strong>Social:</strong></h3>
                     <br>
                     <h5>Il nostro Instagram:</h5>
                     <p class="fa">&#xf16d;</p><span>Auto-Jaita</span>

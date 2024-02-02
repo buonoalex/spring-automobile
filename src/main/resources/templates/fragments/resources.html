@@ -19,7 +19,7 @@
 </head>
 <body>
 <header th:fragment="header" style="height: auto;">
-    <div class="container-fluid bg-dark">
+    <div class="container-fluid bg-dark ">
         <div class="row navbar navbar-expand-lg text-center">
             <div class="col-4 text-start pt-4 pb-4">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -38,9 +38,9 @@
                                     <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Categorie
                                     </a>
-                                    <ul class="dropdown-menu " >
-                                        <li th:each="autoType:${autoTypeList}">
-                                            <a class="dropdown-item" th:href="@{/auto/{id}(id=${autoType.id})}" th:text="${autoType.name}"></a>
+                                    <ul class="dropdown-menu color-auto" >
+                                        <li class="color-auto" th:each="autoType:${autoTypeList}">
+                                            <a class="dropdown-item color-auto color-amministrazione" th:href="@{/auto/{id}(id=${autoType.id})}" th:text="${autoType.name}"></a>
                                         </li>
                                     </ul>
                                 </li>
@@ -52,18 +52,18 @@
                                     <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Amministrazione
                                     </a>
-                                    <ul class="dropdown-menu " >
+                                    <ul class="dropdown-menu color-auto" >
                                         <li>
-                                            <a class="dropdown-item" th:href="@{/admin/acquistoRifornitore}">Rifornimento</a>
+                                            <a class="dropdown-item color-amministrazione" th:href="@{/admin/acquistoRifornitore}">Rifornimento</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" th:href="@{/admin/acquistoRifornitore/catalogoVendite}">Vendite</a>
+                                            <a class="dropdown-item color-amministrazione" th:href="@{/admin/acquistoRifornitore/catalogoVendite}">Vendite</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo Auto</a>
+                                            <a class="dropdown-item color-amministrazione" th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo Auto</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo Categorie</a>
+                                            <a class="dropdown-item color-amministrazione" th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo Categorie</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -76,14 +76,14 @@
                           id="auto-search"
                           role="search">
                         <input class="form-control" type="search" th:value="${preloadSearch}" name="Keyword" id="Keyword" placeholder="Cerca...">
-                        <button class="btn btn-outline-warning fa"  style="font-size:18px" type="submit">&#xf1b9;</button>
+                        <button class="btn btn-outline-warning border-info text-info fa"  style="font-size:18px" type="submit">&#xf1b9;</button>
                     </form>
                 </div>
 
             </div>
             <div class="col-4 ps-5">
                 <a class="navbar-brand" th:href="@{/}">
-                    <img src="/d.png" >
+                    <img src="/d.png" style="height: 150px; width: 150px;"  >
                 </a>
             </div>
             <div class="col-4 text-center ps-5 pt-5 pb-4">
@@ -97,23 +97,23 @@
 <footer th:fragment="footer">
     <div class="container-fluid bg-dark pt-4 pb-3 border-top">
         <div class="row">
-            <div class="col-12 text-center">
-                <h4 class=""><strong>- AUTOJAITA</strong><span class="fs-6"> S.R.L. -</span></h4>
-                <p style="font-size: 10px">partita iva: 0050000400009</p>
+            <div class="col-12 text-light text-center">
+                <h4 class="color-amministrazione"><strong>- AUTOJAITA</strong><span class="fs-6"> S.R.L. -</span></h4>
+                <p class="color-amministrazione" style="font-size: 10px">partita iva: 0050000400009</p>
             </div>
-            <div class="col-6 text-end" style="font-size: 12px">
-                <h5 class="">Vendita</h5>
+            <div class="col-6 text-end text-light" style="font-size: 12px">
+                <h5 class="color-amministrazione">Vendita</h5>
                 <p>Lunedì - Venerdì: 9:00 - 13.30 / 14.30 - 19:30</p>
                 <p>Sabato: 9:00 - 13.30 / 14:30 - 18:00</p>
                 <p>Domenica: 10.00 - 13.00</p>
             </div>
-            <div class="col-6" style="font-size: 12px">
-                <h5 class="">Assistenza</h5>
+            <div class="col-6 text-light" style="font-size: 12px">
+                <h5 class="color-amministrazione">Assistenza</h5>
                 <p>Lunedì - venerdì: 8:30 - 13:30 / 14:30 - 18:30</p>
                 <p>Sabato: 8:30 - 13:30</p>
                 <p>Domenica: Chiuso</p>
             </div>
-            <div class=" col-12 row text-center">
+            <div class="text-light col-12 row text-center">
                 <p>©Copyright 2024</p>
             </div>
         </div>
