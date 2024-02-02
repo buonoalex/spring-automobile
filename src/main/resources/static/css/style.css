@@ -44,15 +44,6 @@ background-color: #87CEEB;
   color: white;
 }
 
-.bg-list{
-  background-image: url(../R.jpg) ;
-  background-size:cover;
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-}
-
-
-
 main span.animated {
 animation-duration: 2.5s;
 animation-iteration-count: infinite;
