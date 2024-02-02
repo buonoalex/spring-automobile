@@ -94,7 +94,11 @@ background-color: #68137B;
 color: #4E8FD7;
 }
 
+.color1{
+background-color: #FF00FF;
+}
+
 .gg {
      background: #000000;
-     opacity: 0.97;
+     opacity: 1.0;
  }
