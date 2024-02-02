@@ -53,4 +53,5 @@ public class AutoType {
     public void setAutoList(List<Auto> autoList) {
         this.autoList = autoList;
     }
+
 }

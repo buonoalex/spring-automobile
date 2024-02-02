@@ -22,12 +22,14 @@
             <td th:text="${type.name}" class=" text-center"></td>
             <td th:text="${type.descrizione}" class=" text-center"></td>
             <td class="text-center"><a th:href=@{/admin/autoType/edit/{id}(id=${type.id})} class="btn btn-primary btn-sm">Modifica</a></td>
-            <td class="text-center"><form th:action="@{/admin/autoType/delete/{id}(id=${type.id})}"
+            <td class="text-center"><form th:action="@{/admin/autoType/delete/{id}(id=${type.id})}" th:unless="${type.autoList.size()  > 0}"
                       method="post"
                       onsubmit="return confirm('Are you sure?')"
                       style="display:inline;">
-                <button type="submit" class=" btn btn-danger btn-sm">Cancella</button>
-            </form></td>
+                <button type="submit"  class="btn btn-danger btn-sm">Cancella</button>
+            </form>
+            <button type="button"  th:if="${type.autoList.size()  > 0}" class="disabled btn btn-danger btn-sm">Cancella</button>
+            </td>
         </tr>
         </tbody>
         <hr>
