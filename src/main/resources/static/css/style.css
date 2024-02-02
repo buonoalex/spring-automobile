@@ -70,8 +70,35 @@ padding-bottom: 50px;
 font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;
 }
 
+:root {
+  --gradient: linear-gradient(90deg, #212529, #D402C5, #22CBD4);
+
+}
+
 body {
-            margin: 0;
-            padding: 0;
-            background-image: url('/autoo.jpg');
+  min-height: 100vh
+  font-size: 1.125em;
+  line-height: 1.6;
+  color: #333;
+  background: #ddd;
+  background-size: 300%;
+  background-image: var(--gradient);
+  animation: bg-animation 25s infinite;
+}
+
+@keyframes bg-animation {
+  0% {background-position: left}
+  50% {background-position: right}
+  100% {background-position: left}
+}
+.color-text-footer{
+color: #8E30CD;
+}
+
+.color-auto{
+background-color: #68137B;
+}
+
+.color-amministrazione{
+color: #4E8FD7;
 }
