@@ -9,7 +9,8 @@
         <div class="col-12 text-center"><h1 class="text-light"><strong
                 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;">- Il nostro Parco Auto
             -</strong></h1>
-            <div class="col-12 text-light" style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;">
+            <div class="col-12 text-light"
+                 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;">
                 <h6><strong>- "Costruirò un'automobile per le masse... ma avrà un prezzo così basso che ogni uomo con un
                     buon salario potrà comprarsene una." -</strong></h6>
                 <p><strong>H.Ford</strong></p>
@@ -24,8 +25,8 @@
             <div th:text="${redirectMessage}"></div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
         </div>
-        <div class="col-md-4 animated bounceInDown" th:each="auto : ${listaAuto}">
-            <div class="card border border-dark bg-dark ms-5" style="width: 17rem; padding: 0px;">
+        <div class="col-md-4 d-flex justify-content-center animated bounceInDown" th:each="auto : ${listaAuto}">
+            <div class="card border border-dark bg-dark" style="width: 17rem; padding: 0px;">
                 <a th:href="@{/auto/show/{id}(id=${auto.id})}">
                     <img th:src="${auto.foto}" class="card-img border border-dark"
                          style="height: 150px; transition: transform 0.3s;"
@@ -39,7 +40,8 @@
                        class="fw-bold card-text text-center color-amministrazione"></p>
                     <div class="d-grid gap-2">
                         <a th:href=@{/acquistoCliente/create/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
-                        <a th:href="@{/auto/show/{id}(id=${auto.id})}" class="btn btn-warning text-dark btn-sm">Dettagli</a>
+                        <a th:href="@{/auto/show/{id}(id=${auto.id})}"
+                           class="btn btn-warning text-dark btn-sm">Dettagli</a>
                     </div>
                 </div>
             </div>
