@@ -1,6 +1,7 @@
 package org.learning.springautomobile.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
@@ -21,6 +22,7 @@ public class AcquistoCliente {
     private LocalDate data;
 
     @NotNull
+    @Min(1)
     @Column(nullable = false)
     private int quantita;
 

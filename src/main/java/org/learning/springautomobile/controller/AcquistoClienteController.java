@@ -55,9 +55,8 @@ public class AcquistoClienteController {
     }
 
     @PostMapping("/create")
-    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente, Model model, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("auto", fornAcquistoCliente.getAuto());
             return "acquisto/formAcquisto";
         } else {
             AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
