@@ -20,10 +20,11 @@ public class SecurityConfiguration {
                 .requestMatchers("/acquistoCliente").hasAnyAuthority("ADMIN", "USER")
                 .requestMatchers("/admin/autoType/**").hasAuthority("ADMIN")
                 .requestMatchers("/admin/acquistoRifornitore/**").hasAuthority("ADMIN")
-                .requestMatchers("/", "/**").permitAll()
-                .and().formLogin()
-                .and().logout()
-                .and().exceptionHandling();
+                .requestMatchers("/", "/**", "/logout").permitAll()
+                .and().formLogin().loginPage("/login").failureUrl("/login-error").permitAll()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/login").clearAuthentication(true).invalidateHttpSession(true)
+                .and().exceptionHandling()
+                .and().csrf().disable();
 
         return http.build();
     }
