@@ -53,7 +53,7 @@
                                     </a>
                                     <ul class="dropdown-menu color-auto">
                                         <li class="color-auto" th:each="autoType:${autoTypeList}">
-                                            <a class="dropdown-item color-auto color-amministrazione"
+                                            <a class="dropdown-item color-auto text-light"
                                                th:href="@{/auto/{id}(id=${autoType.id})}"
                                                th:text="${autoType.name}"></a>
                                         </li>
@@ -71,19 +71,19 @@
                                     </a>
                                     <ul class="dropdown-menu color-auto">
                                         <li>
-                                            <a class="dropdown-item color-amministrazione"
+                                            <a class="dropdown-item text-light"
                                                th:href="@{/admin/acquistoRifornitore}">Rifornimento</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item color-amministrazione"
+                                            <a class="dropdown-item text-light"
                                                th:href="@{/admin/acquistoRifornitore/catalogoVendite}">Vendite</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item color-amministrazione"
+                                            <a class="dropdown-item text-light"
                                                th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo Auto</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item color-amministrazione"
+                                            <a class="dropdown-item text-light"
                                                th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo
                                                 Categorie</a>
                                         </li>
@@ -99,7 +99,7 @@
                           role="search">
                         <input class="form-control" type="search" th:value="${preloadSearch}" name="Keyword"
                                id="Keyword" placeholder="Cerca...">
-                        <button class="btn btn-outline-warning border-info text-info fa" style="font-size:18px"
+                        <button class="btn btn-outline-warning border-dark text-secondary fa" style="font-size:18px"
                                 type="submit">&#xf1b9;
                         </button>
                     </form>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-4 ps-5">
                 <a class="navbar-brand" th:href="@{/}">
-                    <img src="/d.png" class="animated bounceInLeft" style="height: 150px; width: 150px;">
+                    <img src="/autolg1.png" class="animated bounceInLeft">
                 </a>
             </div>
             <div class="col-4 text-center ps-5 pt-5 pb-4">
@@ -124,17 +124,17 @@
     <div class="container-fluid bg-dark pt-4 pb-1">
         <div class="row">
             <div class="col-12 text-light text-center">
-                <h4 class="color-amministrazione"><strong>- AUTOJAITA -</strong></h4>
-                <p class="color-amministrazione" style="font-size: 10px">partita iva: 0050000400009</p>
+                <h4 class="text-light"><strong>-AUTOJAITA-</strong></h4>
+                <p class="text-light" style="font-size: 10px">partita iva: 0050000400009</p>
             </div>
             <div class="col-6 text-end text-light" style="font-size: 12px">
-                <h5 class="color-amministrazione">Vendita</h5>
+                <h5 class="text-light">Vendita</h5>
                 <p>Lunedì - Venerdì: 9:00 - 13.30 / 14.30 - 19:30</p>
                 <p>Sabato: 9:00 - 13.30 / 14:30 - 18:00</p>
                 <p>Domenica: 10.00 - 13.00</p>
             </div>
             <div class="col-6 text-light" style="font-size: 12px">
-                <h5 class="color-amministrazione">Assistenza</h5>
+                <h5 class="text-light">Assistenza</h5>
                 <p>Lunedì - venerdì: 8:30 - 13:30 / 14:30 - 18:30</p>
                 <p>Sabato: 8:30 - 13:30</p>
                 <p>Domenica: Chiuso</p>

@@ -5,7 +5,7 @@
 <header th:replace="fragments/resources :: header"></header>
 <main>
     <div class="container w-50 mt-5 mb-5 pb-3">
-        <div class="card pb-4 bg-dark">
+        <div class="card pb-4 bg-secondary bg-opacity-10">
         <div class="row">
             <div class="col-12 text-center">
             <div class="col-12 text-center" style="padding: 0%">
@@ -17,9 +17,9 @@
             </div>
             <div class="col-12 text-center">
                 <h3 class="mt-2 card-title fw-bold text-warning" th:text="${acquistoCliente.getAuto().getName()}"></h3>
-                <h5 class="fw-bold text-light" th:if="${acquistoCliente.getAuto().getAutoType() != null}" th:text="${acquistoCliente.getAuto().getAutoType().getName()}"></h5>
-                <p class="text-center card-text text-light" th:text="${acquistoCliente.getAuto().getDescription()}"></p>
-                <h5>Price: <span class="fw-bold text-success" th:text="${acquistoCliente.getAuto().getFormattedPrice()} + €"></span></h5>
+                <h5 class="fw-bold text-dark" th:if="${acquistoCliente.getAuto().getAutoType() != null}" th:text="${acquistoCliente.getAuto().getAutoType().getName()}"></h5>
+                <p class="text-center card-text text-dark" th:text="${acquistoCliente.getAuto().getDescription()}"></p>
+                <h5>Price: <span class="fw-bold text-warning" th:text="${acquistoCliente.getAuto().getFormattedPrice()} + €"></span></h5>
                 <form th:action="@{/acquistoCliente/create}"
                 method="post" th:object="${acquistoCliente}">
                     <label for="quantita" class="form-label text-light">Quantità</label>

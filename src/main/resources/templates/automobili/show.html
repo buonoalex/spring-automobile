@@ -5,7 +5,7 @@
 <header th:replace="fragments/resources :: header"></header>
 <main>
     <div class="container mt-5 mb-5">
-        <div class="card bg-light">
+        <div class="card bg-secondary bg-opacity-10">
             <div class="row no-gutters">
                 <div class="col-4">
                     <a th:href="@{/auto}">
@@ -18,10 +18,10 @@
                     <h3 class="mt-2 fw-bold text-warning text-center" th:text="${auto.name}"></h3>
                     <h5 class="text-center" th:if="${auto.autoType != null}" th:text="${auto.autoType.name}"></h5>
                     <p th:text="${auto.description}"></p>
-                    <h5 class="text-center">Price: <span class="fw-bold text-success" th:text="${auto.getFormattedPrice()} + €"></span></h5>
+                    <h5 class="text-center">Price: <span class="fw-bold text-dark" th:text="${auto.getFormattedPrice()} + €"></span></h5>
 
                 </div>
-                <div class="col-4 text-start align-self-center border-start">
+                <div class="col-4 text-start align-self-center">
                     <h5 class="font-fre pt-2"><span class="fas">&#xf126; </span> Tipo di cambio: <span class="fw-normal fs-6" th:text="${auto.cambio}"></span></h5>
                     <h5 class="font-fre pt-2"><span class="fas">&#xf1b9; </span> Anno Immatricolazione: <span class="fw-normal fs-6" th:text="${auto.anno}"></span></h5>
                     <h5 class="font-fre pt-2"><span class="fas">&#xf52f; </span> Tipo di carburante: <span class="fw-normal fs-6" th:text="${auto.carburante}"></span></h5>
