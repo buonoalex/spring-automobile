@@ -28,10 +28,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${!username}">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" th:if="${!username}">
                             <i class="fa-regular fa-user"></i>
                         </a>
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username}">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" th:if="${username}">
                             <span sec:authentication="name"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -107,14 +109,14 @@
                 </div>
 
             </div>
-            <div class="col-4 ps-5">
+            <div class="col-4 ">
                 <a class="navbar-brand" th:href="@{/}">
-                    <img src="/autolg1.png" class="animated bounceInLeft">
+                    <img src="/autolg.png" class="animated bounceInLeft" style="height: 60px">
                 </a>
             </div>
-            <div class="col-4 text-center ps-5 pt-5 pb-4">
+            <div class="col-4 text-center">
 
-                <i class="rounded text-light color1 fa fa-instagram"></i>
+                <i class="rounded fa fa-instagram"></i>
                 <i class="rounded fa fa-facebook"></i>
                 <i class="rounded fa fa-twitter"></i>
             </div>
@@ -122,7 +124,7 @@
     </div>
 </header>
 <footer th:fragment="footer">
-    <div class="container-fluid bg-dark pt-4 pb-1">
+    <div class="container-fluid bg-dark ">
         <div class="row">
             <div class="col-12 text-light text-center">
                 <h4 class="text-light"><strong>-AUTOJAITA-</strong></h4>

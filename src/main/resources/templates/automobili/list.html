@@ -26,7 +26,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
         </div>
         <div class="col-md-4 d-flex justify-content-center animated bounceInDown" th:each="auto : ${listaAuto}">
-            <div class="card border border-dark bg-secondary bg-opacity-10" style="width: 17rem; padding: 0px;">
+            <div class="card border border-dark bg-secondary bg-dark card-img" style="width: 17rem; padding: 0px;">
                 <a th:href="@{/auto/show/{id}(id=${auto.id})}">
                     <img th:src="${auto.foto}" class="card-img border border-dark"
                          style="height: 170px; transition: transform 0.3s;"
@@ -35,9 +35,9 @@
                 </a>
                 <div class="card-body text-center">
                     <h6 class="text-center text-light"><strong>AUTOJAITA</strong></h6>
-                    <h5 th:text="${auto.name}" class="card-title text-center"></h5>
+                    <h5 th:text="${auto.name}" class="card-title text-center text-light"></h5>
                     <p th:text="${auto.getFormattedPrice()} + €"
-                       class="fw-bold card-text text-center"></p>
+                       class="fw-bold card-text text-center text-light"></p>
                     <div class="d-grid gap-2">
                         <a th:href=@{/acquistoCliente/create/{id}(id=${auto.id})}
                            class="rounded-3 btn btn-light btn-sm">Acquista</a>
