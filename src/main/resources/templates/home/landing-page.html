@@ -22,7 +22,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <h1 class="text-center mt-3 mb-3 text-light animated tada"
+            <h1 class="text-center mt-3 mb-3 text-light animated bounceInLeft"
                 style="font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;"><strong>- Le Auto più
                 vendute -</strong></h1>
             <hr>
@@ -51,7 +51,7 @@
             <div class="row mt-5 pb-3 text-center">
                 <div class="col-3 mb-5 pb-5 pt-2" th:each="auto : ${logoList}">
                     <a th:href="@{/auto/concessionaria/{marca}(marca=${auto.marca})}">
-                        <img th:src="${auto.logo}" style="height: 100px">
+                        <img th:src="${auto.logo}" style="height: 100px;">
                     </a>
                 </div>
             </div>

@@ -62,17 +62,15 @@ font-family: 'Fredoka', sans-serif; font-family: 'Prompt', sans-serif;
 }
 
 :root {
-  --gradient: linear-gradient(90deg, #212529, #D402C5, #22CBD4);
-
-}
+  --gradient: linear-gradient(90deg, #212529, #95F0F5)}
 
 body {
-  min-height: 100vh
+  min-height: 100vh;
   font-size: 1.125em;
   line-height: 1.6;
   color: #333;
   background: #ddd;
-  background-size: 300%;
+  background-size: 100%;
   background-image: var(--gradient);
   animation: bg-animation 25s infinite;
 }
