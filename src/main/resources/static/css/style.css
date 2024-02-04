@@ -123,11 +123,11 @@ background-color: #FF00FF;
   bottom: 0;
   width: 100%;
   */
-  .card-img {
+}
+/*.card-img {
     display: block;
-    max-width:230px;
-    max-height:95px;
+    max-width:400px;
+    max-height:200px;
     width: auto;
     height: auto;
-  }
-}
+  }*/
