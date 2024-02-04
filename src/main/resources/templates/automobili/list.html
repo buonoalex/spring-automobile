@@ -39,9 +39,10 @@
                     <p th:text="${auto.getFormattedPrice()} + €"
                        class="fw-bold card-text text-center color-amministrazione"></p>
                     <div class="d-grid gap-2">
-                        <a th:href=@{/acquistoCliente/create/{id}(id=${auto.id})} class="btn btn-success btn-sm">Acquista</a>
+                        <a th:href=@{/acquistoCliente/create/{id}(id=${auto.id})}
+                           class="rounded-3 btn btn-success btn-sm">Acquista</a>
                         <a th:href="@{/auto/show/{id}(id=${auto.id})}"
-                           class="btn btn-light  text-dark btn-sm">Dettagli</a>
+                           class=" rounded-3 btn btn-warning  text-dark btn-sm">Dettagli</a>
                     </div>
                 </div>
             </div>
