@@ -7,6 +7,7 @@ import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,9 @@ public class HomeController {
     private AutoRepository autoRepository;
 
     @GetMapping
-    public String home(Model model) {
+    public String home(Authentication authentication, Model model) {
+        //Passo l'utente
+        model.addAttribute("username", authentication.getName());
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);
         //Bonus Auto

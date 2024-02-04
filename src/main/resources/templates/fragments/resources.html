@@ -26,13 +26,14 @@
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username == null}">
                             <i class="fa-regular fa-user"></i>
                         </a>
-
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username != null}">
+                            <span sec:authentication="name"></span>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" th:href="@{/login}">Accedi</a></li>
                             <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
