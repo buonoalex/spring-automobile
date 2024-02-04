@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.learning.springautomobile.model.AutoUser;
 import org.learning.springautomobile.model.Role;
 import org.learning.springautomobile.repository.AutoUserRepository;
+import org.learning.springautomobile.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 @Controller
 public class LoginController {
 
@@ -21,7 +27,8 @@ public class LoginController {
     private AutoUserRepository autoUserRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
+
 
     @RequestMapping("/login")
     public String login() {
@@ -48,6 +55,11 @@ public class LoginController {
             return "user/registrati";
         }
         formUser.setPassword("{noop}"+formUser.getPassword());
+        Optional<Role> roleUser = roleRepository.findById("USER");
+        if (roleUser.isPresent()){
+            Set<Role> s = Collections.singleton((roleUser.get()));
+            formUser.setRoleSet(s);
+        }
         autoUserRepository.save(formUser);
         return "redirect:/";
     }
