@@ -6,6 +6,7 @@ import org.learning.springautomobile.model.Role;
 import org.learning.springautomobile.repository.AutoUserRepository;
 import org.learning.springautomobile.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,7 +52,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String saveUser(@Valid @ModelAttribute("formUser")AutoUser formUser, BindingResult bindingResult){
+    public String saveUser(@Valid @ModelAttribute("formUser")AutoUser formUser, BindingResult bindingResult, RedirectAttributes redirectAttributes){
         if (bindingResult.hasErrors()){
             return "user/registrati";
         }
@@ -61,6 +63,8 @@ public class LoginController {
             formUser.setRoleSet(s);
         }
         autoUserRepository.save(formUser);
+        redirectAttributes.addFlashAttribute("redirectMessage",
+                "Ciao " + formUser.getUsername() + " la tua registrazione è andata a buon fine!");
         return "redirect:/";
     }
 
