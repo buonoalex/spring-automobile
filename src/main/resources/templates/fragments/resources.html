@@ -28,15 +28,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username == null}">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${!username}">
                             <i class="fa-regular fa-user"></i>
                         </a>
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username != null}">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:if="${username}">
                             <span sec:authentication="name"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/login}">Accedi</a></li>
-                            <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+                            <li><a class="dropdown-item" th:href="@{/login}" th:if="${!username}">Accedi</a></li>
+                            <li><a class="dropdown-item" th:href="@{/logout}" th:if="${username}">Logout</a></li>
                         </ul>
                     </div>
                     <ul class="navbar-nav">

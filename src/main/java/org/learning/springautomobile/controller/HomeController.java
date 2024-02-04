@@ -27,9 +27,14 @@ public class HomeController {
     private AutoRepository autoRepository;
 
     @GetMapping
-    public String home(Authentication authentication, Model model) {
+    public String home(Model model,Authentication authentication) {
         //Passo l'utente
-        model.addAttribute("username", authentication.getName());
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
+
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);
         //Bonus Auto

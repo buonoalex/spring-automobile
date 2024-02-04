@@ -9,6 +9,7 @@ import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,7 +36,13 @@ public class AcquistoClienteController {
     private AutoTypeRepository autoTypeRepository;
 
     @GetMapping("/create/{id}")
-    public String index(@PathVariable int id, Model model) {
+    public String index(@PathVariable int id, Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //autoType list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList", autoTypeList);
@@ -55,8 +62,14 @@ public class AcquistoClienteController {
     }
 
     @PostMapping("/create")
-    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String saveAcquisto(@Valid @ModelAttribute("acquistoCliente") AcquistoCliente fornAcquistoCliente,BindingResult bindingResult, RedirectAttributes redirectAttributes,Authentication authentication,Model model) {
         if (bindingResult.hasErrors()) {
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
+            }
             return "acquisto/formAcquisto";
         } else {
             AcquistoCliente acquistoCliente = acquistoClienteRepository.save(fornAcquistoCliente);
@@ -67,7 +80,13 @@ public class AcquistoClienteController {
     }
 
     @GetMapping("/resoconto/{id}")
-    public String resocontoAcquisto(@PathVariable int id, Model model){
+    public String resocontoAcquisto(@PathVariable int id, Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //autoType list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList", autoTypeList);

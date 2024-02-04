@@ -10,6 +10,7 @@ import org.learning.springautomobile.repository.AcquistoRifornitoreRepository;
 import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,7 +41,13 @@ public class AcquistoRifornitoreController {
 
 
     @GetMapping
-    public String index(Model model){
+    public String index(Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         List<AcquistoRifornitore> acquistoRifornitoreList = acquistoRifornitoreRepository.findAll();
         model.addAttribute("rifornimentoList",acquistoRifornitoreList);
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
@@ -49,7 +56,13 @@ public class AcquistoRifornitoreController {
     }
 
     @GetMapping("/create")
-    public String createRifornimento(Model model){
+    public String createRifornimento(Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);
         model.addAttribute("rifornimento",new AcquistoRifornitore());
@@ -59,7 +72,13 @@ public class AcquistoRifornitoreController {
     }
 
     @GetMapping("/catalogoAuto")
-    public String catalogoAuto(Model model){
+    public String catalogoAuto(Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //auto list
         List<Auto> listaAuto = autoRepository.findAll();
         model.addAttribute("listaAuto",listaAuto);
@@ -70,7 +89,13 @@ public class AcquistoRifornitoreController {
     }
 
     @GetMapping("/catalogoCategorie")
-    public String catalogoCategorie(Model model){
+    public String catalogoCategorie(Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //autotype list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);
@@ -79,10 +104,16 @@ public class AcquistoRifornitoreController {
     }
 
     @PostMapping("/create")
-    public String saveRifornimento(@Valid @ModelAttribute("rifornimento") AcquistoRifornitore formAcquistoRifornitore, BindingResult bindingResult){
+    public String saveRifornimento(@Valid @ModelAttribute("rifornimento") AcquistoRifornitore formAcquistoRifornitore, BindingResult bindingResult,Authentication authentication,Model model){
         if (bindingResult.hasErrors()){
             for (FieldError error : bindingResult.getFieldErrors()) {
                 System.out.println(error.getField() + ": " + error.getDefaultMessage());
+            }
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
             }
             return "rifornimento/create";
         }else {
@@ -92,7 +123,13 @@ public class AcquistoRifornitoreController {
     }
 
     @GetMapping("/catalogoVendite")
-    public String catalogoVendite(Model model){
+    public String catalogoVendite(Model model, Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //autotype list
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList",autoTypeList);

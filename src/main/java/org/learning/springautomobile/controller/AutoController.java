@@ -9,6 +9,7 @@ import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,7 +39,13 @@ public class AutoController {
 
     // metodo index che mostra la lista di tutti i libri
     @GetMapping
-    public String index(@RequestParam(name = "Keyword", required = false) String searchKeyword, Model model) {
+    public String index(@RequestParam(name = "Keyword", required = false) String searchKeyword, Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList", autoTypeList);
         List<Auto> listaAuto;
@@ -59,7 +66,13 @@ public class AutoController {
     }
 
     @GetMapping("/{id}")
-    public String autoTypeShow(@PathVariable int id, Model model) {
+    public String autoTypeShow(@PathVariable int id, Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //Prendo oggetto autotype selezionato nel filtro
         Optional<AutoType> autoTypeRecovery = autoTypeRepository.findById(id);
         AutoType autoType = autoTypeRecovery.get();
@@ -73,7 +86,13 @@ public class AutoController {
     }
 
     @GetMapping("/concessionaria/{marca}")
-    public String marcaCerca(@PathVariable String marca,Model model){
+    public String marcaCerca(@PathVariable String marca,Model model,Authentication authentication){
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         List<Auto> listaAuto = autoRepository.findByMarca(marca);
         model.addAttribute("listaAuto",listaAuto);
         return "automobili/list";
@@ -81,7 +100,13 @@ public class AutoController {
 
     //Metodo che mostra i dettagli dell'auto
     @GetMapping("/show/{id}")
-    public String show(@PathVariable Integer id, Model model) {
+    public String show(@PathVariable Integer id, Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         //autotype List
         List<AutoType> autoTypeList = autoTypeRepository.findAll();
         model.addAttribute("autoTypeList", autoTypeList);
@@ -103,7 +128,13 @@ public class AutoController {
 
     // metodo create che mostra la pagina col form di aggiunta di una nuova auto
     @GetMapping("/admin/create")
-    public String create(Model model) {
+    public String create(Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         Auto auto = new Auto();
         // passo tramite Model un attributo di tipo Auto vuoto
         model.addAttribute("auto", auto);
@@ -114,13 +145,19 @@ public class AutoController {
 
     // metodo che riceve il submit del form di creazione e salva su db il Book
     @PostMapping("/admin/create")
-    public String store(@Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult, Model model) {
+    public String store(@Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult, Model model,Authentication authentication) {
         // valido i dati dell'auto, cioè verifico se la mappa BindingResult ha errori
         if (bindingResult.hasErrors()) {
             // qui gestisco che ho campi non validi
             // ricaricando il template del form
             // passo tramite Model la lista di tutte le AutoType disponibili
             model.addAttribute("autoTypeList", autoTypeRepository.findAll());
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
+            }
             return "automobili/create";
         } else {
             // se sono validi lo salvo su db
@@ -132,7 +169,13 @@ public class AutoController {
 
     // metodo che restituisce la pagina di modifica del Book
     @GetMapping("/admin/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         // recupero L'auto da database
         Optional<Auto> result = autoRepository.findById(id);
         // verifico se L'auto è presente
@@ -150,12 +193,18 @@ public class AutoController {
 
     // metodo che riceve il submit del form di edit
     @PostMapping("/admin/edit/{id}")
-    public String update(@PathVariable Integer id, @Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult) {
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("auto") Auto formAuto, BindingResult bindingResult,Authentication authentication,Model model) {
         Optional<Auto> result = autoRepository.findById(id);
         if (result.isPresent()) {
             // Auto autoToEdit = result.get();
             // valido i dati dell'auto
             if (bindingResult.hasErrors()) {
+                //Passo l'utente
+                if (authentication != null && authentication.isAuthenticated()){
+                    model.addAttribute("username", true);
+                }else {
+                    model.addAttribute("username",false);
+                }
                 return "automobili/edit";
             }
             // se sono validi salvo l'auto su db
@@ -169,12 +218,18 @@ public class AutoController {
 
     // metodo che cancella un'auto presa per id
     @PostMapping("/admin/delete/{id}")
-    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes,Authentication authentication,Model model) {
         // verifico se l'auto è presente su db
         Optional<Auto> result = autoRepository.findById(id);
         if (result.isPresent()) {
             // se c'è lo cancello
             autoRepository.deleteById(id);
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
+            }
             // mando un messaggio di successo con la redirect
             redirectAttributes.addFlashAttribute("redirectMessage", "L'auto " + result.get().getName() + " è stata cancellata con successo");
             return "redirect:/admin/acquistoRifornitore/catalogoAuto";

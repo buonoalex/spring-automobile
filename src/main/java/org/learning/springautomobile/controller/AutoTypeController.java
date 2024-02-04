@@ -6,6 +6,7 @@ import org.learning.springautomobile.repository.AutoRepository;
 import org.learning.springautomobile.repository.AutoTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,16 +34,28 @@ public class AutoTypeController {
 
     // METODO CHE CREA UNA TIPOLOGIA
     @GetMapping("/create")
-    public String create(Model model) {
+    public String create(Model model,Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         // PREPARO IL TEMPLATE COL FORM DI CREAZIONE AUTOTYPE
         model.addAttribute("autoType", new AutoType());
         return "catalogo/create";
     }
 
     @PostMapping("/create")
-    public String store(@Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult){
+    public String store(@Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult,Authentication authentication,Model model){
         // VALIDO LE TIPOLOGIE
         if (bindingResult.hasErrors()) {
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
+            }
         // SE CI SONO ERRORI RICARICO LA PAGINA COL FORM
            return "catalogo/create";
         }
@@ -54,7 +67,13 @@ public class AutoTypeController {
 
     // METODO CHE MODIFICA UNA TIPOLOGIA
     @GetMapping("/edit/{id}")
-    public String update(@PathVariable Integer id, Model model) {
+    public String update(@PathVariable Integer id, Model model, Authentication authentication) {
+        //Passo l'utente
+        if (authentication != null && authentication.isAuthenticated()){
+            model.addAttribute("username", true);
+        }else {
+            model.addAttribute("username",false);
+        }
         // RECUPERO L'AUTOTYPE CON QUELL'ID DA DATABASE
         Optional<AutoType> result = autoTypeRepository.findById(id);
         // SE E' PRESENTE PRECARICO IL FORM CON L'AUTOTYPE
@@ -71,12 +90,18 @@ public class AutoTypeController {
 
     // METODO PER RICEVERE IL SUBMIT DEL FORM EDIT
     @PostMapping("/edit/{id}")
-    public String update(@PathVariable Integer id, @Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult) {
+    public String update(@PathVariable Integer id, @Valid @ModelAttribute("autoType") AutoType formAutoType, BindingResult bindingResult,Authentication authentication,Model model) {
         Optional<AutoType> result = autoTypeRepository.findById(id);
         if (result.isPresent()) {
             AutoType autoTypeToEdit = result.get();
             // VALIDO L'AUTOTYPE
             if(bindingResult.hasErrors()) {
+                //Passo l'utente
+                if (authentication != null && authentication.isAuthenticated()){
+                    model.addAttribute("username", true);
+                }else {
+                    model.addAttribute("username",false);
+                }
             // SE CI SONO ERRORI RICARICO LA PAGINA COL FORM DI EDIT
                 return "catalogo/edit";
             }
@@ -91,12 +116,18 @@ public class AutoTypeController {
 
     // METODO CHE ELIMINA UNA TIPOLOGIA
     @PostMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Authentication authentication,Model model) {
         // VERIFICO SE L'AUTOTYPE CON L'ID PASSATO ESISTE
         Optional<AutoType> result = autoTypeRepository.findById(id);
         // SE ESISTE LO ELIMINO DAL DATABASE
         if (result.isPresent()) {
             autoTypeRepository.deleteById(id);
+            //Passo l'utente
+            if (authentication != null && authentication.isAuthenticated()){
+                model.addAttribute("username", true);
+            }else {
+                model.addAttribute("username",false);
+            }
             return "redirect:/admin/acquistoRifornitore/catalogoCategorie";
         } else {
             // ALTRIMENTI SOLLEVO UN'ECCEZIONE HTTP 404
