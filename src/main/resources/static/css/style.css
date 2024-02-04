@@ -73,6 +73,10 @@ body {
   background-size: 100%;
   background-image: var(--gradient);
   animation: bg-animation 25s infinite;
+  margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes bg-animation {
@@ -101,3 +105,16 @@ background-color: #FF00FF;
      opacity: 1.0;
  }
 
+.content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
