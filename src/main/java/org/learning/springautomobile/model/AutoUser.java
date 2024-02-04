@@ -1,6 +1,7 @@
 package org.learning.springautomobile.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Set;
 
@@ -9,7 +10,9 @@ public class AutoUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
