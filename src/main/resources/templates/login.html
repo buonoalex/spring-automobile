@@ -67,6 +67,7 @@
                                 <label for="password">Password</label>:
                                 <input type="password" id="password" name="password" class="form-control"/> <br/>
                             </div>
+                            <div class="mb-3">Se non hai un account?<span><a th:href="@{/register}">Clicca qui!</a></span></div>
 
                             <!-- Checkbox -->
                             <div class="form-check d-flex justify-content-center mb-4">
@@ -78,9 +79,12 @@
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" value="Log in" class="btn btn-primary btn-block mb-4">
-                                login
-                            </button>
+                            <div class="justify-content-center text-center">
+                                <button type="submit" value="Log in" class="btn btn-primary btn-block mb-4">
+                                    Login
+                                </button>
+                            </div>
+
 
                             <!-- Register buttons -->
                             <div class="text-center">
