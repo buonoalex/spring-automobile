@@ -56,7 +56,7 @@
                                     </a>
                                     <ul class="dropdown-menu color-auto">
                                         <li class="color-auto" th:each="autoType:${autoTypeList}">
-                                            <a class="dropdown-item color-auto text-light"
+                                            <a class="dropdown-item color-auto text-dark"
                                                th:href="@{/auto/{id}(id=${autoType.id})}"
                                                th:text="${autoType.name}"></a>
                                         </li>
@@ -74,19 +74,19 @@
                                     </a>
                                     <ul class="dropdown-menu color-auto">
                                         <li>
-                                            <a class="dropdown-item text-light"
+                                            <a class="dropdown-item text-dark"
                                                th:href="@{/admin/acquistoRifornitore}">Rifornimento</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item text-light"
+                                            <a class="dropdown-item text-dark"
                                                th:href="@{/admin/acquistoRifornitore/catalogoVendite}">Vendite</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item text-light"
+                                            <a class="dropdown-item text-dark"
                                                th:href="@{/admin/acquistoRifornitore/catalogoAuto}">Catalogo Auto</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item text-light"
+                                            <a class="dropdown-item text-dark"
                                                th:href="@{/admin/acquistoRifornitore/catalogoCategorie}">Catalogo
                                                 Categorie</a>
                                         </li>
